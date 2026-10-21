@@ -1,0 +1,9 @@
+# Windows 系统垃圾文件
+Thumbs.db
+Desktop.ini
+desktop.ini
+.DS_Store
+
+# 测试/临时产物
+_test_*.png
+*.log

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>中班学习乐园 · 幼儿园中班家庭作业</title>
+<link rel="icon" href="data:,"/>
+<style>
+:root{
+  --orange:#f97316; --pink:#ec4899; --red:#ef4444; --blue:#3b82f6; --sky:#0ea5e9;
+  --green:#10b981; --violet:#8b5cf6; --amber:#f59e0b; --teal:#14b8a6; --ink:#4b3f32;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Segoe UI",sans-serif;
+  color:var(--ink);
+  background:linear-gradient(160deg,#fff8ec 0%,#ffeef4 45%,#eef7ff 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+button{font-family:inherit;cursor:pointer;border:none;}
+.hidden{display:none !important;}
+
+/* ---------- 顶部 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  padding:10px 16px;box-shadow:0 2px 14px rgba(0,0,0,.06);
+}
+.logo{font-size:1.25rem;font-weight:900;cursor:pointer;letter-spacing:1px;}
+.logo .huh{display:block;font-size:.68rem;font-weight:600;color:#b08968;letter-spacing:2px;}
+.pill{background:linear-gradient(135deg,#ffe08a,#ffc53d);border-radius:999px;padding:6px 14px;font-weight:800;box-shadow:0 2px 6px rgba(245,158,11,.35);}
+.spacer{flex:1;}
+.ibtn{background:#fff;border:2px solid #f3e8d8;border-radius:999px;padding:7px 12px;font-size:.95rem;font-weight:700;color:#8a6d4b;transition:.15s;}
+.ibtn:hover{background:#fff7ec;transform:translateY(-1px);}
+
+/* ---------- 导航 ---------- */
+.tabs{position:sticky;top:56px;z-index:40;display:flex;gap:8px;overflow-x:auto;padding:8px 12px;background:rgba(255,251,244,.9);backdrop-filter:blur(6px);scrollbar-width:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex:0 0 auto;display:flex;align-items:center;gap:5px;background:#fff;border-radius:999px;padding:8px 14px;font-size:.95rem;font-weight:800;color:#6b5138;box-shadow:0 1px 4px rgba(0,0,0,.08);white-space:nowrap;}
+.tab.on{color:#fff;box-shadow:0 3px 10px rgba(0,0,0,.15);}
+.tab .n{font-size:.72rem;opacity:.85;}
+
+/* ---------- 主区 ---------- */
+main{max-width:980px;margin:0 auto;padding:18px 14px 90px;}
+.card{background:#fff;border-radius:24px;padding:20px;box-shadow:0 6px 24px rgba(201,159,98,.12);margin-bottom:16px;}
+
+/* ---------- 首页 ---------- */
+.banner{
+  border-radius:28px;padding:26px 22px;color:#fff;
+  background:linear-gradient(120deg,#ff9a56,#ff6f91 55%,#c86dd7);
+  box-shadow:0 10px 30px rgba(255,111,145,.35);position:relative;overflow:hidden;
+}
+.banner h1{margin:0 0 6px;font-size:1.7rem;letter-spacing:1px;}
+.banner .sub{font-size:.98rem;opacity:.96;}
+.banner .floats{font-size:1.5rem;position:absolute;right:18px;top:14px;animation:bob 2.6s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-9px) rotate(5deg);}}
+.todaytag{display:inline-block;margin-top:12px;background:rgba(255,255,255,.25);border-radius:16px;padding:9px 14px;font-weight:800;font-size:.98rem;cursor:pointer;transition:.15s;}
+.todaytag:hover{background:rgba(255,255,255,.4);}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;}
+.mcard{background:#fff;border-radius:22px;padding:18px 14px;text-align:center;box-shadow:0 4px 14px rgba(201,159,98,.12);cursor:pointer;transition:.18s;border:3px solid transparent;}
+.mcard:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(201,159,98,.2);}
+.mcard .ic{font-size:2.6rem;display:block;margin-bottom:6px;}
+.mcard .nm{font-weight:900;font-size:1.05rem;}
+.mcard .ds{font-size:.74rem;color:#a58c6b;margin:5px 2px;line-height:1.45;}
+.mbar{height:8px;background:#f4ece0;border-radius:99px;overflow:hidden;margin-top:8px;}
+.mbar i{display:block;height:100%;border-radius:99px;}
+.mcard .cnt{font-size:.75rem;color:#a58c6b;margin-top:4px;}
+.sect{font-size:1.05rem;font-weight:900;margin:22px 4px 12px;display:flex;align-items:center;gap:8px;}
+.sect .line{flex:1;height:2px;background:#f0e3cf;border-radius:2px;}
+.tips{display:flex;gap:10px;flex-wrap:wrap;}
+.tip{flex:1 1 200px;background:#fff;border-radius:18px;padding:12px 14px;font-size:.88rem;box-shadow:0 3px 10px rgba(201,159,98,.1);}
+.tip b{color:var(--orange);}
+
+/* ---------- 模块/题页 ---------- */
+.mhead{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.mhead .big{font-size:2.4rem;}
+.mhead h2{margin:0;font-size:1.5rem;}
+.mhead .dsc{width:100%;color:#8a6d4b;font-size:.92rem;margin-top:-6px;}
+.setgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
+.setcard{display:flex;align-items:center;gap:12px;background:#fff;border-radius:20px;padding:14px;cursor:pointer;box-shadow:0 3px 12px rgba(201,159,98,.12);transition:.15s;border:3px solid transparent;}
+.setcard:hover{transform:translateY(-3px);}
+.setcard .em{font-size:2rem;}
+.setcard .nm{font-weight:900;flex:1;}
+.setcard .st{font-size:.75rem;color:#a58c6b;}
+.setcard .go{font-weight:900;font-size:1.1rem;color:#c9a06a;}
+
+.qcard{background:#fff;border-radius:26px;padding:22px;box-shadow:0 8px 28px rgba(201,159,98,.14);position:relative;overflow:hidden;}
+.qtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.qprog{flex:1;text-align:center;font-size:.85rem;color:#a58c6b;font-weight:700;}
+.tbtn{background:#fff;border:2px solid #f0e3cf;border-radius:14px;padding:7px 12px;font-weight:800;color:#8a6d4b;font-size:.9rem;}
+.tbtn:hover{background:#fff8ee;}
+.qpic{text-align:center;padding:16px 8px;font-size:76px;line-height:1.3;word-break:break-all;}
+.qpic.small{font-size:52px;}
+.qpic [class]{vertical-align:middle;}
+.qtext{font-size:1.32rem;font-weight:900;line-height:1.75;padding:6px 12px;text-align:center;}
+.qtext .spk{background:#fff;border:2px solid #ffe3a9;border-radius:999px;width:42px;height:42px;font-size:1.1rem;vertical-align:middle;margin-left:6px;}
+.qtext .spk:active{transform:scale(.92);}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px;}
+.opt{
+  background:linear-gradient(180deg,#fff,#fff7ea);border:3px solid #f0d9b0;border-radius:20px;
+  padding:16px 10px;font-size:1.5rem;font-weight:900;color:#5b4630;transition:.12s;min-height:64px;
+  display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 3px 0 #e8cf9f;
+}
+.opt:hover{background:linear-gradient(180deg,#fff,#ffedc9);}
+.opt:active{transform:translateY(2px);box-shadow:none;}
+.no-wrap{white-space:nowrap;}
+.opt:disabled{cursor:default;opacity:.55;transform:none;}
+.opt.right{background:linear-gradient(180deg,#d9ffe9,#b8f5cf);border-color:#34d399;color:#065f46;animation:pop .45s;}
+.opt.right:disabled{opacity:1;}
+.opt.wrong{background:linear-gradient(180deg,#ffe4e4,#ffc6c6);border-color:#f87171;color:#991b1b;animation:shake .45s;}
+.opt.wrong:disabled{opacity:.65;}
+@keyframes pop{0%{transform:scale(1);}40%{transform:scale(1.12);}100%{transform:scale(1);}}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}50%{transform:translateX(7px);}75%{transform:translateX(-4px);}}
+.glyphspan{font-size:1.9em;line-height:1;}
+.hintwrap{margin-top:12px;text-align:center;}
+.hintwrap details{display:inline-block;}
+.hintwrap summary{cursor:pointer;background:#fff;border:2px dashed #f0d9b0;border-radius:14px;padding:7px 16px;font-weight:800;color:#a5834f;list-style:none;font-size:.95rem;}
+.hintwrap summary::-webkit-details-marker{display:none;}
+.hintwrap p{background:#fffaf0;border-radius:14px;padding:10px 14px;font-size:.92rem;max-width:520px;margin:8px auto 0;color:#8a6d4b;line-height:1.6;}
+.feedback{margin-top:14px;}
+.praise{text-align:center;font-size:1.45rem;font-weight:900;color:var(--green);animation:pop .5s;}
+.nudge{text-align:center;font-size:1.05rem;font-weight:800;color:#e08600;margin-top:10px;}
+.anscard{background:linear-gradient(135deg,#eafff4,#d7f9ec);border:3px solid #6ee7b7;border-radius:22px;padding:16px 18px;margin-top:14px;animation:rise .4s ease;position:relative;overflow:hidden;text-align:center;}
+@keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.anscard .ah{font-size:1.25rem;font-weight:900;color:#047857;}
+.anscard .why{margin-top:8px;font-size:1.02rem;line-height:1.85;color:#065f46;text-align:left;}
+.anscard .why b{color:#047857;}
+.anscard .spk2{margin-top:10px;background:#fff;border:2px solid #86efac;border-radius:999px;padding:8px 18px;font-weight:800;color:#047857;font-size:.95rem;}
+.btnrow{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap;}
+.mainbtn{
+  background:linear-gradient(135deg,#ff8a4c,#ff6472);color:#fff;border-radius:999px;padding:12px 26px;
+  font-size:1.08rem;font-weight:900;box-shadow:0 5px 14px rgba(255,100,114,.4);transition:.15s;letter-spacing:1px;
+}
+.mainbtn:active{transform:translateY(2px);}
+.ghostbtn{background:#fff;border:3px solid #f0d9b0;color:#8a6d4b;border-radius:999px;padding:11px 22px;font-size:1rem;font-weight:800;}
+.ghostbtn:hover{background:#fff8ee;}
+.answersmall{background:#fff3d8;border:3px solid #fcd34d;color:#92400e;border-radius:999px;padding:11px 20px;font-size:1rem;font-weight:900;animation:wink 1.4s infinite;}
+@keyframes wink{0%,100%{box-shadow:0 0 0 0 rgba(252,211,77,.5);}50%{box-shadow:0 0 0 9px rgba(252,211,77,0);}}
+.conf{position:absolute;top:-12px;z-index:5;pointer-events:none;animation:fall 1.8s ease-in forwards;}
+@keyframes fall{to{transform:translateY(240px) rotate(260deg);opacity:0;}}
+
+/* ---------- 完成面板 ---------- */
+.donepanel{text-align:center;padding:26px 18px;}
+.donepanel .big{font-size:4rem;animation:bob 1.6s infinite;}
+.donepanel h3{font-size:1.6rem;margin:10px 0 4px;}
+.donepanel .sub{color:#a58c6b;margin-bottom:18px;}
+
+/* ---------- 家长专区 ---------- */
+.acc{background:#fff;border-radius:18px;margin-bottom:10px;overflow:hidden;box-shadow:0 3px 10px rgba(201,159,98,.1);}
+.acc summary{padding:14px 18px;font-weight:900;cursor:pointer;list-style:none;display:flex;gap:8px;align-items:center;font-size:1.05rem;}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary .arr{margin-left:auto;transition:.2s;color:#c9a06a;}
+.acc[open] summary .arr{transform:rotate(90deg);}
+.acc .bd{padding:4px 18px 16px;font-size:.95rem;line-height:1.9;color:#6b5138;}
+table.plan{width:100%;border-collapse:collapse;font-size:.9rem;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 10px rgba(201,159,98,.1);}
+table.plan th{background:#fff1d6;padding:10px 8px;color:#8a5612;text-align:left;}
+table.plan td{padding:10px 8px;border-top:1px solid #f6ecdc;vertical-align:top;}
+table.plan td:first-child{font-weight:800;white-space:nowrap;}
+.ptag{display:inline-block;background:#efe8ff;color:#6d28d9;border-radius:8px;padding:1px 8px;font-size:.78rem;font-weight:800;margin:2px 2px 0 0;}
+.bardiv{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.bardiv .lbl{width:110px;font-weight:800;font-size:.92rem;}
+.bardiv .bar{flex:1;height:12px;background:#f4ece0;border-radius:99px;overflow:hidden;}
+.bardiv .bar i{display:block;height:100%;border-radius:99px;transition:.4s;}
+.bardiv .num{width:90px;font-size:.8rem;color:#a58c6b;text-align:right;}
+
+/* ---------- 儿歌 ---------- */
+.poem{background:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 4px 14px rgba(201,159,98,.12);margin-bottom:14px;}
+.poem h3{margin:0 0 4px;font-size:1.3rem;}
+.poem .by{color:#a58c6b;font-size:.85rem;margin-bottom:10px;}
+.poem .lines{font-size:1.28rem;line-height:2.15;font-weight:800;letter-spacing:2px;}
+.poem .note{font-size:.88rem;color:#8a6d4b;background:#fff7ea;border-radius:12px;padding:10px 12px;margin-top:10px;line-height:1.7;}
+.poem .row{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;}
+
+/* ---------- 弹窗/设置 ---------- */
+.modal{position:fixed;inset:0;background:rgba(60,42,20,.45);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;}
+.modalCard{background:#fff;border-radius:24px;max-width:460px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:86vh;overflow:auto;}
+.modalCard h3{margin:0 0 14px;font-size:1.3rem;}
+.formrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-weight:800;font-size:.95rem;}
+.formrow input[type=range]{flex:1;}
+.switch{position:relative;width:52px;height:28px;background:#e8dcc8;border-radius:999px;cursor:pointer;transition:.2s;flex:0 0 auto;}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25);}
+.switch.on{background:#34d399;}
+.switch.on::after{left:27px;}
+.small{font-size:.8rem;color:#a58c6b;line-height:1.6;}
+.danger{background:#fff0f0;border:2px solid #fda4af;color:#be123c;border-radius:14px;padding:10px 16px;font-weight:800;}
+.voices{margin-top:10px;background:#f8f4ec;border-radius:12px;padding:10px 12px;font-size:.82rem;color:#8a6d4b;max-height:110px;overflow:auto;line-height:1.7;}
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#3d3227;color:#fff;padding:10px 20px;border-radius:999px;font-size:.92rem;opacity:0;transition:.3s;z-index:120;pointer-events:none;max-width:86vw;}
+#toast.show{opacity:.96;transform:translateX(-50%) translateY(0);}
+
+/* ---------- 打印 ---------- */
+#printArea{display:none;}
+@media print{
+  body{background:#fff;}
+  #app,#modalBack,#toast{display:none !important;}
+  #printArea{display:block !important;}
+}
+.print-sheet{padding:10px;color:#000;}
+.print-sheet h1{font-size:20px;text-align:center;margin:6px 0;}
+.print-sheet .pmeta{display:flex;gap:14px;font-size:13px;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px;justify-content:space-between;font-weight:bold;}
+.pitem{display:flex;align-items:center;gap:12px;margin:12px 0;font-size:16px;min-height:52px;page-break-inside:avoid;}
+.pitem .ppic{font-size:34px;width:70px;text-align:center;flex:0 0 auto;}
+.pitem .pq{flex:1;font-weight:bold;line-height:1.6;}
+.pblank{width:90px;border-bottom:2px solid #000;height:30px;flex:0 0 auto;}
+.pans{margin-top:16px;border-top:1px dashed #999;padding-top:8px;font-size:11px;color:#444;line-height:1.8;}
+.poemprint h3{font-size:17px;margin:14px 0 2px;}
+.poemprint .pl{font-size:15px;line-height:2;font-weight:bold;}
+
+@media (max-width:600px){
+  .topbar{padding:8px 10px;}
+  .logo{font-size:1.05rem;}
+  .tabs{top:52px;}
+  main{padding:12px 10px 90px;}
+  .mgrid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+  .mcard .ic{font-size:2rem;}
+  .qpic{font-size:56px;}
+  .qtext{font-size:1.14rem;}
+  .opt{font-size:1.25rem;padding:13px 8px;}
+  .banner h1{font-size:1.35rem;}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="logo" onclick="location.hash='#/home'">🐰 中班学习乐园<span class="huh">幼儿园中班 · 家庭作业互动课堂</span></div>
+    <div class="pill" id="starPill">⭐ 0</div>
+    <div class="spacer"></div>
+    <button class="ibtn" onclick="openSettings()">⚙️ 设置</button>
+    <button class="ibtn" onclick="location.hash='#/parents'">👨‍👩‍👧 家长专区</button>
+  </header>
+  <nav class="tabs" id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<div id="printArea"></div>
+<div id="modalBack" class="modal hidden" onclick="if(event.target===this)closeModal()">
+  <div class="modalCard" id="modalCard"></div>
+</div>
+<div id="toast"></div>
+
+<script src="data_read.js"></script>
+<script src="data_math.js"></script>
+<script src="data_calc.js"></script>
+<script src="data_shape.js"></script>
+<script src="data_logic.js"></script>
+<script src="data_science.js"></script>
+<script src="data_safe.js"></script>
+<script src="data_song.js"></script>
+<script src="data_eng.js"></script>
+
+<script>
+/* =========================================================
+   中班学习乐园 · 交互引擎
+   ========================================================= */
+window.DATASETS = window.DATASETS || [];
+
+/* ---------- 存储 ---------- */
+function freshStore(){ return { s:{ rate:0.8, autoRead:true, sfx:true }, done:{} }; }
+let store;
+try{ store = JSON.parse(localStorage.getItem('zzb_store')) || freshStore(); }
+catch(e){ store = freshStore(); }
+if(!store.s) store.s = Object.assign(freshStore().s, store.s||{});
+if(!store.done) store.done = {};
+function save(){ try{ localStorage.setItem('zzb_store', JSON.stringify(store)); }catch(e){} }
+
+/* ---------- 会话状态 ---------- */
+let S = { mid:null, si:null, qi:0, done:false, firstTry:true, wrongs:0, setStars:0, streak:0 };
+
+const PRAISE = ['太棒啦！👏','你真聪明！🌟','答对咯！🎉','好厉害呀！💪','真了不起！🏆','给你点个赞！👍','小脑袋真灵光！✨','太厉害了，继续加油！🚀'];
+const AGAIN  = ['再想一想哦～🤔','差一点点，加油！💪','没关系，再试一次！😊','仔细看一看图哦～🔍'];
+
+/* ---------- 工具 ---------- */
+const mod  = id  => DATASETS.find(m=>m.id===id);
+const curQ = () => mod(S.mid).sets[S.si].qs[S.qi];
+function totalQs(m){ return m.sets.reduce((a,s)=>a+s.qs.length,0); }
+function setInfo(mid,si){ const d=(store.done[mid]||{})[si]||{first:[],helped:[]}; return d; }
+function starsOfSet(mid,si){ const d=setInfo(mid,si); return d.first.length*2+d.helped.length; }
+function solvedOfSet(mid,si){ const d=setInfo(mid,si); return d.first.length+d.helped.length; }
+function starsOfMod(m){ return m.sets.reduce((a,s,si)=>a+starsOfSet(m.id,si),0); }
+function solvedOfMod(m){ return m.sets.reduce((a,s,si)=>a+solvedOfSet(m.id,si),0); }
+function totalStars(){ return DATASETS.reduce((a,m)=>a+starsOfMod(m),0); }
+function totalSolved(){ return DATASETS.reduce((a,m)=>a+solvedOfMod(m),0); }
+function totalAll(){ return DATASETS.reduce((a,m)=>a+totalQs(m),0); }
+function isDone(mid,si,qi){ const d=(store.done[mid]||{})[si]; return d ? (d.first.includes(qi)||d.helped.includes(qi)) : false; }
+function mark(qi,kind){
+  const md = store.done[S.mid] = store.done[S.mid]||{};
+  const d  = md[S.si] = md[S.si]||{first:[],helped:[]};
+  if(!d[kind].includes(qi)) d[kind].push(qi);
+  save(); updatePill();
+}
+
+const GLYPH_NAME = {'○':'圆形','□':'正方形','▭':'长方形','△':'三角形','☆':'星形','♡':'心形','▲':'三角形','■':'正方形','●':'圆形'};
+function isSvg(s){ return typeof s==='string' && s.trim().startsWith('<'); }
+function optHtml(o){
+  if(isSvg(o)) return o;
+  if(GLYPH_NAME[o]) return '<span class="glyphspan">'+o+'</span>';
+  return o;
+}
+function optText(o){
+  if(isSvg(o)) return o.replace(/<[^>]+>/g,'').trim();
+  return GLYPH_NAME[o] || o;
+}
+const CJK_NUM = /^[\u4e00-\u9fa5a-zA-Z0-9，。、><=±！？?.\- ]+$/;
+function speakableOpt(o){ return CJK_NUM.test(optText(o)); }
+
+/* ---------- 语音 ---------- */
+const synth = window.speechSynthesis;
+let voicesCached = [];
+function refreshVoices(){ if(synth) voicesCached = synth.getVoices(); }
+if(synth){ refreshVoices(); if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged = refreshVoices; }
+setInterval(refreshVoices, 3000);
+function pickVoice(lang){
+  if(!voicesCached.length) return null;
+  const base = (lang||'zh-CN').slice(0,2).toLowerCase();
+  const vs = voicesCached.filter(v=>(v.lang||'').toLowerCase().startsWith(base));
+  if(!vs.length) return null;
+  return vs.find(v=>/xiaoxiao|晓晓|huihui|kangkang|yaoyao/i.test(v.name)) || vs[0];
+}
+function speak(txt, lang){
+  if(!synth) { toast('当前浏览器不支持语音朗读 (请用 Edge / Chrome 打开)'); return false; }
+  if(!txt) return false;
+  try{
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(txt);
+    u.lang  = lang || 'zh-CN';
+    const v = pickVoice(u.lang); if(v) u.voice = v;
+    u.rate  = store.s.rate || 0.8;
+    u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
+    synth.speak(u);
+    return true;
+  }catch(e){ return false; }
+}
+function sayQ(){
+  const q = curQ();
+  let t = q.q;
+  const spoke = q.opts.map(optText).filter(speakableOpt);
+  if(spoke.length) t += '。请选一选：' + spoke.join('、');
+  speak(t, q.lang);
+}
+function sayWhy(){
+  const q = curQ();
+  speak((q.w || '') , q.lang);
+}
+
+/* ---------- 音效 ---------- */
+let AC=null;
+function acInit(){ try{ AC = AC || new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+function note(f,at,d){ if(!AC) return; const o=AC.createOscillator(), g=AC.createGain(); o.type='sine'; o.frequency.value=f;
+  g.gain.setValueAtTime(0.001,at); g.gain.exponentialRampToValueAtTime(0.22,at+0.02); g.gain.exponentialRampToValueAtTime(0.001,at+d);
+  o.connect(g); g.connect(AC.destination); o.start(at); o.stop(at+d+0.05); }
+function sfx(ok){
+  if(!store.s.sfx) return;
+  acInit(); if(!AC) return;
+  const t = AC.currentTime;
+  if(ok){ note(523.25,t,0.12); note(783.99,t+0.1,0.2); } else { note(196,t,0.22); }
+}
+
+/* ---------- 庆祝动画 ---------- */
+function confetti(el){
+  const cs=['⭐','🎉','🌈','💖','✨','🎈','🌟','💛'];
+  for(let i=0;i<15;i++){
+    const s=document.createElement('span'); s.className='conf'; s.textContent=cs[i%cs.length];
+    s.style.left=(4+Math.random()*92)+'%'; s.style.animationDelay=(Math.random()*0.45)+'s';
+    s.style.fontSize=(16+Math.random()*20)+'px';
+    el.appendChild(s); setTimeout(()=>s.remove(), 2600);
+  }
+}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2200);
+}
+function updatePill(){ document.getElementById('starPill').textContent = '⭐ ' + totalStars(); }
+
+/* ---------- 路由 ---------- */
+function route(){
+  const h = (location.hash||'#/home').replace(/^#\/?/,'');
+  const p = h.split('/').filter(Boolean);
+  if(!p.length || p[0]==='home') renderHome();
+  else if(p[0]==='m'){ const m=mod(p[1]); const si = p[2]!==undefined ? parseInt(p[2],10) : null; renderModule(m,si); }
+  else if(p[0]==='parents') renderParents();
+  else renderHome();
+}
+window.addEventListener('hashchange', route);
+
+/* ---------- 导航 ---------- */
+function buildTabs(cur){
+  const el=document.getElementById('tabs');
+  let html='<button class="tab'+(cur==='home'?' on':'')+'" style="'+(cur==='home'?'background:#f97316':'')+'" onclick="location.hash=\'#/home\'">🏠 首页</button>';
+  for(const m of DATASETS){
+    const on = cur===m.id;
+    html+='<button class="tab'+(on?' on':'')+'" style="'+(on?('background:'+m.color):'')+'" onclick="location.hash=\'#/m/'+m.id+'\'">'+
+          m.icon+' '+m.short+'</button>';
+  }
+  el.innerHTML=html;
+}
+
+/* ---------- 首页 ---------- */
+const WEEKPLAN = [
+  { d:'周日', t:'🌳 户外自由活动日', x:'去公园看看花花草草、数数小动物, 大自然就是最好的课堂!', mid:'science' },
+  { d:'周一', t:'📖 识字新朋友 ×4', x:'每天认识 4 个新字宝宝, 用字卡玩"找朋友"游戏。', mid:'read', si:0 },
+  { d:'周二', t:'🔢 数一数 · 比大小', x:'数数家里的小物件, 比一比哪边多。', mid:'math', si:1 },
+  { d:'周三', t:'📚 复习字宝宝 + 亲子绘本', x:'复习学过的字, 再读一本绘本, 让孩子讲给你听。', mid:'read', si:0 },
+  { d:'周四', t:'➕ 5以内加减法', x:'先用水果、积木摆一摆, 再动手指算一算。', mid:'calc', si:0 },
+  { d:'周五', t:'🌈 图形 · 颜色 · 逻辑游戏', x:'找一找家里的圆形、三角形, 玩找规律。', mid:'shape', si:0 },
+  { d:'周六', t:'🧩 儿歌古诗 + 综合大闯关', x:'唱一唱、背一背, 把一周学的本领复习一遍。', mid:'song' }
+];
+function renderHome(){
+  buildTabs('home');
+  const w = WEEKPLAN[new Date().getDay()];
+  const d = new Date();
+  const dateStr = d.getMonth()+1+'月'+d.getDate()+'日';
+  let cards='';
+  for(const m of DATASETS){
+    const sol=solvedOfMod(m), tot=totalQs(m), pct=Math.round(sol/tot*100);
+    cards+='<div class="mcard" onclick="location.hash=\'#/m/'+m.id+'\'">'+
+      '<span class="ic">'+m.icon+'</span><div class="nm">'+m.name+'</div>'+
+      '<div class="ds">'+m.desc+'</div>'+
+      '<div class="mbar"><i style="width:'+pct+'%;background:'+m.color+'"></i></div>'+
+      '<div class="cnt">已完成 '+sol+'/'+tot+' 题</div></div>';
+  }
+  document.getElementById('main').innerHTML =
+  '<div class="banner">'+
+    '<div class="floats">🧸🎈</div>'+
+    '<h1>你好呀，'+dateStr+'！👋</h1>'+
+    '<div class="sub">今天想学点什么新本领呢？每天 15–20 分钟，快乐学本领！</div>'+
+    '<div class="todaytag" onclick="location.hash=\'#/m/'+(w.mid||'read')+(w.si!==undefined?('/'+w.si):'')+'\'">🎯 今日推荐('+w.d+')：'+w.t+' →</div>'+
+    '<div class="sub" style="margin-top:8px;font-size:.88rem;opacity:.9">💡 '+w.x+'</div>'+
+  '</div>'+
+  '<div class="sect">📚 选择学科学一学 <span class="line"></span></div>'+
+  '<div class="mgrid">'+cards+'</div>'+
+  '<div class="sect">👨‍👩‍👧 家长小课堂 <span class="line"></span></div>'+
+  '<div class="card" style="cursor:pointer" onclick="location.hash=\'#/parents\'">'+
+    '📋 <b>点击这里查看：</b>中班年度教学规划 · 每周学习计划 · 孩子学习进度 · 打印作业纸'+
+  '</div>'+
+  '<div class="sect">💡 今日小贴士 <span class="line"></span></div>'+
+  '<div class="tips">'+
+    '<div class="tip">🧠 中班孩子注意力约 <b>10–15 分钟</b>，每次练习不超过 20 分钟哦。</div>'+
+    '<div class="tip">🤲 答错是学习的好机会，借机解释，<b>不要代替孩子回答</b>。</div>'+
+    '<div class="tip">📢 点击题目旁的 <b>🔊</b> 按钮，小老师会读题、讲答案，爸妈可以休息一下～</div>'+
+    '<div class="tip">⭐ 自己做对得 <b>2 颗星</b>，看答案后学会得 <b>1 颗星</b>。</div>'+
+  '</div>';
+  updatePill();
+}
+
+/* ---------- 模块页 / 组页 / 题页 ---------- */
+function renderModule(m, si){
+  if(!m){ renderHome(); return; }
+  buildTabs(m.id);
+  updatePill();
+  const sol=solvedOfMod(m), tot=totalQs(m), pct=Math.round(sol/tot*100);
+  document.getElementById('main').innerHTML =
+    '<div class="mhead"><span class="big">'+m.icon+'</span>'+
+    '<h2>'+m.name+'</h2>'+
+    '<div class="dsc">'+m.desc+' · 已完成 '+sol+'/'+tot+' 题，获得 ⭐ '+starsOfMod(m)+'</div>'+
+    '<button class="tbtn" onclick="location.hash=\'#/home\'">🏠 首页</button></div>'+
+    '<div id="mBody"></div>';
+  if(si===null){
+    renderSetList(m);
+  } else if(m.layout==='song'){
+    renderSongSet(m,si);
+  } else {
+    S.mid=m.id; S.si=si; S.qi=0; S.setStars=0; S.streak=0;
+    renderQ();
+  }
+}
+function renderSetList(m){
+  let html='<div class="setgrid">';
+  m.sets.forEach((s,si)=>{
+    const sol=solvedOfSet(m.id,si), tot=s.qs.length, pct=Math.round(sol/tot*100);
+    html+='<div class="setcard" style="border-color:'+m.color+'33" onclick="location.hash=\'#/m/'+m.id+'/'+si+'\'">'+
+      '<span class="em">'+(s.em||m.icon)+'</span>'+
+      '<div style="flex:1"><div class="nm">'+s.name+'</div><div class="st">'+sol+'/'+tot+' 题 · ⭐'+starsOfSet(m.id,si)+'</div>'+
+      '<div class="mbar"><i style="width:'+pct+'%;background:'+m.color+'"></i></div></div>'+
+      '<span class="go">▶</span></div>';
+  });
+  html+='</div><div class="card" style="font-size:.92rem;color:#8a6d4b">'+
+    '<b>💡 玩法：</b>点击▶开始闯关。孩子不识字也没关系——打开「⚙️设置」里的朗读开关(默认已开)，小老师会自动读题！每题答完都有答案和语音讲解。'+
+    '<span style="display:inline-block;margin-left:8px"><button class="tbtn" onclick="printPlan()">🖨️ 打印家长计划</button></span></div>';
+  document.getElementById('mBody').innerHTML=html;
+}
+
+function renderQ(){
+  const m=mod(S.mid), s=m.sets[S.si], q=s.qs[S.qi];
+  S.done=false; S.firstTry=true; S.wrongs=0;
+  const solvedQ = isDone(S.mid,S.si,S.qi);
+  const pic = isSvg(q.pic) ? q.pic : q.pic;
+  document.getElementById('mBody').innerHTML =
+  '<div class="qtop">'+
+    '<button class="tbtn" onclick="history.back()">← 返回</button>'+
+    '<div class="qprog">第 '+(S.qi+1)+' / '+s.qs.length+' 题 · 本组 ⭐'+S.setStars+'</div>'+
+    '<button class="tbtn" onclick="printSet()">🖨️ 作业纸</button>'+
+  '</div>'+
+  '<div class="qcard" id="qcard">'+
+    '<div class="qpic'+(q.picSmall?' small':'')+'" id="qpic">'+pic+'</div>'+
+    '<div class="qtext">'+q.q+' <button class="spk" title="读题" onclick="sayQ()">🔊</button></div>'+
+    '<div class="opts" id="opts">'+
+      q.opts.map((o,i)=>'<button class="opt" data-i="'+i+'" onclick="choose('+i+',this)">'+optHtml(o)+'</button>').join('')+
+    '</div>'+
+    '<div class="hintwrap"><details><summary>💡 提示</summary><p>'+(q.h||'数一数、看一看图，再想一想哦！')+'</p></details></div>'+
+    '<div class="feedback" id="feedback"></div>'+
+    '<div class="btnrow">'+
+      '<button class="answersmall" id="btnAnswer" onclick="revealAnswer()">👀 看答案</button>'+
+    '</div>'+
+  '</div>';
+  if(store.s.autoRead) setTimeout(sayQ, 450);
+  if(solvedQ) setTimeout(()=>showAns(false,true), 250);
+}
+
+function choose(i, el){
+  if(S.done) return;
+  const q=curQ();
+  if(i===q.a){
+    S.done=true; sfx(true);
+    el.classList.add('right'); confetti(el);
+    document.querySelectorAll('.opt').forEach(b=>{ if(b!==el) b.disabled=true; });
+    mark(S.qi, 'first');
+    S.setStars = starsOfSet(S.mid,S.si);
+    showAns(true,false);
+  } else {
+    el.classList.add('wrong'); el.disabled=true;
+    S.firstTry=false; S.wrongs++; sfx(false);
+    const fb=document.getElementById('feedback');
+    fb.innerHTML='<div class="nudge">'+AGAIN[Math.min(S.wrongs-1,AGAIN.length-1)]+'</div>';
+    if(S.wrongs>=2){ const b=document.getElementById('btnAnswer'); if(b) b.scrollIntoView({behavior:'smooth',block:'center'}); }
+  }
+}
+
+function showAns(celebrate, silentMark){
+  const m=mod(S.mid), q=curQ();
+  S.done=true;
+  const opts=document.querySelectorAll('.opt');
+  opts.forEach(b=>{ b.disabled=true; if(+b.dataset.i===q.a) b.classList.add('right'); });
+  const fb=document.getElementById('feedback');
+  try{
+    const card=document.getElementById('qcard');
+    if(celebrate) { sfx(true); confetti(card); card.scrollIntoView({behavior:'smooth',block:'center'}); }
+  }catch(e){}
+  const alr = silentMark ? '（这道题之前做过啦）' : '';
+  fb.innerHTML =
+    (celebrate?'<div class="praise">'+PRAISE[Math.floor(Math.random()*PRAISE.length)]+'</div>':'<div class="praise">答案来咯！🧐</div>')+
+    '<div class="anscard">'+
+      '<div class="ah">✅ 正确答案：'+optHtml(q.opts[q.a])+' '+alr+'</div>'+
+      '<div class="why">'+q.w+'</div>'+
+      '<button class="spk2" onclick="sayWhy()">🔊 听小老师讲一讲</button>'+
+    '</div>'+
+    '<div class="btnrow">'+
+      (S.qi+1 < m.sets[S.si].qs.length
+        ? '<button class="mainbtn" onclick="nextQ()">下一题 ➡️</button>'
+        : '<button class="mainbtn" onclick="nextQ()">本组完成 🏁</button>')+
+    '</div>';
+  if(!silentMark) speak(q.w, q.lang);
+}
+
+function revealAnswer(){
+  if(S.done && document.querySelector('.anscard')){ toast('已经知道答案啦，点下一题吧！'); return; }
+  const q=curQ();
+  mark(S.qi, 'helped');
+  S.setStars = starsOfSet(S.mid,S.si);
+  showAns(false,false);
+}
+
+function nextQ(){
+  const m=mod(S.mid), s=m.sets[S.si];
+  if(S.qi+1 < s.qs.length){ S.qi++; renderQ(); }
+  else setDonePanel();
+}
+function setDonePanel(){
+  const m=mod(S.mid), s=m.sets[S.si];
+  document.getElementById('mBody').innerHTML =
+  '<div class="qcard donepanel">'+
+    '<div class="big">🏅</div>'+
+    '<h3>这一组闯关完成啦！</h3>'+
+    '<div class="sub">你完成了「'+s.name+'」全部 '+s.qs.length+' 题，本组共获得 ⭐ '+starsOfSet(S.mid,S.si)+'</div>'+
+    '<div class="btnrow">'+
+      '<button class="mainbtn" onclick="S.qi=0;S.setStars=0;renderQ()">🔁 再练一次</button>'+
+      '<button class="ghostbtn" onclick="printSet()">🖨️ 打印作业纸</button>'+
+      '<button class="ghostbtn" onclick="location.hash=\'#/m/'+S.mid+'\'">📋 换一组</button>'+
+      '<button class="ghostbtn" onclick="location.hash=\'#/home\'">🏠 回首页</button>'+
+    '</div>'+
+  '</div>';
+  updatePill();
+}
+
+/* ---------- 儿歌古诗 ---------- */
+function renderSongSet(m,si){
+  const s=m.sets[si];
+  let html='<div class="qtop"><button class="tbtn" onclick="location.hash=\'#/m/'+m.id+'\'">← 返回</button>'+
+    '<div class="qprog">'+s.name+'</div><button class="tbtn" onclick="printSongSet('+si+')">🖨️ 打印</button></div>';
+  s.qs.forEach((p,pi)=>{
+    html+='<div class="poem"><h3>'+p.pic+' '+p.t+'</h3><div class="by">'+p.by+'</div>'+
+      '<div class="lines">'+p.lines.map(l=>'<div>'+l+'</div>').join('')+'</div>'+
+      '<div class="note">💡 '+p.note+'</div>'+
+      '<div class="row"><button class="mainbtn" onclick="speak(\''+p.lines.join('，')+'\')">🎤 跟读</button>'+
+      '<button class="ghostbtn" onclick="speak(\''+p.t+'\')">🔊 读标题</button></div></div>';
+  });
+  document.getElementById('mBody').innerHTML=html;
+}
+function printSongSet(si){
+  const m=mod('song'), s=m.sets[si];
+  document.getElementById('printArea').innerHTML='<div class="print-sheet"><h1>'+s.name+'</h1>'+
+    s.qs.map(p=>'<div class="poemprint"><h3>'+p.pic+' '+p.t+' <span style="font-weight:normal;font-size:12px">'+p.by+'</span></h3>'+
+    '<div class="pl">'+p.lines.join('<br>')+'</div></div>').join('')+'</div>';
+  window.print();
+}
+
+/* ---------- 家长专区 ---------- */
+function renderParents(){
+  buildTabs('parents');
+  const allTot=totalAll(), allSol=totalSolved(), pct=Math.round(allSol/allTot*100);
+  let bars='';
+  for(const m of DATASETS){
+    const sol=solvedOfMod(m), tot=totalQs(m), p=Math.round(sol/tot*100);
+    bars+='<div class="bardiv"><div class="lbl">'+m.icon+' '+m.short+'</div>'+
+      '<div class="bar"><i style="width:'+p+'%;background:'+m.color+'"></i></div>'+
+      '<div class="num">'+sol+'/'+tot+' · ⭐'+starsOfMod(m)+'</div></div>';
+  }
+  document.getElementById('main').innerHTML =
+  '<div class="mhead"><span class="big">👨‍👩‍👧</span><h2>家长专区 · 中班教学规划</h2>'+
+  '<div class="dsc">给爸爸妈妈的完整中班学年教学规划，包含目标、步骤、周计划和好方法。</div>'+
+  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button></div>'+
+
+  '<div class="card"><b style="font-size:1.05rem">📊 孩子学习进度总览</b>'+
+  '<div style="margin:14px 0 4px">总体完成：'+allSol+' / '+allTot+' 题（'+pct+'%），累计 ⭐ '+totalStars()+'</div>'+
+  '<div class="mbar"><i style="width:'+pct+'%;background:linear-gradient(90deg,#f59e0b,#ef4444)"></i></div>'+
+  '<div style="margin-top:16px">'+bars+'</div>'+
+  '<button class="danger" style="margin-top:10px" onclick="clearData()">🗑️ 清空学习记录（重新开始）</button></div>'+
+
+  '<div class="card" style="padding-top:14px">'+
+    '<details class="acc" open><summary>🧒 中班孩子（4–5岁）有什么特点？<span class="arr">▶</span></summary><div class="bd">'+
+    '<p>① <b>语言爆发期：</b>词汇量快速增长，能说完整句子，爱问"为什么"。这是<b>识字启蒙</b>和小儿歌的黄金期。</p>'+
+    '<p>② <b>数字概念萌芽：</b>能手口一致点数，理解 1–10 的实际数量，开始比较多少。⚠️ 这时还<b>不要急着背口诀</b>，多用实物摆一摆。</p>'+
+    '<p>③ <b>注意力约 10–15 分钟：</b>一次练习别超过 20 分钟，中间休息一下效果更好。</p>'+
+    '<p>④ <b>规则意识发展：</b>开始懂"轮流、分享、先来后到"，是培养好习惯和礼貌的最佳时机。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>🎯 中班五大领域发展目标<span class="arr">▶</span></summary><div class="bd">'+
+    '<table class="plan">'+
+    '<tr><th style="width:52px">领域</th><th>中班学年目标</th><th>本平台对应练习</th></tr>'+
+    '<tr><td>🏃 健康</td><td>养成洗手、刷牙、早睡的好习惯；会拍球、双脚跳；情绪稳定</td><td><span class="ptag">好习惯</span><span class="ptag">安全小卫士</span></td></tr>'+
+    '<tr><td>🗣 语言</td><td>认真听、敢表达；认识常见字 100–300 个；爱听故事、能简单复述</td><td><span class="ptag">识字乐园</span><span class="ptag">儿歌古诗</span></td></tr>'+
+    '<tr><td>🤝 社会</td><td>遵守基本规则、懂礼貌、会分享；认识家庭成员和职业</td><td><span class="ptag">安全小卫士</span><span class="ptag">好习惯</span></td></tr>'+
+    '<tr><td>🔬 科学</td><td>会点数 1–20、认识 10 以内数、按颜色形状分类、观察动植物</td><td><span class="ptag">数学园地</span><span class="ptag">科学小问号</span></td></tr>'+
+    '<tr><td>🎨 艺术</td><td>认识基本图形和颜色；能跟节拍唱歌；喜欢涂鸦和手工</td><td><span class="ptag">图形颜色</span><span class="ptag">儿歌</span></td></tr>'+
+    '</table></div></details>'+
+    '<details class="acc"><summary>📖 识字规划（一学年 300 字，分两步走）<span class="arr">▶</span></summary><div class="bd">'+
+    '<p><b>第一学期（9月–1月，约150字）：</b>按"家人身体 → 自然现象 → 动物 → 植物 → 日常生活"的顺序学，都是孩子看得见、摸得着的字。</p>'+
+    '<p><b>第二学期（2月–7月，约150字）：</b>扩展到动作字（走、跑、跳）、方位字（里、外、前、后）、情感字等。</p>'+
+    '<p><b>节奏：</b>每周 8–10 个新字，配合亲子阅读 1–2 本绘本。</p>'+
+    '<p><b>方法：</b>① 图文对应——日、月、山、水这些"象形字"最好记；② 字卡游戏——找字、钓鱼、翻牌配对；③ 组词造句——把字放进生活；④ 生活中认字——路牌、包装、招牌都是教材。</p>'+
+    '<p>⚠️ <b>中班只要求"认"，不要求"写"！</b>4 岁孩子手部肌肉还没发育好，不要过早要求写字，可以涂鸦、描红少量进行。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>🔢 数学规划（循序渐进的 5 步走）<span class="arr">▶</span></summary><div class="bd">'+
+    '<table class="plan">'+
+    '<tr><th style="width:70px">时间</th><th>学习内容</th><th>达成标准</th></tr>'+
+    '<tr><td>9月</td><td>口手一致点数 1–20</td><td>点一个数一个，不漏不重</td></tr>'+
+    '<tr><td>10月</td><td>认读数字 0–10、数物对应、比多少</td><td>看数字取相应物品</td></tr>'+
+    '<tr><td>11月</td><td>相邻数、第几个（序数）、单双数初步</td><td>会说"3 的好邻居是 2 和 4"</td></tr>'+
+    '<tr><td>12月</td><td>5 以内加减法（实物→看图→口算）</td><td>借助手指能算对 5 以内</td></tr>'+
+    '<tr><td>1月</td><td>10 以内加减法 + 综合复习</td><td>会用数数、数手指的办法算 10 以内</td></tr>'+
+    '</table>'+
+    '<p><b>三条铁律：</b>① 先实物、后符号——分水果、摆积木永远比纸笔快；② 先理解、后记忆——"掰手指"是正常阶段，不要阻止；③ 数字"0"表示一个都没有，要专门讲明白。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>📅 每周学习计划（每天 15–20 分钟）<span class="arr">▶</span></summary><div class="bd">'+
+    '<table class="plan">'+
+    '<tr><th style="width:70px">星期</th><th>学习内容</th><th>怎么陪孩子学</th></tr>'+
+    '<tr><td>周一</td><td>📖 识字新字 ×4 + 字卡复习</td><td>看图认字，玩"找字宝宝"游戏</td></tr>'+
+    '<tr><td>周二</td><td>🔢 数学：数一数 + 比大小</td><td>数积木、数水果，问"哪边多"</td></tr>'+
+    '<tr><td>周三</td><td>📚 复习字宝宝 + 亲子绘本</td><td>复习后读绘本，让孩子讲给你听</td></tr>'+
+    '<tr><td>周四</td><td>➕ 5 以内加减法</td><td>先摆实物，再在平台上闯关</td></tr>'+
+    '<tr><td>周五</td><td>🌈 图形颜色 + 找规律</td><td>找家里圆形/三角形的东西</td></tr>'+
+    '<tr><td>周六</td><td>🎵 儿歌古诗 + 综合大闯关</td><td>一周本领大复习，尽情表扬</td></tr>'+
+    '<tr><td>周日</td><td>🌳 户外自由活动</td><td>逛公园、看动物，大自然也是课堂</td></tr>'+
+    '</table>'+
+    '<p>💡 首页的「今日推荐」就是按这张表自动安排的，点一下就直达当天任务！</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>📏 其他领域的穿插安排<span class="arr">▶</span></summary><div class="bd">'+
+    '<p><b>图形与颜色：</b>中班认识圆形、正方形、长方形、三角形 + 8 种常见颜色，在生活中指认即可。</p>'+
+    '<p><b>逻辑思维：</b>ABAB 找规律、简单分类、比长短高矮，都是练"观察力"的好素材。</p>'+
+    '<p><b>科学：</b>动物本领、四季天气、植物生长——回答"为什么"时给孩子主动观察的机会。</p>'+
+    '<p><b>安全与习惯：</b>红绿灯、陌生人、洗手刷牙等，抓住日常场景随时巩固。</p>'+
+    '<p><b>英语：</b>4–5 岁是语音敏感期，只做"磨耳朵"：数字、颜色、动物、水果、礼貌语，不要求写、不要求拼。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>💗 给家长的话（务必读一读）<span class="arr">▶</span></summary><div class="bd">'+
+    '<p>① <b>兴趣第一：</b>不赶进度、不比较别人家孩子，孩子想停就停。</p>'+
+    '<p>② <b>夸过程不夸聪明：</b>说"你数得真认真"而不是"你真聪明"，孩子会更愿意挑战。</p>'+
+    '<p>③ <b>时长控制：</b>每次不超过 20 分钟，屏幕距离 50cm 以上，光线要充足。</p>'+
+    '<p>④ <b>生活即课堂：</b>数电梯楼层、认路牌、分水果、排队时数数——比做题更有效。</p>'+
+    '<p>⑤ <b>答错是教学最佳时机：</b>先让孩子自己再试一次，再看答案和讲解，不要直接代答。</p>'+
+    '<p>⑥ <b>学完给拥抱：</b>学习结束时的拥抱和表扬，比任何奖励都重要。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>🖨️ 作业纸说明<span class="arr">▶</span></summary><div class="bd">'+
+    '<p>每个练习组的右上角都有「🖨️ 作业纸」按钮，点击可打印成 A4 试卷：姓名、日期、题目配图、答题空行一应俱全，试卷底部有答案区（方便家长批改）。</p>'+
+    '<p>打印古诗儿歌、家长规划表也可以，点「打印规划」按钮即可。</p>'+
+    '</div></details>'+
+  '</div>';
+  updatePill();
+}
+
+/* ---------- 打印 ---------- */
+function printSet(){
+  const m=mod(S.mid), s=m.sets[S.si], qs=s.qs;
+  document.getElementById('printArea').innerHTML='<div class="print-sheet">'+
+    '<h1>🏫 中班作业纸 · '+(S.qi===0?'':'(从第'+(S.qi+1)+'题起)')+'</h1><h1 style="font-size:16px">'+m.name+' — '+s.name+'</h1>'+
+    '<div class="pmeta"><span>姓名：__________</span><span>日期：____年__月__日</span><span>用时：______</span><span>得分：______</span></div>'+
+    qs.slice(S.qi).map((q,i)=>
+      '<div class="pitem"><span class="ppic">'+q.pic+'</span><span class="pq">'+(S.qi+i+1)+'. '+q.q+'</span><span class="pblank"></span></div>'
+    ).join('')+
+    '<div class="pans">【家长区·答案】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+optText(q.opts[q.a])+'　'+(q.ans!==undefined?q.ans:'')).join('　')+'</div>'+
+    '<div class="pans">【讲解】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+(q.w||'')).join('　')+'</div>'+
+  '</div>';
+  window.print();
+}
+function printPlan(){
+  const d=new Date();
+  document.getElementById('printArea').innerHTML='<div class="print-sheet">'+
+  '<h1>中班学习乐园 · 家长教学规划表</h1>'+
+  '<div class="pmeta"><span>打印日期：'+d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日</span></div>'+
+  '<h2 style="font-size:15px">一、五大领域目标</h2>'+
+  '<div style="font-size:12.5px;line-height:1.8">'+
+  '🏃 健康：养成洗手刷牙等习惯，会拍球、双脚跳，情绪稳定<br>'+
+  '🗣 语言：认真听敢表达，认识常见字100–300个，爱听故事会复述<br>'+
+  '🤝 社会：遵守规则、懂礼貌、会分享，认识家庭成员和职业<br>'+
+  '🔬 科学：点数1–20，认识10以内数，按特征分类，观察动植物<br>'+
+  '🎨 艺术：认识基本图形和颜色，跟节拍唱歌，喜欢涂鸦手工</div>'+
+  '<h2 style="font-size:15px">二、每周学习计划（每天15–20分钟）</h2>'+
+  '<div style="font-size:12.5px;line-height:1.9">'+
+  '周一　📖 识字新字×4 + 字卡复习<br>'+
+  '周二　🔢 数一数 + 比大小（数积木水果）<br>'+
+  '周三　📚 复习字宝宝 + 亲子绘本<br>'+
+  '周四　➕ 5以内加减法（先摆实物）<br>'+
+  '周五　🌈 图形颜色 + 找规律<br>'+
+  '周六　🎵 儿歌古诗 + 综合闯关复习<br>'+
+  '周日　🌳 户外自由活动</div>'+
+  '<h2 style="font-size:15px">三、分科进度（9月–1月第一学期）</h2>'+
+  '<div style="font-size:12.5px;line-height:1.9">'+
+  '识字：每周8–10字，按 家人身体→自然→动物→植物→生活 顺序，只认不写<br>'+
+  '数学：9月点数1–20 → 10月认数字比多少 → 11月相邻数序数 → 12月5以内加减 → 1月10以内加减<br>'+
+  '其他：图形颜色、逻辑、科学、安全习惯、英语磨耳朵穿插进行</div>'+
+  '<h2 style="font-size:15px">四、给家长的六条叮嘱</h2>'+
+  '<div style="font-size:12.5px;line-height:1.9">'+
+  '1. 兴趣第一，不赶进度不比较　2. 夸过程不夸聪明<br>'+
+  '3. 每次不超过20分钟，注意用眼距离和光线　4. 生活即课堂<br>'+
+  '5. 答错先让孩子再试一试，不要代答　6. 学完给拥抱</div>'+
+  '</div>';
+  window.print();
+}
+
+/* ---------- 设置 ---------- */
+function openSettings(){
+  const el=document.getElementById('modalCard');
+  const zhVs = voicesCached.filter(v=>/zh|cmn/i.test(v.lang)).slice(0,6);
+  el.innerHTML='<h3>⚙️ 设置</h3>'+
+  '<div class="formrow">🐢 朗读语速 <input type="range" min="0.5" max="1.2" step="0.05" value="'+store.s.rate+'" oninput="store.s.rate=+this.value;save()"><span>🐇 '+store.s.rate.toFixed(2)+'</span></div>'+
+  '<div class="formrow">🔊 自动读题（不识字也能用） <span class="switch'+(store.s.autoRead?' on':'')+'" onclick="store.s.autoRead=!store.s.autoRead;save();openSettings()"></span></div>'+
+  '<div class="formrow">🎵 答题音效 <span class="switch'+(store.s.sfx?' on':'')+'" onclick="store.s.sfx=!store.s.sfx;save();openSettings()"></span></div>'+
+  '<div class="small">自动读题会在每道题出现时朗读题目和选项；语音来自电脑/平板自带的中文语音，无需联网。想换童声：Edge 浏览器 → 设置 → 语音，可选「微软晓晓」等自然语音。</div>'+
+  '<div class="voices">🎙️ 检测到的中文语音：<br>'+(zhVs.length?zhVs.map(v=>v.name+'（'+v.lang+'）').join('<br>'):'未检测到（打开页面后再重开设置面板试试），不影响做题')+'</div>'+
+  '<div class="btnrow" style="margin-top:14px"><button class="mainbtn" onclick="testSpeak()">🎧 试听「你好呀」</button><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
+  document.getElementById('modalBack').classList.remove('hidden');
+}
+function closeModal(){ document.getElementById('modalBack').classList.add('hidden'); }
+function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来学习新本领吧。'); }
+function clearData(){
+  if(confirm('确定要清空所有学习记录和星星吗？')){ store=freshStore(); save(); toast('已清空，重新开始！'); updatePill(); route(); }
+}
+
+/* ---------- 启动 ---------- */
+updatePill();
+route();
+
+/* 调试暴露（供家长查看进度） */
+window.__APP = { data: DATASETS, store, S };
+</script>
+</body>
+</html>
