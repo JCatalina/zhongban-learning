@@ -177,6 +177,11 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 .modal{position:fixed;inset:0;background:rgba(60,42,20,.45);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;}
 .modalCard{background:#fff;border-radius:24px;max-width:460px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:86vh;overflow:auto;}
 .modalCard h3{margin:0 0 14px;font-size:1.3rem;}
+.modalCard.wide{max-width:790px;}
+.animbox{width:100%;aspect-ratio:720/405;background:#f6efe4;border-radius:16px;overflow:hidden;margin:6px 0 10px;}
+.animtips{font-size:.85rem;color:#a58c6b;line-height:1.7;text-align:center;}
+.anscard .btnrow2{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+.animbtn{background:linear-gradient(135deg,#ffe08a,#ffb13d);border-color:#f0a33a;color:#8a5612;}
 .formrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-weight:800;font-size:.95rem;}
 .formrow input[type=range]{flex:1;}
 .switch{position:relative;width:52px;height:28px;background:#e8dcc8;border-radius:999px;cursor:pointer;transition:.2s;flex:0 0 auto;}
@@ -248,6 +253,7 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 <script src="data_safe.js"></script>
 <script src="data_song.js"></script>
 <script src="data_eng.js"></script>
+<script src="anim/anim-player.js"></script>
 
 <script>
 /* =========================================================
@@ -543,7 +549,10 @@ function showAns(celebrate, silentMark){
     '<div class="anscard">'+
       '<div class="ah">✅ 正确答案：'+optHtml(q.opts[q.a])+' '+alr+'</div>'+
       '<div class="why">'+q.w+'</div>'+
-      '<button class="spk2" onclick="sayWhy()">🔊 听小老师讲一讲</button>'+
+      '<div class="btnrow2">'+
+        '<button class="spk2" onclick="sayWhy()">🔊 听小老师讲一讲</button>'+
+        ((S.mid==='math'||S.mid==='calc') ? '<button class="spk2 animbtn" onclick="openAnim()">🎬 动画讲解</button>' : '')+
+      '</div>'+
     '</div>'+
     '<div class="btnrow">'+
       (S.qi+1 < m.sets[S.si].qs.length
@@ -759,8 +768,93 @@ function openSettings(){
   '<div class="btnrow" style="margin-top:14px"><button class="mainbtn" onclick="testSpeak()">🎧 试听「你好呀」</button><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
   document.getElementById('modalBack').classList.remove('hidden');
 }
-function closeModal(){ document.getElementById('modalBack').classList.add('hidden'); }
+function closeModal(){
+  if(window.ZZBAnim) window.ZZBAnim.stop();
+  const mc=document.getElementById('modalCard');
+  mc.classList.remove('wide');
+  document.getElementById('modalBack').classList.add('hidden');
+}
 function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来学习新本领吧。'); }
+
+/* ---------- 🎬 动画讲解（Remotion 播放器） ---------- */
+function stripPlain(s){ return String(s||'').replace(/<[^>]+>/g,''); }
+function picTokens(s){ return Array.from(stripPlain(s).trim().split(/\s+/)); }
+function buildAnimProps(mid,si,q){
+  const toks = picTokens(q.pic);
+  const emo  = toks.length ? toks[0] : '🍎';
+  const cntOf = e => toks.filter(t=>t===e).length;
+  if(mid==='calc'){
+    const ns=(q.q.match(/\d+/g)||[]).map(Number);
+    if(si===0||si===2){
+      const a=ns[0]||1, b=ns[1]||1;
+      return {type:'add',emoji:emo,a,b,duration:Math.max(420,(a+b)*20+340)};
+    }
+    if(si===1||si===3){
+      const a=ns[0]||3, b=ns[1]||1;
+      const t=q.q;
+      const mode=/吃/.test(t)?'eat':/飞/.test(t)?'fly':/游|藏/.test(t)?'swim':/送|摘|发/.test(t)?'give':'eat';
+      return {type:'sub',emoji:emo,a,b,mode,duration:Math.max(400,a*16+b*38+210)};
+    }
+    if(si===4){
+      const t=ns[0]||5, p=ns[1]||1;
+      return {type:'split',emoji:emo,t,p,duration:t*26+270};
+    }
+  }
+  if(mid==='math'){
+    if(si===0||si===1){
+      const n=parseInt(q.opts[q.a],10); if(isNaN(n)) return null;
+      return {type:'count',emoji:si===0?'🟠':emo,n,duration:Math.max(200,20+n*30+170)};
+    }
+    if(si===2){
+      const gs=stripPlain(q.pic).split('　').map(x=>x.trim()).filter(Boolean);
+      if(gs.length>=2 && !/\d/.test(gs[0])){
+        const aE=picTokens(gs[0])[0], bE=picTokens(gs[1])[0];
+        const aN=picTokens(gs[0]).filter(x=>x===aE).length, bN=picTokens(gs[1]).filter(x=>x===bE).length;
+        return {type:'compare',aE,bE,aN,bN,rel:aN>bN?'>':(aN<bN?'<':'='),duration:330};
+      }
+      const ns=(q.q.match(/\d+/g)||[]).map(Number);
+      const ansT=String(q.opts[q.a]);
+      const rel=(ansT==='>'||ansT==='<'||ansT==='=')?ansT:((ns[0]>ns[1])?'>':(ns[0]<ns[1])?'<':'=');
+      return {type:'compare',aN:ns[0]||1,bN:ns[1]||1,rel,duration:330};
+    }
+    if(si===3){
+      const counts={}; toks.forEach(x=>counts[x]=(counts[x]||0)+1);
+      const diff=Object.keys(counts).find(k=>counts[k]===1);
+      const pos=diff ? toks.indexOf(diff)+1 : 1;
+      return {type:'ordinal',items:toks,pos,duration:120+toks.length*38+110};
+    }
+    if(si===4){
+      const n=parseInt(stripPlain(q.pic),10); if(isNaN(n)) return null;
+      return {type:'neighbor',n,duration:340};
+    }
+    if(si===5){
+      const ansT=String(q.opts[q.a]);
+      if(ansT.startsWith('左')||ansT.startsWith('右')) return {type:'oddLine',duration:320};
+      const digits=stripPlain(q.pic).match(/\d+/);
+      if(digits){ const dn=parseInt(digits[0],10); return {type:'oddEven',emoji:'🔵',n:dn,duration:Math.max(340,30+dn*30+240)}; }
+      const cn=cntOf(emo);
+      return {type:'oddEven',emoji:emo,n:cn,duration:Math.max(340,30+cn*30+240)};
+    }
+  }
+  return null;
+}
+function openAnim(){
+  const m=mod(S.mid), q=curQ();
+  const p=buildAnimProps(S.mid,S.si,q);
+  if(!p){ toast('这道题暂时没有动画，听小老师讲讲吧～'); return; }
+  if(!window.ZZBAnim){ toast('动画组件加载失败，请检查网络后刷新页面'); return; }
+  const el=document.getElementById('modalCard');
+  el.classList.add('wide');
+  el.innerHTML='<h3>🎬 动画讲解 <span style="font-size:.85rem;font-weight:600;color:#a58c6b">— '+(m.short)+' · 看完动画再试一次，秒懂！</span></h3>'+
+    '<div class="animbox" id="animBox"></div>'+
+    '<div class="animtips">⏯ 点中间的播放键开始，可以随时暂停、重播；看完点「关闭」</div>'+
+    '<div class="btnrow" style="margin-top:12px"><button class="mainbtn" onclick="closeModal()">关闭动画</button></div>';
+  document.getElementById('modalBack').classList.remove('hidden');
+  setTimeout(()=>{
+    const box=document.getElementById('animBox');
+    if(box && window.ZZBAnim) window.ZZBAnim.play(p, box);
+  }, 60);
+}
 function clearData(){
   if(confirm('确定要清空所有学习记录和星星吗？')){ store=freshStore(); save(); toast('已清空，重新开始！'); updatePill(); route(); }
 }

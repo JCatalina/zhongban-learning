@@ -7,3 +7,5 @@ desktop.ini
 # 测试/临时产物
 _test_*.png
 *.log
+# 依赖目录（不提交）
+node_modules/
