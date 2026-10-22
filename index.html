@@ -317,25 +317,6 @@ function speakableOpt(o){ return CJK_NUM.test(optText(o)); }
 /* ---------- 语音 ---------- */
 const synth = window.speechSynthesis;
 let voicesCached = [];
-const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
-let fallbackAudio = null;
-
-// 微信及移动端音频通道手势预激活
-function unlockAudioContexts(){
-  if(!fallbackAudio) fallbackAudio = new Audio();
-  if(fallbackAudio.src==='') fallbackAudio.load();
-  if(AC && AC.state==='suspended'){ try{ AC.resume(); }catch(e){} }
-}
-if(isWeChat){
-  if(typeof WeixinJSBridge==='object' && typeof WeixinJSBridge.invoke==='function'){
-    unlockAudioContexts();
-  } else {
-    document.addEventListener('WeixinJSBridgeReady', unlockAudioContexts, false);
-  }
-}
-document.addEventListener('touchstart', unlockAudioContexts, { once:true, passive:true });
-document.addEventListener('click', unlockAudioContexts, { once:true, passive:true });
-
 function refreshVoices(){ if(synth) voicesCached = synth.getVoices(); }
 if(synth){ refreshVoices(); if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged = refreshVoices; }
 setInterval(refreshVoices, 3000);
@@ -346,45 +327,19 @@ function pickVoice(lang){
   if(!vs.length) return null;
   return vs.find(v=>/xiaoxiao|晓晓|huihui|kangkang|yaoyao/i.test(v.name)) || vs[0];
 }
-function stopSpeak(){
-  if(synth) try{ synth.cancel(); }catch(e){}
-  if(fallbackAudio){
-    try{ fallbackAudio.pause(); fallbackAudio.currentTime = 0; }catch(e){}
-  }
-}
 function speak(txt, lang){
+  if(!synth) { toast('当前浏览器不支持语音朗读 (请用 Edge / Chrome 打开)'); return false; }
   if(!txt) return false;
-  stopSpeak();
-
-  // 1. 如果非微信环境且原生可用，优先使用原生
-  if(!isWeChat && synth){
-    try{
-      const u = new SpeechSynthesisUtterance(txt);
-      u.lang  = lang || 'zh-CN';
-      const v = pickVoice(u.lang); if(v) u.voice = v;
-      u.rate  = store.s.rate || 0.8;
-      u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
-      synth.speak(u);
-      return true;
-    }catch(e){}
-  }
-
-  // 2. 微信内置浏览器 / 原生不可用环境：降级为标准 MP3 语音音频流
   try{
-    if(!fallbackAudio) fallbackAudio = new Audio();
-    const isEn = /^[a-zA-Z0-9\s.,?!'-]+$/.test(String(txt).trim());
-    const voiceType = isEn ? '2' : '1';
-    const voiceLang = isEn ? 'en' : 'zh';
-    const url = 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(String(txt).trim()) + '&type=' + voiceType + '&le=' + voiceLang;
-    fallbackAudio.src = url;
-    fallbackAudio.currentTime = 0;
-    const p = fallbackAudio.play();
-    if(p !== undefined) p.catch(()=>{});
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(txt);
+    u.lang  = lang || 'zh-CN';
+    const v = pickVoice(u.lang); if(v) u.voice = v;
+    u.rate  = store.s.rate || 0.8;
+    u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
+    synth.speak(u);
     return true;
-  }catch(e){
-    toast('语音播放失败，请轻触屏幕重试');
-    return false;
-  }
+  }catch(e){ return false; }
 }
 function sayQ(){
   const q = curQ();
@@ -400,12 +355,7 @@ function sayWhy(){
 
 /* ---------- 音效 ---------- */
 let AC=null;
-function acInit(){
-  try{
-    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
-    if(AC && AC.state==='suspended') AC.resume();
-  }catch(e){}
-}
+function acInit(){ try{ AC = AC || new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
 function note(f,at,d){ if(!AC) return; const o=AC.createOscillator(), g=AC.createGain(); o.type='sine'; o.frequency.value=f;
   g.gain.setValueAtTime(0.001,at); g.gain.exponentialRampToValueAtTime(0.22,at+0.02); g.gain.exponentialRampToValueAtTime(0.001,at+d);
   o.connect(g); g.connect(AC.destination); o.start(at); o.stop(at+d+0.05); }
@@ -853,15 +803,12 @@ function printPlan(){
 function openSettings(){
   const el=document.getElementById('modalCard');
   const zhVs = voicesCached.filter(v=>/zh|cmn/i.test(v.lang)).slice(0,6);
-  const voiceDesc = isWeChat
-    ? '📱 微信浏览器环境：已自动启用在线高兼容语音引擎（支持清脆朗读，无需特殊配置）'
-    : (zhVs.length ? '🎙️ 检测到的中文语音：<br>'+zhVs.map(v=>v.name+'（'+v.lang+'）').join('<br>') : '未检测到本地语音（已自动开启在线高兼容朗读），不影响做题');
   el.innerHTML='<h3>⚙️ 设置</h3>'+
   '<div class="formrow">🐢 朗读语速 <input type="range" min="0.5" max="1.2" step="0.05" value="'+store.s.rate+'" oninput="store.s.rate=+this.value;save()"><span>🐇 '+store.s.rate.toFixed(2)+'</span></div>'+
   '<div class="formrow">🔊 自动读题（不识字也能用） <span class="switch'+(store.s.autoRead?' on':'')+'" onclick="store.s.autoRead=!store.s.autoRead;save();openSettings()"></span></div>'+
   '<div class="formrow">🎵 答题音效 <span class="switch'+(store.s.sfx?' on':'')+'" onclick="store.s.sfx=!store.s.sfx;save();openSettings()"></span></div>'+
-  '<div class="small">自动读题会在每道题出现时朗读题目和选项；电脑端支持离线语音，微信端自动切换高兼容在线语音。想换童声：Edge 浏览器 → 设置 → 语音，可选「微软晓晓」等自然语音。</div>'+
-  '<div class="voices">'+voiceDesc+'</div>'+
+  '<div class="small">自动读题会在每道题出现时朗读题目和选项；语音来自电脑/平板自带的中文语音，无需联网。想换童声：Edge 浏览器 → 设置 → 语音，可选「微软晓晓」等自然语音。</div>'+
+  '<div class="voices">🎙️ 检测到的中文语音：<br>'+(zhVs.length?zhVs.map(v=>v.name+'（'+v.lang+'）').join('<br>'):'未检测到（打开页面后再重开设置面板试试），不影响做题')+'</div>'+
   '<div class="btnrow" style="margin-top:14px"><button class="mainbtn" onclick="testSpeak()">🎧 试听「你好呀」</button><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
   document.getElementById('modalBack').classList.remove('hidden');
 }
