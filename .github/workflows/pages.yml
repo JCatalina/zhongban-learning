@@ -30,6 +30,7 @@ jobs:
           cp index.html README.md _site/
           cp data_*.js _site/
           cp -r anim _site/
+          cp -r audio _site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

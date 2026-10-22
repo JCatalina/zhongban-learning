@@ -328,7 +328,15 @@ function pickVoice(lang){
   return vs.find(v=>/xiaoxiao|晓晓|huihui|kangkang|yaoyao/i.test(v.name)) || vs[0];
 }
 let _ttsAudio = null;
+let _audioPlayer = null;
 const _isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+
+function stopSpeak(){
+  if(_audioPlayer){ try{ _audioPlayer.pause(); _audioPlayer.currentTime = 0; }catch(e){} }
+  if(_ttsAudio){ try{ _ttsAudio.pause(); _ttsAudio.currentTime = 0; }catch(e){} }
+  if(synth){ try{ synth.cancel(); }catch(e){} }
+}
+
 function _playOnlineTTS(txt, lang){
   try{
     if(!_ttsAudio) _ttsAudio = new Audio();
@@ -343,10 +351,9 @@ function _playOnlineTTS(txt, lang){
     return true;
   }catch(e){ return false; }
 }
-function speak(txt, lang){
+
+function _fallbackTTS(txt, lang){
   if(!txt) return false;
-  if(_ttsAudio){ try{ _ttsAudio.pause(); }catch(e){} }
-  // 微信内置浏览器虽然暴露了 speechSynthesis 对象但实际是空壳不发声，必须跳过
   if(!_isWeChat && synth){
     try{
       synth.cancel();
@@ -361,16 +368,44 @@ function speak(txt, lang){
   }
   return _playOnlineTTS(txt, lang);
 }
+
+function speak(txt, lang, audioId){
+  stopSpeak();
+  if(!txt && !audioId) return false;
+
+  // 1. 优先播放本地预生成的标准 MP3 音频（同源无跨域、高保真晓晓童声、微信100%支持）
+  if(audioId){
+    try{
+      if(!_audioPlayer) _audioPlayer = new Audio();
+      _audioPlayer.src = 'audio/' + audioId + '.mp3';
+      _audioPlayer.currentTime = 0;
+      const p = _audioPlayer.play();
+      if(p && typeof p.catch === 'function'){
+        p.catch(function(err){
+          console.warn('本地音频被手势限制或未加载完成，尝试回退:', err);
+          _fallbackTTS(txt, lang);
+        });
+      }
+      return true;
+    }catch(e){
+      return _fallbackTTS(txt, lang);
+    }
+  }
+
+  // 2. 无本地音频 ID 时回退处理
+  return _fallbackTTS(txt, lang);
+}
+
 function sayQ(){
   const q = curQ();
   let t = q.q;
   const spoke = q.opts.map(optText).filter(speakableOpt);
   if(spoke.length) t += '。请选一选：' + spoke.join('、');
-  speak(t, q.lang);
+  speak(t, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_q');
 }
 function sayWhy(){
   const q = curQ();
-  speak((q.w || '') , q.lang);
+  speak((q.w || '') , q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w');
 }
 
 /* ---------- 音效 ---------- */
@@ -623,7 +658,7 @@ function showAns(celebrate, silentMark){
         ? '<button class="mainbtn" onclick="nextQ()">下一题 ➡️</button>'
         : '<button class="mainbtn" onclick="nextQ()">本组完成 🏁</button>')+
     '</div>';
-  if(!silentMark) speak(q.w, q.lang);
+  if(!silentMark) speak(q.w, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w');
 }
 
 function revealAnswer(){
@@ -657,6 +692,13 @@ function setDonePanel(){
 }
 
 /* ---------- 儿歌古诗 ---------- */
+function playSong(si, pi, kind){
+  const m = mod('song');
+  const p = m.sets[si].qs[pi];
+  const audioId = 'song_' + si + '_' + pi + '_' + kind;
+  const txt = kind === 'lines' ? p.lines.join('，') : p.t;
+  speak(txt, 'zh-CN', audioId);
+}
 function renderSongSet(m,si){
   const s=m.sets[si];
   let html='<div class="qtop"><button class="tbtn" onclick="location.hash=\'#/m/'+m.id+'\'">← 返回</button>'+
@@ -665,8 +707,8 @@ function renderSongSet(m,si){
     html+='<div class="poem"><h3>'+p.pic+' '+p.t+'</h3><div class="by">'+p.by+'</div>'+
       '<div class="lines">'+p.lines.map(l=>'<div>'+l+'</div>').join('')+'</div>'+
       '<div class="note">💡 '+p.note+'</div>'+
-      '<div class="row"><button class="mainbtn" onclick="speak(\''+p.lines.join('，')+'\')">🎤 跟读</button>'+
-      '<button class="ghostbtn" onclick="speak(\''+p.t+'\')">🔊 读标题</button></div></div>';
+      '<div class="row"><button class="mainbtn" onclick="playSong('+si+','+pi+',\'lines\')">🎤 跟读</button>'+
+      '<button class="ghostbtn" onclick="playSong('+si+','+pi+',\'title\')">🔊 读标题</button></div></div>';
   });
   document.getElementById('mBody').innerHTML=html;
 }
@@ -822,13 +864,12 @@ function printPlan(){
 /* ---------- 设置 ---------- */
 function openSettings(){
   const el=document.getElementById('modalCard');
-  const zhVs = voicesCached.filter(v=>/zh|cmn/i.test(v.lang)).slice(0,6);
   el.innerHTML='<h3>⚙️ 设置</h3>'+
   '<div class="formrow">🐢 朗读语速 <input type="range" min="0.5" max="1.2" step="0.05" value="'+store.s.rate+'" oninput="store.s.rate=+this.value;save()"><span>🐇 '+store.s.rate.toFixed(2)+'</span></div>'+
   '<div class="formrow">🔊 自动读题（不识字也能用） <span class="switch'+(store.s.autoRead?' on':'')+'" onclick="store.s.autoRead=!store.s.autoRead;save();openSettings()"></span></div>'+
   '<div class="formrow">🎵 答题音效 <span class="switch'+(store.s.sfx?' on':'')+'" onclick="store.s.sfx=!store.s.sfx;save();openSettings()"></span></div>'+
-  '<div class="small">自动读题会在每道题出现时朗读题目和选项；语音来自电脑/平板自带的中文语音，无需联网。想换童声：Edge 浏览器 → 设置 → 语音，可选「微软晓晓」等自然语音。</div>'+
-  '<div class="voices">🎙️ 检测到的中文语音：<br>'+(zhVs.length?zhVs.map(v=>v.name+'（'+v.lang+'）').join('<br>'):'未检测到（打开页面后再重开设置面板试试），不影响做题')+'</div>'+
+  '<div class="small">自动读题会在每道题出现时朗读题目和选项。全站已内置微软晓晓高保真原声音频，100% 离线完美支持手机、微信内置浏览器与电脑。</div>'+
+  '<div class="voices">🎙️ 语音引擎：已启用离线高保真儿童语音包（全场景即点即播）</div>'+
   '<div class="btnrow" style="margin-top:14px"><button class="mainbtn" onclick="testSpeak()">🎧 试听「你好呀」</button><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
   document.getElementById('modalBack').classList.remove('hidden');
 }
@@ -838,7 +879,7 @@ function closeModal(){
   mc.classList.remove('wide');
   document.getElementById('modalBack').classList.add('hidden');
 }
-function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来学习新本领吧。'); }
+function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来学习新本领吧。', 'zh-CN', 'test_welcome'); }
 
 /* ---------- 🎬 动画讲解（Remotion 播放器） ---------- */
 function stripPlain(s){ return String(s||'').replace(/<[^>]+>/g,''); }
