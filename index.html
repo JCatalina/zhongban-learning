@@ -409,6 +409,99 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
   .opt{font-size:1.25rem;padding:13px 8px;}
   .banner h1{font-size:1.35rem;}
 }
+/* ---------- 🗣️ 场景口语学堂 ---------- */
+.eng-scene-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;
+}
+.eng-scene-card{
+  background:#fff;border-radius:22px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.06);
+  border:2.5px solid transparent;cursor:pointer;transition:.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display:flex;flex-direction:column;gap:10px;
+}
+.eng-scene-card:hover{
+  transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+.eng-scene-top{
+  display:flex;align-items:center;gap:12px;
+}
+.eng-scene-icon{
+  font-size:2.4rem;width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+  background:#eff6ff;flex-shrink:0;
+}
+.eng-scene-title{
+  font-weight:900;font-size:1.15rem;color:#1e293b;line-height:1.3;
+}
+.eng-scene-subtitle{
+  font-size:.82rem;color:#64748b;font-weight:600;margin-top:2px;
+}
+.eng-scene-badge{
+  display:inline-block;padding:3px 8px;border-radius:999px;font-size:.72rem;font-weight:800;color:#2563eb;background:#dbeafe;align-self:flex-start;
+}
+.eng-word-bank{
+  background:linear-gradient(135deg,#f8fafc,#f1f5f9);border:1.5px dashed #cbd5e1;border-radius:18px;padding:12px 14px;margin-bottom:16px;
+}
+.eng-word-list{
+  display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;
+}
+.eng-word-list::-webkit-scrollbar{display:none;}
+.eng-word-pill{
+  flex:0 0 auto;background:#fff;border:1.5px solid #e2e8f0;border-radius:999px;padding:6px 14px;
+  font-size:.86rem;font-weight:800;color:#334155;box-shadow:0 2px 6px rgba(0,0,0,.04);cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;
+}
+.eng-word-pill:hover,.eng-word-pill:active{
+  transform:scale(1.05);background:#eff6ff;border-color:#3b82f6;color:#1d4ed8;
+}
+.eng-stage-card{
+  background:#fff;border-radius:26px;padding:24px 20px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:20px;text-align:center;
+}
+.eng-scene-illustration{
+  font-size:68px;line-height:1.2;margin:10px auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.1));
+}
+.eng-context-desc{
+  font-size:.95rem;color:#64748b;font-weight:700;margin-bottom:16px;line-height:1.5;
+}
+.eng-chunks-container{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0;
+}
+.eng-chunk{
+  background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;border-radius:16px;
+  padding:10px 18px;font-size:1.45rem;font-weight:900;color:#1e40af;cursor:pointer;
+  box-shadow:0 4px 10px rgba(37,99,235,.12);transition:.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.eng-chunk:hover,.eng-chunk:active{
+  transform:translateY(-3px) scale(1.06);background:linear-gradient(135deg,#dbeafe,#bfdbfe);border-color:#3b82f6;
+}
+.eng-cn-trans{
+  font-size:1.2rem;font-weight:900;color:#0f172a;margin:10px 0 6px;letter-spacing:0.5px;
+}
+.eng-phonics-tip{
+  background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:8px 14px;display:inline-block;
+  font-size:.84rem;color:#92400e;margin-top:6px;max-width:92%;line-height:1.5;
+}
+.eng-controls{
+  display:flex;justify-content:center;align-items:center;gap:12px;margin:22px 0 10px;flex-wrap:wrap;
+}
+.eng-audio-btn{
+  background:#fff;border:2px solid #e2e8f0;border-radius:999px;padding:9px 18px;font-size:.95rem;
+  font-weight:800;color:#334155;cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.15s;
+}
+.eng-audio-btn:hover{background:#f8fafc;transform:translateY(-1px);}
+.eng-audio-btn.primary{
+  background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(37,99,235,.3);
+}
+.eng-audio-btn.primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,99,235,.4);}
+.eng-check-btn{
+  background:linear-gradient(135deg,#10b981,#059669);color:#fff;border-radius:999px;padding:12px 28px;
+  font-size:1.1rem;font-weight:900;cursor:pointer;border:none;box-shadow:0 4px 16px rgba(16,185,129,.35);
+  display:inline-flex;align-items:center;gap:8px;margin-top:10px;transition:.2s;
+}
+.eng-check-btn:hover{transform:scale(1.05);box-shadow:0 6px 22px rgba(16,185,129,.45);}
+.eng-check-btn.checked{
+  background:linear-gradient(135deg,#f59e0b,#d97706);box-shadow:0 4px 16px rgba(245,158,11,.35);
+}
 </style>
 </head>
 <body>
@@ -440,6 +533,7 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 <script src="data_eng.js"></script>
 <script src="data_society.js"></script>
 <script src="data_story.js"></script>
+<script src="data_english_scenes.js"></script>
 <script src="hanzi-writer.min.js"></script>
 <script src="hanzi-data.js"></script>
 <script src="anim/anim-player.js?v=4"></script>
@@ -600,7 +694,7 @@ function _ensureAudioPlayer(){
 
 function stopSpeak(){
   setSpeakingState(false);
-  if(_audioPlayer){ try{ _audioPlayer.pause(); _audioPlayer.currentTime = 0; }catch(e){} }
+  if(_audioPlayer){ try{ _audioPlayer.playbackRate = 1.0; _audioPlayer.pause(); _audioPlayer.currentTime = 0; }catch(e){} }
   if(_ttsAudio){ try{ _ttsAudio.pause(); _ttsAudio.currentTime = 0; }catch(e){} }
   if(synth){ try{ synth.cancel(); }catch(e){} }
 }
@@ -649,7 +743,7 @@ function _fallbackTTS(txt, lang, btn){
   return _playOnlineTTS(txt, lang, btn);
 }
 
-function speak(txt, lang, audioId, btn){
+function speak(txt, lang, audioId, btn, rate){
   stopSpeak();
   if(!txt && !audioId) return false;
 
@@ -657,6 +751,7 @@ function speak(txt, lang, audioId, btn){
   if(audioId){
     try{
       const player = _ensureAudioPlayer();
+      player.playbackRate = rate || 1.0;
       player.src = 'audio/' + audioId + '.mp3';
       player.currentTime = 0;
       const p = player.play();
@@ -803,6 +898,10 @@ function route(){
     const qi = p[3]!==undefined ? parseInt(p[3],10) : null;
     renderModule(m,si,qi);
   }
+  else if(p[0]==='english'){
+    if(p[1]) renderEnglishStage(p[1], p[2]!==undefined ? parseInt(p[2],10) : 0);
+    else renderEnglishScenes();
+  }
   else if(p[0]==='parents') renderParents();
   else renderHome();
 }
@@ -813,6 +912,7 @@ function buildTabs(cur){
   const el=document.getElementById('tabs');
   let html='<button class="tab'+(cur==='home'?' on':'')+'" style="'+(cur==='home'?'background:#f97316':'')+'" onclick="location.hash=\'#/home\'">🏠 首页</button>';
   html+='<button class="tab'+(cur==='story'?' on':'')+'" style="'+(cur==='story'?'background:#10b981':'')+'" onclick="location.hash=\'#/story\'">📚 故事绘本</button>';
+  html+='<button class="tab'+(cur==='english'?' on':'')+'" style="'+(cur==='english'?'background:#2563eb':'')+'" onclick="location.hash=\'#/english\'">🗣️ 场景口语</button>';
   for(const m of DATASETS){
     const on = cur===m.id;
     html+='<button class="tab'+(on?' on':'')+'" style="'+(on?('background:'+m.color):'')+'" onclick="location.hash=\'#/m/'+m.id+'\'">'+
@@ -866,6 +966,14 @@ function renderHome(){
       '<div style="font-size:.84rem;color:#047857;margin-top:2px">《小蝌蚪找妈妈》《小猴子下山》《懂礼貌的小熊》《三只小猪》</div>'+
     '</div>'+
     '<button class="mainbtn" style="background:#10b981;padding:8px 16px;font-size:.9rem">去听故事 ▶</button>'+
+  '</div>'+
+  '<div class="card" style="cursor:pointer;background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #93c5fd;margin-top:14px;display:flex;align-items:center;gap:14px" onclick="location.hash=\'#/english\'">'+
+    '<span style="font-size:2.4rem">🗣️</span>'+
+    '<div style="flex:1">'+
+      '<div style="font-weight:900;font-size:1.05rem;color:#1e40af">🗣️ 场景口语学堂 · 100个生活高频句</div>'+
+      '<div style="font-size:.84rem;color:#2563eb;margin-top:2px">告别枯燥做题！先识词 ➔ 积木组句 ➔ 慢速精听 ➔ 情境脱口秀！</div>'+
+    '</div>'+
+    '<button class="mainbtn" style="background:#2563eb;padding:8px 16px;font-size:.9rem">开启口语 ▶</button>'+
   '</div>'+
   '<div class="sect">📚 选择学科学一学 <span class="line"></span></div>'+
   '<div class="mgrid">'+cards+'</div>'+
@@ -1157,7 +1265,7 @@ function renderParents(){
   document.getElementById('main').innerHTML =
   '<div class="mhead"><span class="big">👨‍👩‍👧</span><h2>家长专区 · 中班教学规划</h2>'+
   '<div class="dsc">给爸爸妈妈的完整中班学年教学规划，包含目标、步骤、周计划和好方法。</div>'+
-  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button><button class="tbtn" style="color:#0f766e;border-color:#14b8a6;font-weight:900" onclick="printEnglishCheatSheet()">🖨️ 打印日常英语小抄</button></div>'+
+  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button><button class="tbtn" style="color:#0f766e;border-color:#14b8a6;font-weight:900" onclick="printEnglishCheatSheet()">🖨️ 打印10句微小抄</button><button class="tbtn" style="color:#1d4ed8;border-color:#3b82f6;font-weight:900" onclick="printEnglish100Sheet()">📘 打印生活口语100句口袋书 (A4)</button></div>'+
 
   '<div class="card"><b style="font-size:1.05rem">📊 孩子学习进度总览</b>'+
   '<div style="margin:14px 0 4px">总体完成：'+allSol+' / '+allTot+' 题（'+pct+'%），累计 ⭐ '+totalStars()+'</div>'+
@@ -1349,6 +1457,47 @@ function printEnglishCheatSheet(){
     '4. <b>接纳沉默期与小错误</b>：只要在听在理解，哪怕暂时不开口或发音不准，也绝不批评纠正，静待语言神经回路成熟！' +
     '</div>' +
     '</div>';
+  window.print();
+}
+
+function printEnglish100Sheet(){
+  const scenes = window.ENGLISH_SCENES || [];
+  let html =
+    '<div class="print-sheet">' +
+    '<h1>幼儿生活口语 100 句 · 亲子家庭口袋书</h1>' +
+    '<div class="pmeta"><span>10 大核心高频生活情景 · 100 句地道脱口秀</span><span>适合 4–5 岁中班家庭</span><span>建议贴在冰箱/玄关/床头</span></div>';
+
+  scenes.forEach((sc, scIdx) => {
+    html +=
+      '<div style="page-break-inside:avoid;margin-top:14px;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;background:#f8fafc">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e2e8f0;padding-bottom:4px;margin-bottom:6px">' +
+          '<b style="font-size:14px;color:#1e40af">' + (scIdx + 1) + '. ' + sc.icon + ' ' + (sc.name || sc.title) + ' (' + (sc.enName || sc.enTitle) + ')</b>' +
+          '<span style="font-size:11px;color:#64748b">重点词: ' + sc.words.map(w => w.word).join(', ') + '</span>' +
+        '</div>' +
+        '<table class="plan" style="font-size:11px;margin:0">' +
+          '<tr><th style="width:28px">序</th><th style="width:36%">英文原句 (English Chunk)</th><th style="width:28%">生活通俗中文</th><th>情境动作与口型巧记</th><th style="width:36px;text-align:center">打卡</th></tr>';
+    
+    sc.sentences.forEach((s, idx) => {
+      html +=
+        '<tr>' +
+          '<td>' + (idx + 1) + '</td>' +
+          '<td><b>' + s.en + '</b></td>' +
+          '<td>' + s.cn + '</td>' +
+          '<td>' + s.tip + '</td>' +
+          '<td style="text-align:center;font-size:14px;color:#94a3b8">◯</td>' +
+        '</tr>';
+    });
+
+    html += '</table></div>';
+  });
+
+  html +=
+    '<div style="margin-top:14px;font-size:11.5px;color:#64748b;line-height:1.6">' +
+      '💡 <b>家庭指读建议：</b>每天只挑 1 个场景练习 3–5 分钟，在真实做动作时指读并大声说出。只要孩子开口，立即打勾 ◯ 变 ✓！不强制默写、不做考卷，零压力浸润！' +
+    '</div>' +
+    '</div>';
+
+  document.getElementById('printArea').innerHTML = html;
   window.print();
 }
 
@@ -1697,6 +1846,193 @@ function finishStory(bookId){
   if(card) confetti(card);
   toast('恭喜读完绘本！获得阅读小学士勋章 ⭐⭐⭐⭐⭐');
   setTimeout(() => { location.hash = '#/story'; }, 1600);
+}
+
+/* ---------- 🗣️ 场景口语学堂 (100个生活句脱口秀) ---------- */
+function renderEnglishScenes(){
+  buildTabs('english');
+  updatePill();
+  const scenes = window.ENGLISH_SCENES || [];
+  let cardsHtml = '<div class="eng-scene-grid">';
+  
+  let totalSents = 0;
+  let totalMastered = 0;
+
+  scenes.forEach(sc => {
+    let masteredCount = 0;
+    sc.sentences.forEach(s => {
+      totalSents++;
+      if(store.done && store.done['eng_sent_' + s.id]){
+        masteredCount++;
+        totalMastered++;
+      }
+    });
+    const pct = Math.round(masteredCount / sc.sentences.length * 100);
+    const isCompleted = masteredCount === sc.sentences.length;
+
+    cardsHtml +=
+      '<div class="eng-scene-card" style="border-color:' + sc.themeColor + '40" onclick="location.hash=\'#/english/' + sc.id + '/0\'">' +
+        '<div class="eng-scene-top">' +
+          '<div class="eng-scene-icon" style="background:' + sc.themeColor + '18">' + sc.icon + '</div>' +
+          '<div style="flex:1">' +
+            '<div class="eng-scene-title">' + (sc.name || sc.title) + '</div>' +
+            '<div class="eng-scene-subtitle">' + (sc.enName || sc.enTitle) + '</div>' +
+          '</div>' +
+          '<span class="eng-scene-badge" style="background:' + sc.themeColor + '20;color:' + sc.themeColor + '">' +
+            (isCompleted ? '👑 已通关' : ('⭐ ' + masteredCount + '/' + sc.sentences.length)) +
+          '</span>' +
+        '</div>' +
+        '<div style="font-size:.84rem;color:#64748b;line-height:1.5">' + sc.desc + '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">' +
+          sc.words.slice(0, 3).map(w => '<span style="font-size:.75rem;background:#f1f5f9;color:#475569;border-radius:6px;padding:2px 6px">' + (w.emoji ? (w.emoji + ' ') : '🔤 ') + w.word + ' ' + (w.cn || w.meaning) + '</span>').join('') +
+        '</div>' +
+        '<div class="mbar" style="margin-top:6px"><i style="width:' + pct + '%;background:' + sc.themeColor + '"></i></div>' +
+      '</div>';
+  });
+  cardsHtml += '</div>';
+
+  document.getElementById('main').innerHTML =
+    '<div class="mhead">' +
+      '<span class="big">🗣️</span>' +
+      '<div>' +
+        '<h2 style="margin:0 0 4px">场景口语学堂 · 100个生活高频句</h2>' +
+        '<div class="dsc">告别枯燥选择题！二语习得黄金路径：先听单词 ➔ 积木组句 ➔ 慢速精听 ➔ 情境跟读，学会表达 100 个日常高频句！</div>' +
+      '</div>' +
+      '<button class="tbtn" onclick="location.hash=\'#/home\'">🏠 首页</button>' +
+    '</div>' +
+    '<div class="card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #bfdbfe;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
+      '<div>' +
+        '<span style="font-size:1.1rem;font-weight:900;color:#1e40af">🏆 全套 100 句学习进度：已掌握 ' + totalMastered + ' / ' + totalSents + ' 句</span>' +
+        '<div style="font-size:.82rem;color:#3b82f6;margin-top:2px">每天陪孩子练 1 个场景（10 句），在真实生活情境中自发脱口而出！</div>' +
+      '</div>' +
+      '<button class="mainbtn" style="background:#2563eb;padding:7px 16px;font-size:.88rem" onclick="location.hash=\'#/parents\'">📄 去打印 A4 生活口袋书</button>' +
+    '</div>' +
+    cardsHtml;
+}
+
+function renderEnglishStage(sceneId, sentenceIndex){
+  buildTabs('english');
+  const scenes = window.ENGLISH_SCENES || [];
+  const scene = scenes.find(s => s.id === sceneId) || scenes[0];
+  if(!scene){ location.hash = '#/english'; return; }
+
+  const si = Math.max(0, Math.min(sentenceIndex || 0, scene.sentences.length - 1));
+  const sent = scene.sentences[si];
+  const isMastered = !!(store.done && store.done['eng_sent_' + sent.id]);
+
+  // 1. 词汇先行预览区
+  let wordBankHtml =
+    '<div class="eng-word-bank">' +
+      '<div style="font-size:.82rem;font-weight:900;color:#475569;margin-bottom:8px;display:flex;align-items:center;gap:6px">' +
+        '<span>🔤 本场景核心生词（点词听发音）：</span>' +
+      '</div>' +
+      '<div class="eng-word-list">';
+  scene.words.forEach(w => {
+    wordBankHtml +=
+      '<button class="eng-word-pill" onclick="speak(\'' + w.word + '\',\'en-US\',\'' + w.audioId + '\',this)">' +
+        '<span>' + (w.emoji || '🔊') + '</span> <b>' + w.word + '</b> <span style="color:#64748b;font-size:.8rem">' + (w.cn || w.meaning) + '</span>' +
+      '</button>';
+  });
+  wordBankHtml += '</div></div>';
+
+  // 2. 积木块渲染
+  let chunksHtml = '<div class="eng-chunks-container">';
+  (sent.chunks || []).forEach(chk => {
+    const chkEn = typeof chk === 'object' ? chk.en : chk;
+    const chkCn = typeof chk === 'object' ? chk.cn : '';
+    const safeText = chkEn.replace(/'/g, "\\'");
+    chunksHtml +=
+      '<button class="eng-chunk" onclick="speak(\'' + safeText + '\',\'en-US\',null,this)">' +
+        '🧩 ' + chkEn + (chkCn ? (' <span style="font-size:.76rem;opacity:.75;font-weight:bold;margin-left:4px">(' + chkCn + ')</span>') : '') +
+      '</button>';
+  });
+  chunksHtml += '</div>';
+
+  // 3. 页面渲染
+  document.getElementById('main').innerHTML =
+    '<div class="qtop">' +
+      '<button class="tbtn" onclick="location.hash=\'#/english\'">← 场景列表</button>' +
+      '<div class="qprog">' + scene.icon + ' ' + (scene.name || scene.title) + '（第 ' + (si + 1) + ' / ' + scene.sentences.length + ' 句）</div>' +
+      '<button class="tbtn" onclick="location.hash=\'#/home\'">🏠 首页</button>' +
+    '</div>' +
+    wordBankHtml +
+    '<div class="eng-stage-card">' +
+      '<div class="eng-scene-illustration">' + (sent.pic || scene.icon) + '</div>' +
+      '<div class="eng-context-desc">🎬 生活情境：' + (sent.context || sent.tip) + '</div>' +
+      chunksHtml +
+      '<div class="eng-cn-trans">“ ' + sent.cn + ' ”</div>' +
+      '<div class="eng-phonics-tip">' + sent.tip + '</div>' +
+      '<div class="eng-controls">' +
+        '<button class="eng-audio-btn" id="btnEngSlow" onclick="playEnglishSlow(\'' + sent.audioId + '\',\'' + sent.en.replace(/'/g, "\\'") + '\',this)">' +
+          '🐢 慢速精听 (0.75x)' +
+        '</button>' +
+        '<button class="eng-audio-btn primary" id="btnEngNormal" onclick="playEnglishNormal(\'' + sent.audioId + '\',\'' + sent.en.replace(/'/g, "\\'") + '\',this)">' +
+          '🐇 自然原速 (1.0x)' +
+        '</button>' +
+        '<button class="eng-audio-btn" id="btnEngExp" onclick="playEnglishExplain(\'' + (sent.explainAudioId || (sent.audioId + '_exp')) + '\',\'' + sent.cn.replace(/'/g, "\\'") + '\',this)">' +
+          '📖 情境精讲与跟读' +
+        '</button>' +
+      '</div>' +
+      '<div style="margin-top:16px">' +
+        '<button class="eng-check-btn' + (isMastered ? ' checked' : '') + '" onclick="toggleEnglishSentenceMaster(\'' + sent.id + '\', this)">' +
+          (isMastered ? '⭐ 我已经掌握这句啦！(已打卡)' : '🎙️ 我大声说了一遍！(点亮星星)') +
+        '</button>' +
+      '</div>' +
+      '<div class="btnrow" style="margin-top:24px">' +
+        (si > 0 ? '<button class="ghostbtn" onclick="location.hash=\'#/english/' + scene.id + '/' + (si - 1) + '\'">⬅️ 上一句</button>' : '<div></div>') +
+        (si < scene.sentences.length - 1
+          ? '<button class="mainbtn" onclick="location.hash=\'#/english/' + scene.id + '/' + (si + 1) + '\'">下一句 ➡️</button>'
+          : '<button class="mainbtn" style="background:linear-gradient(135deg,#10b981,#059669)" onclick="finishEnglishScene(\'' + scene.id + '\')">🎉 场景通关！领取奖杯</button>') +
+      '</div>' +
+    '</div>';
+
+  if(store.s.autoRead){
+    setTimeout(() => {
+      const b = document.getElementById('btnEngNormal');
+      playEnglishNormal(sent.audioId, sent.en, b);
+    }, 300);
+  }
+}
+
+function playEnglishSlow(audioId, text, btn){
+  speak(text, 'en-US', audioId, btn, 0.75);
+}
+
+function playEnglishNormal(audioId, text, btn){
+  speak(text, 'en-US', audioId, btn, 1.0);
+}
+
+function playEnglishExplain(explainAudioId, fallbackText, btn){
+  speak(fallbackText, 'zh-CN', explainAudioId, btn, 1.0);
+}
+
+function toggleEnglishSentenceMaster(sentId, btn){
+  if(!store.done) store.done = {};
+  const key = 'eng_sent_' + sentId;
+  const isMastered = !store.done[key];
+  store.done[key] = isMastered;
+  save();
+
+  if(isMastered){
+    sfx(true);
+    const card = document.querySelector('.eng-stage-card');
+    if(card) confetti(card);
+    btn.classList.add('checked');
+    btn.innerHTML = '⭐ 我已经掌握这句啦！(已打卡)';
+    toast('太棒了！又掌握了一句地道日常表达 ⭐⭐');
+  } else {
+    btn.classList.remove('checked');
+    btn.innerHTML = '🎙️ 我大声说了一遍！(点亮星星)';
+    toast('已取消标记，可以继续巩固练习哦～');
+  }
+}
+
+function finishEnglishScene(sceneId){
+  sfx(true);
+  const card = document.querySelector('.eng-stage-card');
+  if(card) confetti(card);
+  toast('太了不起啦！你学会了本场景全部日常表达 🏆');
+  setTimeout(() => { location.hash = '#/english'; }, 1600);
 }
 
 /* ---------- 🖐️ 触屏/鼠标原生拖拽 ---------- */

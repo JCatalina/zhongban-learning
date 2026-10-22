@@ -4273,5 +4273,1255 @@
     "id": "eng_6_9_w",
     "text": "Two apples, please!（请给我两个苹果！）数字 + 水果 + please，秒变英文流利小顾客！",
     "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_wakeup",
+    "text": "wake up",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_sun",
+    "text": "sun",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_face",
+    "text": "face",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_teeth",
+    "text": "teeth",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_brush",
+    "text": "brush",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_1",
+    "text": "Good morning!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_1_exp",
+    "text": "Good morning!。早上好！。见到爸爸妈妈或老师，精神饱满地说一声！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_2",
+    "text": "Time to wake up!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_2_exp",
+    "text": "Time to wake up!。该起床啦！。小闹钟响了，掀开被子起得早！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_3",
+    "text": "Look at the sun!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_3_exp",
+    "text": "Look at the sun!。看大太阳出来啦！。拉开窗帘，指着金色阳光开心地说！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_4",
+    "text": "Stretch your arms.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_4_exp",
+    "text": "Stretch your arms.。伸个大大的懒腰。。像小猫咪一样把小手举高高！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_5",
+    "text": "Wash your face.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_5_exp",
+    "text": "Wash your face.。洗洗小脸蛋。。温温的毛巾擦一擦，小脸白又净。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_6",
+    "text": "Use the soap, please.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_6_exp",
+    "text": "Use the soap, please.。请用香皂洗洗手。。搓出香喷喷的泡泡，细菌全赶跑。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_7",
+    "text": "Brush your teeth.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_7_exp",
+    "text": "Brush your teeth.。刷刷小牙齿。。上上下下、里里外外刷干净！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_8",
+    "text": "Wipe with the towel.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_8_exp",
+    "text": "Wipe with the towel.。用毛巾擦擦干。。小手小脸擦干爽，真舒服。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_9",
+    "text": "Comb your hair.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_9_exp",
+    "text": "Comb your hair.。梳梳小头发。。照照小镜子，头发整整齐齐。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s1_10",
+    "text": "I am fresh and clean!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s1_10_exp",
+    "text": "I am fresh and clean!。我干干净净、神清气爽啦！。洗漱完毕，精神百倍迎接新一天！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_water",
+    "text": "water",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_milk",
+    "text": "milk",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_bread",
+    "text": "bread",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_egg",
+    "text": "egg",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_yummy",
+    "text": "yummy",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_1",
+    "text": "I am hungry.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_1_exp",
+    "text": "I am hungry.。我肚子饿啦。。摸摸小肚子，告诉妈妈该开饭啦。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_2",
+    "text": "I want water, please.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_2_exp",
+    "text": "I want water, please.。请给我倒点水。。口渴时最礼貌的完整表达！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_3",
+    "text": "Drink some milk.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_3_exp",
+    "text": "Drink some milk.。喝点香甜牛奶。。咕嘟咕嘟喝牛奶，长得高又壮！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_4",
+    "text": "I like eggs and bread.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_4_exp",
+    "text": "I like eggs and bread.。我喜欢鸡蛋和面包。。表达自己喜欢的健康食物。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_5",
+    "text": "It's so yummy!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_5_exp",
+    "text": "It's so yummy!。真好吃呀！。吃到美味时开心地向大家夸奖！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_6",
+    "text": "Can I have an apple?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_6_exp",
+    "text": "Can I have an apple?。我可以吃个苹果吗？。想吃水果时主动礼貌询问大人。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_7",
+    "text": "More, please.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_7_exp",
+    "text": "More, please.。我还想要一点。。吃完了还想加餐时最灵巧的短语！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_8",
+    "text": "No, thank you.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_8_exp",
+    "text": "No, thank you.。不要了，谢谢你。。吃饱了礼貌婉拒大人递来的食物。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_9",
+    "text": "Wipe your mouth.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_9_exp",
+    "text": "Wipe your mouth.。擦擦小嘴巴。。吃完饭用餐巾纸擦干净小嘴巴。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s2_10",
+    "text": "I am full!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s2_10_exp",
+    "text": "I am full!。我吃得饱饱的啦！。拍拍满足的小肚皮！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_shoes",
+    "text": "shoes",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_socks",
+    "text": "socks",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_coat",
+    "text": "coat",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_hat",
+    "text": "hat",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_puton",
+    "text": "put on",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_1",
+    "text": "Put on your socks.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_1_exp",
+    "text": "Put on your socks.。穿上小袜子。。套上一对暖暖的花袜子。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_2",
+    "text": "Put on your shoes.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_2_exp",
+    "text": "Put on your shoes.。穿上你的鞋子。。分清左右脚，小鞋穿整齐！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_3",
+    "text": "Wear your warm coat.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_3_exp",
+    "text": "Wear your warm coat.。穿上暖和的外套。。外面风大，穿上外套不受凉。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_4",
+    "text": "Where is my hat?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_4_exp",
+    "text": "Where is my hat?。我的帽子在哪里？。找不到帽子时向妈妈提问。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_5",
+    "text": "Here it is!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_5_exp",
+    "text": "Here it is!。在这里呢！。在沙发上找到了，开心地喊出来！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_6",
+    "text": "Zip up your jacket.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_6_exp",
+    "text": "Zip up your jacket.。拉上拉链。。拉链拉拉拉，保暖又帅气！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_7",
+    "text": "Take your backpack.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_7_exp",
+    "text": "Take your backpack.。背上你的小书包。。装好水壶和小手帕，背好书包。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_8",
+    "text": "Are you ready?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_8_exp",
+    "text": "Are you ready?。你准备好了吗？。大人在门口问你准备好了没有。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_9",
+    "text": "Yes, I'm ready!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_9_exp",
+    "text": "Yes, I'm ready!。是的，我准备好啦！。大声自信地回应，整装待发！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s3_10",
+    "text": "Let's go!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s3_10_exp",
+    "text": "Let's go!。我们出发吧！。推开家门，欢快迈步去幼儿园！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_bus",
+    "text": "bus",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_car",
+    "text": "car",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_dog",
+    "text": "dog",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_flower",
+    "text": "flower",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_stop",
+    "text": "stop",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_1",
+    "text": "Hold my hand, please.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_1_exp",
+    "text": "Hold my hand, please.。请牵好我的手。。在马路上紧紧牵着大人的手最安全。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_2",
+    "text": "Look, a big bus!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_2_exp",
+    "text": "Look, a big bus!。看，好大一辆公交车！。指着开过去的双层巴士惊叹！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_3",
+    "text": "Red light, stop!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_3_exp",
+    "text": "Red light, stop!。红灯停！。过马路安全规则牢牢记在心。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_4",
+    "text": "Green light, go!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_4_exp",
+    "text": "Green light, go!。绿灯行！。绿灯亮起，走斑马线稳稳过马路。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_5",
+    "text": "The car is fast.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_5_exp",
+    "text": "The car is fast.。小汽车开得好快呀。。观察车辆飞驰，感受快与慢。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_6",
+    "text": "Look at the blue sky.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_6_exp",
+    "text": "Look at the blue sky.。看看蓝蓝的天空。。抬头望望飘着白云的大晴天。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_7",
+    "text": "I see a little bird.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_7_exp",
+    "text": "I see a little bird.。我看见一只小鸟。。树枝上停着小鸟叽叽喳喳唱歌。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_8",
+    "text": "The dog is cute.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_8_exp",
+    "text": "The dog is cute.。那只小狗好可爱。。看见摇尾巴的小金毛犬。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_9",
+    "text": "Beautiful flowers!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_9_exp",
+    "text": "Beautiful flowers!。好漂亮的花朵呀！。路边开满了五颜六色的花花。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s4_10",
+    "text": "What color is it?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s4_10_exp",
+    "text": "What color is it?。这是什么颜色？。考考爸爸妈妈：Red? Yellow? Blue?",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_run",
+    "text": "run",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_jump",
+    "text": "jump",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_slide",
+    "text": "slide",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_swing",
+    "text": "swing",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_ball",
+    "text": "ball",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_1",
+    "text": "I can run fast!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_1_exp",
+    "text": "I can run fast!。我能跑得好快！。在草地上像小旋风一样奔跑！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_2",
+    "text": "Jump up and down!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_2_exp",
+    "text": "Jump up and down!。跳上跳下！。佩奇踩水坑名句，双脚原地跳！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_3",
+    "text": "Let's go on the slide.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_3_exp",
+    "text": "Let's go on the slide.。我们去滑滑梯吧。。排好队，一步步爬上滑梯阶梯。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_4",
+    "text": "Whee, down we go!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_4_exp",
+    "text": "Whee, down we go!。哇，滑下来咯！。哧溜一声滑到底，欢笑声不停！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_5",
+    "text": "Push me on the swing.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_5_exp",
+    "text": "Push me on the swing.。推我荡秋千吧。。双手抓紧秋千绳，请爸爸推一把。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_6",
+    "text": "Higher and higher!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_6_exp",
+    "text": "Higher and higher!。荡得越来越高啦！。秋千荡起来，像小鸟一样飞翔！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_7",
+    "text": "Catch the ball!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_7_exp",
+    "text": "Catch the ball!。接住小球！。和小伙伴一起抛球接球游戏。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_8",
+    "text": "Kick the ball!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_8_exp",
+    "text": "Kick the ball!。踢足球！。抬起小脚，用力把球踢进球门！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_9",
+    "text": "Let's play together.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_9_exp",
+    "text": "Let's play together.。我们一起玩吧。。主动邀请别的小朋友一起做游戏。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s5_10",
+    "text": "This is so much fun!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s5_10_exp",
+    "text": "This is so much fun!。这太好玩啦！。满脸灿烂笑容，尽情享受快乐童年！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_hello",
+    "text": "hello",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_thanks",
+    "text": "thank you",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_welcome",
+    "text": "welcome",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_sorry",
+    "text": "sorry",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_share",
+    "text": "share",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_1",
+    "text": "Hello, my friend!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_1_exp",
+    "text": "Hello, my friend!。你好，我的好朋友！。见到好伙伴，热情招招手。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_2",
+    "text": "What's your name?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_2_exp",
+    "text": "What's your name?。你叫什么名字？。认识新朋友时的第一句魔法问候。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_3",
+    "text": "My name is baby.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_3_exp",
+    "text": "My name is baby.。我的名字是宝宝。。大方自信地介绍自己的英文名字。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_4",
+    "text": "Here you go.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_4_exp",
+    "text": "Here you go.。给你拿好。。双手把玩具或彩笔递给对方。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_5",
+    "text": "Thank you so much!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_5_exp",
+    "text": "Thank you so much!。非常谢谢你！。收到别人帮助或礼物，大声感谢！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_6",
+    "text": "You're welcome.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_6_exp",
+    "text": "You're welcome.。不用客气。。别人对你说谢谢，温和回应这句。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_7",
+    "text": "I'm sorry.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_7_exp",
+    "text": "I'm sorry.。对不起。。不小心碰倒了别的小积木，先道歉。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_8",
+    "text": "That's okay.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_8_exp",
+    "text": "That's okay.。没关系。。大度原谅别人，握握手还是好朋友。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_9",
+    "text": "It's your turn.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_9_exp",
+    "text": "It's your turn.。轮到你啦。。轮流荡秋千、排队玩游戏。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s6_10",
+    "text": "Let's share toys.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s6_10_exp",
+    "text": "Let's share toys.。我们一起分享玩具吧。。懂得分享的小朋友人人都喜欢！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_happy",
+    "text": "happy",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_sad",
+    "text": "sad",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_cold",
+    "text": "cold",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_hot",
+    "text": "hot",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_hug",
+    "text": "hug",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_1",
+    "text": "I am happy today!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_1_exp",
+    "text": "I am happy today!。我今天好开心！。蹦蹦跳跳露出开心的笑容。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_2",
+    "text": "Don't be sad.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_2_exp",
+    "text": "Don't be sad.。不要难过啦。。安慰身边掉眼泪的小伙伴。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_3",
+    "text": "I'm cold.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_3_exp",
+    "text": "I'm cold.。我觉得有点冷。。双手抱臂，告诉妈妈添件衣服。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_4",
+    "text": "It's hot outside.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_4_exp",
+    "text": "It's hot outside.。外面好热呀。。夏天太阳晒，扇扇小风扇。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_5",
+    "text": "I need to go to potty.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_5_exp",
+    "text": "I need to go to potty.。我要去上厕所啦。。有了便意，大方及时告诉老师！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_6",
+    "text": "My tummy hurts.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_6_exp",
+    "text": "My tummy hurts.。我肚子有点疼。。身体不舒服要第一时间告诉大人。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_7",
+    "text": "It hurts here.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_7_exp",
+    "text": "It hurts here.。这里碰疼了。。用小手指着磕碰的膝盖或手肘。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_8",
+    "text": "Blow, blow, it's okay.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_8_exp",
+    "text": "Blow, blow, it's okay.。吹一吹就不疼啦。。妈妈温柔地给伤口吹吹气。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_9",
+    "text": "I need a hug.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_9_exp",
+    "text": "I need a hug.。我想要一个大大的拥抱。。张开双臂扑进爸爸妈妈怀里。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s7_10",
+    "text": "I love you!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s7_10_exp",
+    "text": "I love you!。我好爱你！。亲亲妈妈的脸颊，说出最甜的话！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_pig",
+    "text": "pig",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_puppy",
+    "text": "puppy",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_dinosaur",
+    "text": "dinosaur",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_puddle",
+    "text": "puddle",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_rescue",
+    "text": "rescue",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_1",
+    "text": "I'm Peppa Pig!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_1_exp",
+    "text": "I'm Peppa Pig!。我是小猪佩奇！。小猪佩奇动画片的经典开场第一句！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_2",
+    "text": "I love muddy puddles!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_2_exp",
+    "text": "I love muddy puddles!。我最爱踩泥坑啦！。穿上雨靴在泥水里欢呼雀跃！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_3",
+    "text": "Splish, splash, splosh!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_3_exp",
+    "text": "Splish, splash, splosh!。扑通扑通踩水花！。踩水坑时的欢快拟声词！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_4",
+    "text": "Dinosaur, grrr!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_4_exp",
+    "text": "Dinosaur, grrr!。大恐龙，嗷呜！。乔治最心爱的大恐龙咆哮！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_5",
+    "text": "That's so funny!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_5_exp",
+    "text": "That's so funny!。太搞笑啦，太逗啦！。佩奇全家倒在地上笑得哼哼叫！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_6",
+    "text": "Ready or not, here I come!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_6_exp",
+    "text": "Ready or not, here I come!。捉迷藏：我来找你们啦！。佩奇玩捉迷藏数到十后的名台词！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_7",
+    "text": "PAW Patrol is on a roll!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_7_exp",
+    "text": "PAW Patrol is on a roll!。汪汪队要出动啦！。莱德队长召集狗狗们的经典口令！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_8",
+    "text": "Chase is on the case!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_8_exp",
+    "text": "Chase is on the case!。包在阿奇身上！。勇敢警犬阿奇接受任务时的帅气回答！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_9",
+    "text": "I'm fired up!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_9_exp",
+    "text": "I'm fired up!。毛毛：我热情满满准备救援！。消防小狗毛毛的标志性出击口号！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s8_10",
+    "text": "Let's take to the sky!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s8_10_exp",
+    "text": "Let's take to the sky!。天天：让我们飞上蓝天吧！。直升机飞行员天天翻跟头飞上天！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_cleanup",
+    "text": "clean up",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_box",
+    "text": "box",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_toy",
+    "text": "toy",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_help",
+    "text": "help",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_goodjob",
+    "text": "good job",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_1",
+    "text": "Time to clean up.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_1_exp",
+    "text": "Time to clean up.。该收拾整理啦。。做完游戏，送玩具们回家啦！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_2",
+    "text": "Put the toys in the box.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_2_exp",
+    "text": "Put the toys in the box.。把玩具放进盒子里。。积木娃娃整齐收进大箱子。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_3",
+    "text": "Pick up the blocks.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_3_exp",
+    "text": "Pick up the blocks.。把地上的积木捡起来。。地上一块也不落下，干干净净。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_4",
+    "text": "I can do it!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_4_exp",
+    "text": "I can do it!。我自己能做到！。不用大人代劳，自己独立完成！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_5",
+    "text": "Can you help me?",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_5_exp",
+    "text": "Can you help me?。你能帮帮我吗？。箱子太重搬不动，礼貌请求支援。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_6",
+    "text": "Thank you for your help.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_6_exp",
+    "text": "Thank you for your help.。谢谢你的帮助。。别人搭了把手，真诚说声谢谢。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_7",
+    "text": "Please wait a minute.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_7_exp",
+    "text": "Please wait a minute.。请等一等哦。。学会耐心轮流和等待。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_8",
+    "text": "Listen to Mommy.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_8_exp",
+    "text": "Listen to Mommy.。听妈妈说。。安静竖起小耳朵，专心听讲。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_9",
+    "text": "Be careful, sweetie.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_9_exp",
+    "text": "Be careful, sweetie.。小心一点哦，宝贝。。走路看路，下台阶慢慢走。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s9_10",
+    "text": "Good job, little helper!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s9_10_exp",
+    "text": "Good job, little helper!。做得很棒，小帮手！。收拾完房间，妈妈给大大的赞！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_w_sleep",
+    "text": "sleep",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_bed",
+    "text": "bed",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_story",
+    "text": "story",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_moon",
+    "text": "moon",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_w_kiss",
+    "text": "kiss",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_1",
+    "text": "It is dark outside.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_1_exp",
+    "text": "It is dark outside.。外面天黑啦。。太阳公公下山，夜幕悄悄降临。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_2",
+    "text": "Look at the moon and stars.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_2_exp",
+    "text": "Look at the moon and stars.。看看月亮和小星星。。窗外一闪一闪亮晶晶的小星斗。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_3",
+    "text": "Time for bed.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_3_exp",
+    "text": "Time for bed.。该睡觉觉啦。。脱下小拖鞋，钻进软软的被窝。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_4",
+    "text": "Let's read a bedtime story.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_4_exp",
+    "text": "Let's read a bedtime story.。我们读一本睡前故事吧。。依偎在妈妈怀里听经典绘本。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_5",
+    "text": "Turn off the light, please.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_5_exp",
+    "text": "Turn off the light, please.。请把灯关上吧。。房间暗下来，让小眼睛好好休息。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_6",
+    "text": "Give me a good night kiss.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_6_exp",
+    "text": "Give me a good night kiss.。给我一个晚安吻吧。。妈妈在额头上轻轻落下一个吻。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_7",
+    "text": "I love you, Mommy and Daddy.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_7_exp",
+    "text": "I love you, Mommy and Daddy.。我爱你们，爸爸妈妈。。睡前说出最温暖的爱意。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_8",
+    "text": "Good night, sleep tight.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_8_exp",
+    "text": "Good night, sleep tight.。晚安，睡个好觉。。盖好小被子，做个香甜好梦。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_9",
+    "text": "Close your eyes.",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_9_exp",
+    "text": "Close your eyes.。闭上你的小眼睛。。长长的睫毛垂下来，进入梦乡。",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_s10_10",
+    "text": "Sweet dreams!",
+    "lang": "en-US"
+  },
+  {
+    "id": "eng_s10_10_exp",
+    "text": "Sweet dreams!。做个甜甜的美梦！。梦见快乐的小白兔和小恐龙！",
+    "lang": "zh-CN"
   }
 ]

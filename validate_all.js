@@ -128,14 +128,65 @@ books.forEach(b => {
 });
 
 const hanziKeys = Object.keys(sandbox.window.HANZI_DATA || {});
-if(hanziKeys.length < 60) {
+if (hanziKeys.length < 60) {
   console.error(`[FAIL] 离线字库数量不足: ${hanziKeys.length}`);
 } else {
   console.log(`[INFO] 离线字库完备，收录 ${hanziKeys.length} 个核心中班汉字笔画`);
 }
 
-if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60) {
-  console.log('🎉 验证全部通过！四大开源对标功能（笔顺描红、原生拖拽、十格阵、故事绘本）完整就绪！');
+// 5. 场景口语学堂 100 句专项校验
+console.log('[INFO] 开始场景口语学堂 100 句全量校验...');
+vm.runInContext(fs.readFileSync('data_english_scenes.js', 'utf8'), sandbox);
+
+const scenes = sandbox.window.ENGLISH_SCENES || [];
+let engAudioMissing = 0;
+let engChunkMissing = 0;
+let totalSceneWords = 0;
+let totalSceneSents = 0;
+
+if(scenes.length !== 10){
+  console.error(`[FAIL] 场景数量不符，应为 10 个场景，实际: ${scenes.length}`);
+}
+
+scenes.forEach((sc, scIdx) => {
+  if(!sc.words || sc.words.length < 5){
+    console.error(`[FAIL] 场景 ${sc.id} 词汇不足 5 个`);
+  }
+  sc.words.forEach(w => {
+    totalSceneWords++;
+    const wPath = 'audio/' + w.audioId + '.mp3';
+    if(!fs.existsSync(wPath) || fs.statSync(wPath).size < 100){
+      console.error(`[FAIL] 生词音频缺失: ${wPath}`);
+      engAudioMissing++;
+    }
+  });
+
+  if(!sc.sentences || sc.sentences.length !== 10){
+    console.error(`[FAIL] 场景 ${sc.id} 句子数不为 10`);
+  }
+  sc.sentences.forEach(s => {
+    totalSceneSents++;
+    if(!s.chunks || s.chunks.length === 0){
+      console.error(`[FAIL] 句子未拆解语块 chunks: ${s.id}`);
+      engChunkMissing++;
+    }
+    const sPath = 'audio/' + s.audioId + '.mp3';
+    if(!fs.existsSync(sPath) || fs.statSync(sPath).size < 100){
+      console.error(`[FAIL] 句子朗读音频缺失: ${sPath}`);
+      engAudioMissing++;
+    }
+    const expPath = 'audio/' + (s.explainAudioId || (s.audioId + '_exp')) + '.mp3';
+    if(!fs.existsSync(expPath) || fs.statSync(expPath).size < 100){
+      console.error(`[FAIL] 句子精讲音频缺失: ${expPath}`);
+      engAudioMissing++;
+    }
+  });
+});
+
+console.log(`[INFO] 场景口语学堂检验完毕: ${scenes.length} 大场景，${totalSceneWords} 个核心词，${totalSceneSents} 个生活高频句，音频缺失: ${engAudioMissing}`);
+
+if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100) {
+  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀完整就绪，零缺陷交付！');
 } else {
   console.error('存在验证不通过项，请检查修复！');
   process.exit(1);
