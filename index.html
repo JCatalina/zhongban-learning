@@ -205,7 +205,8 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 .print-sheet h1{font-size:20px;text-align:center;margin:6px 0;}
 .print-sheet .pmeta{display:flex;gap:14px;font-size:13px;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px;justify-content:space-between;font-weight:bold;}
 .pitem{display:flex;align-items:center;gap:12px;margin:12px 0;font-size:16px;min-height:52px;page-break-inside:avoid;}
-.pitem .ppic{font-size:34px;width:70px;text-align:center;flex:0 0 auto;}
+.pitem .ppic{font-size:30px;min-width:70px;max-width:250px;text-align:center;flex:0 0 auto;white-space:nowrap;line-height:1.35;}
+.pitem .ppic.long{font-size:16px;letter-spacing:1px;}
 .pitem .pq{flex:1;font-weight:bold;line-height:1.6;}
 .pblank{width:90px;border-bottom:2px solid #000;height:30px;flex:0 0 auto;}
 .pans{margin-top:16px;border-top:1px dashed #999;padding-top:8px;font-size:11px;color:#444;line-height:1.8;}
@@ -213,13 +214,16 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 .poemprint .pl{font-size:15px;line-height:2;font-weight:bold;}
 
 @media (max-width:600px){
-  .topbar{padding:8px 10px;}
-  .logo{font-size:1.05rem;}
-  .tabs{top:52px;}
+  .topbar{padding:8px 10px;gap:6px;}
+  .logo{font-size:.98rem;white-space:nowrap;letter-spacing:0;line-height:1.25;}
+  .logo .huh{display:none;}
+  .pill{padding:5px 10px;font-size:.85rem;}
+  .ibtn{padding:6px 9px;font-size:.8rem;}
+  .tabs{top:48px;}
   main{padding:12px 10px 90px;}
   .mgrid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
   .mcard .ic{font-size:2rem;}
-  .qpic{font-size:56px;}
+  .qpic{font-size:52px;padding:12px 4px;}
   .qtext{font-size:1.14rem;}
   .opt{font-size:1.25rem;padding:13px 8px;}
   .banner h1{font-size:1.35rem;}
@@ -379,6 +383,44 @@ function toast(msg){
 }
 function updatePill(){ document.getElementById('starPill').textContent = '⭐ ' + totalStars(); }
 
+/* 题图自适应：长行（排队动物、比多少、10个物品等）在窄屏自动缩小字号，
+   保证整行完整显示、不被卡片裁切。
+   测量方式：把内容复制到离屏容器按真实单行宽度测量，再按比例缩放（scrollWidth 对居中内联内容不可靠） */
+function measurePicWidth(el, fs){
+  const m=document.createElement('span');
+  m.style.cssText='position:absolute;left:-99999px;top:0;display:inline-block;white-space:nowrap;'
+    +'font-family:'+getComputedStyle(el).fontFamily+';font-size:'+fs+'px;line-height:1.3;';
+  m.innerHTML=el.innerHTML;
+  document.body.appendChild(m);
+  const w=m.getBoundingClientRect().width;
+  m.remove();
+  return w;
+}
+function fitPic(){
+  const el=document.getElementById('qpic');
+  if(!el) return;
+  el.style.fontSize='';
+  const base=parseFloat(getComputedStyle(el).fontSize)||52;
+  const avail=el.clientWidth-10;
+  let fs=base;
+  for(let i=0;i<4;i++){
+    const w=measurePicWidth(el, fs);
+    if(w<=avail) break;
+    fs=Math.max(14, Math.floor(fs*(avail-4)/w));
+    if(fs<=14) break;
+  }
+  if(fs>=20){
+    // 字号仍然够大：整行按比例缩小显示（不换行，保持"从左往右数"等语义）
+    if(fs<base) el.style.fontSize=fs+'px';
+  } else {
+    // 物品太多、缩到 20px 以下会看不清：改为稍大字号 + 自动换行（计数类题目可接受）
+    el.querySelectorAll('.no-wrap').forEach(s => { s.style.whiteSpace='normal'; });
+    el.style.fontSize='22px';
+  }
+}
+let _fitTimer=null;
+window.addEventListener('resize', ()=>{ clearTimeout(_fitTimer); _fitTimer=setTimeout(fitPic, 120); });
+
 /* ---------- 路由 ---------- */
 function route(){
   const h = (location.hash||'#/home').replace(/^#\/?/,'');
@@ -512,6 +554,8 @@ function renderQ(){
   '</div>';
   if(store.s.autoRead) setTimeout(sayQ, 450);
   if(solvedQ) setTimeout(()=>showAns(false,true), 250);
+  requestAnimationFrame(fitPic);
+  setTimeout(fitPic, 60);
 }
 
 function choose(i, el){
@@ -713,7 +757,7 @@ function printSet(){
     '<h1>🏫 中班作业纸 · '+(S.qi===0?'':'(从第'+(S.qi+1)+'题起)')+'</h1><h1 style="font-size:16px">'+m.name+' — '+s.name+'</h1>'+
     '<div class="pmeta"><span>姓名：__________</span><span>日期：____年__月__日</span><span>用时：______</span><span>得分：______</span></div>'+
     qs.slice(S.qi).map((q,i)=>
-      '<div class="pitem"><span class="ppic">'+q.pic+'</span><span class="pq">'+(S.qi+i+1)+'. '+q.q+'</span><span class="pblank"></span></div>'
+      '<div class="pitem"><span class="ppic'+(picTokens(q.pic).length>5?' long':'')+'">'+q.pic+'</span><span class="pq">'+(S.qi+i+1)+'. '+q.q+'</span><span class="pblank"></span></div>'
     ).join('')+
     '<div class="pans">【家长区·答案】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+optText(q.opts[q.a])+'　'+(q.ans!==undefined?q.ans:'')).join('　')+'</div>'+
     '<div class="pans">【讲解】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+(q.w||'')).join('　')+'</div>'+
