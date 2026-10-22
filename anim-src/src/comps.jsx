@@ -556,4 +556,384 @@ export function OddLineAnim() {
   );
 }
 
-export const ALL = { add: AddAnim, sub: SubAnim, split: SplitAnim, count: CountAnim, compare: CompareAnim, ordinal: OrdinalAnim, neighbor: NeighborAnim, oddEven: OddEvenAnim, oddLine: OddLineAnim };
+/* ---------- 10. 识字乐园：字卡跳跳乐 ---------- */
+export function WordCardAnim(props) {
+  const { char = '字', pinyin = '', pic = '📖', words = '', sentence = '' } = props;
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const bounce = spring({ frame: frame - 18, fps, config: { damping: 9, stiffness: 140 } });
+  const pulse = 1 + 0.05 * Math.sin((frame / 20) * Math.PI * 2);
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['📖', '✏️', '🌟']} />
+      <Caption at={6} size={34} top={12}>📖 认字宝宝 · 读音与组词</Caption>
+
+      {/* 左侧大图符卡片 */}
+      <Pop at={16}>
+        <div style={{
+          position: 'absolute', left: 110, top: 88, width: 170, height: 170,
+          background: '#fff', borderRadius: 28, boxShadow: '0 8px 24px rgba(249,115,22,.18)',
+          border: '4px solid #fed7aa', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          transform: `scale(${bounce})`
+        }}>
+          <div style={{ fontSize: 72 }}>{pic}</div>
+          <div style={{ fontFamily: FONT, fontSize: 18, color: '#9a3412', fontWeight: 800, marginTop: 4 }}>看图认一认</div>
+        </div>
+      </Pop>
+
+      {/* 右侧大汉字 + 拼音 */}
+      <Pop at={32}>
+        <div style={{
+          position: 'absolute', left: 340, top: 78, width: 270, height: 184,
+          background: 'linear-gradient(135deg, #fff 0%, #fff7ed 100%)', borderRadius: 28,
+          boxShadow: '0 10px 28px rgba(0,0,0,.10)', border: '4px solid #fdba74',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          transform: `scale(${pulse})`
+        }}>
+          {pinyin ? (
+            <div style={{
+              background: '#f97316', color: '#fff', padding: '2px 16px', borderRadius: 999,
+              fontFamily: FONT, fontSize: 24, fontWeight: 900, letterSpacing: 2, marginBottom: 2
+            }}>{pinyin}</div>
+          ) : null}
+          <div style={{
+            fontFamily: FONT, fontSize: 94, fontWeight: 900, color: '#ea580c', lineHeight: 1.1
+          }}>{char}</div>
+        </div>
+      </Pop>
+
+      {/* 下方组词与造句胶囊 */}
+      {words ? (
+        <Pop at={60}>
+          <div style={{
+            position: 'absolute', left: '50%', top: 272, transform: 'translateX(-50%)',
+            background: '#fff', borderRadius: 20, padding: '8px 24px', boxShadow: '0 4px 14px rgba(0,0,0,.08)',
+            border: '3px solid #ffedd5', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: 12
+          }}>
+            <span style={{ background: '#ffedd5', color: '#c2410c', padding: '3px 10px', borderRadius: 10, fontSize: 18, fontWeight: 900 }}>组词</span>
+            <span style={{ fontSize: 24, fontWeight: 900, color: INK }}>{words}</span>
+          </div>
+        </Pop>
+      ) : null}
+
+      {sentence ? (
+        <Pop at={85}>
+          <div style={{
+            position: 'absolute', left: '50%', top: 318, transform: 'translateX(-50%)',
+            fontFamily: FONT, fontSize: 20, fontWeight: 800, color: '#047857', whiteSpace: 'nowrap'
+          }}>
+            💬 句子：{sentence}
+          </div>
+        </Pop>
+      ) : null}
+
+      {frame > 75 ? <StarBurst at={78} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+/* ---------- 11. 反义词对对碰：跷跷板天平 ---------- */
+export function AntonymAnim(props) {
+  const { leftWord = '大', rightWord = '小', leftPic = '🐘', rightPic = '🐜', contrastDesc = '' } = props;
+  const frame = useCurrentFrame();
+  const tilt = Math.sin((frame / 22) * Math.PI) * 7;
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🔄', '⚖️', '✨']} />
+      <Caption at={6} size={34} top={12}>🔄 反义词对对碰 · 比一比</Caption>
+
+      {/* 跷跷板横杆与底座 */}
+      <Pop at={16}>
+        <div style={{
+          position: 'absolute', left: 160, top: 195, width: 400, height: 12,
+          background: '#d97706', borderRadius: 6,
+          transform: `rotate(${frame > 45 ? 6 : tilt}deg)`, transformOrigin: 'center center'
+        }}>
+          {/* 左托盘 */}
+          <div style={{
+            position: 'absolute', left: -20, top: -110, width: 140, height: 100,
+            background: '#fff', borderRadius: 20, border: '3px solid #fde68a',
+            boxShadow: '0 6px 18px rgba(0,0,0,.08)', display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center'
+          }}>
+            <div style={{ fontSize: 44 }}>{leftPic}</div>
+            <div style={{ fontSize: 32, fontWeight: 900, color: '#b45309' }}>{leftWord}</div>
+          </div>
+
+          {/* 右托盘 */}
+          <div style={{
+            position: 'absolute', right: -20, top: -110, width: 140, height: 100,
+            background: '#fff', borderRadius: 20, border: '3px solid #fde68a',
+            boxShadow: '0 6px 18px rgba(0,0,0,.08)', display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center'
+          }}>
+            <div style={{ fontSize: 44 }}>{rightPic}</div>
+            <div style={{ fontSize: 32, fontWeight: 900, color: '#2563eb' }}>{rightWord}</div>
+          </div>
+        </div>
+
+        {/* 三角形支架 */}
+        <div style={{
+          position: 'absolute', left: 345, top: 200, width: 0, height: 0,
+          borderLeft: '20px solid transparent', borderRight: '20px solid transparent',
+          borderBottom: '36px solid #b45309'
+        }} />
+      </Pop>
+
+      {/* 底部反义词结论徽章 */}
+      <Pop at={65}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 280, transform: 'translateX(-50%)',
+          background: 'linear-gradient(90deg, #f59e0b 0%, #ef4444 100%)', color: '#fff',
+          borderRadius: 999, padding: '8px 28px', fontFamily: FONT, fontSize: 28, fontWeight: 900,
+          boxShadow: '0 6px 20px rgba(245,158,11,.35)', whiteSpace: 'nowrap'
+        }}>
+          {leftWord} ↔️ {rightWord} 是一对反义词！
+        </div>
+      </Pop>
+
+      {contrastDesc ? (
+        <Pop at={88}>
+          <div style={{
+            position: 'absolute', left: '50%', top: 328, transform: 'translateX(-50%)',
+            fontFamily: FONT, fontSize: 20, fontWeight: 800, color: '#78350f', whiteSpace: 'nowrap'
+          }}>
+            💡 {contrastDesc}
+          </div>
+        </Pop>
+      ) : null}
+
+      {frame > 75 ? <StarBurst at={78} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+/* ---------- 12. 安全好习惯：红绿灯与爱心守护盾 ---------- */
+export function SafetyRuleAnim(props) {
+  const { title = '安全小卫士', pic = '🚦', rule = '', isSafe = true } = props;
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const shieldScale = spring({ frame: frame - 25, fps, config: { damping: 10, stiffness: 120 } });
+  const glow = 1 + 0.08 * Math.sin((frame / 18) * Math.PI * 2);
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🛡️', '🚦', '💚']} />
+      <Caption at={6} size={34} top={12}>🚦 安全小卫士 · 牢记安全好习惯</Caption>
+
+      {/* 左侧场景大卡片 */}
+      <Pop at={18}>
+        <div style={{
+          position: 'absolute', left: 100, top: 85, width: 220, height: 180,
+          background: '#fff', borderRadius: 28, border: '4px solid #bbf7d0',
+          boxShadow: '0 8px 24px rgba(16,185,129,.15)', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center'
+        }}>
+          <div style={{ fontSize: 68 }}>{pic}</div>
+          <div style={{ fontFamily: FONT, fontSize: 20, color: '#15803d', fontWeight: 900, marginTop: 6 }}>
+            {title}
+          </div>
+        </div>
+      </Pop>
+
+      {/* 右侧守护徽章 */}
+      <div style={{
+        position: 'absolute', left: 370, top: 80, width: 250, height: 190,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        transform: `scale(${shieldScale * glow})`
+      }}>
+        <div style={{ fontSize: 80 }}>{isSafe ? '🛡️' : '⚠️'}</div>
+        <div style={{
+          background: isSafe ? '#10b981' : '#ef4444', color: '#fff',
+          padding: '6px 20px', borderRadius: 999, fontFamily: FONT, fontSize: 24, fontWeight: 900,
+          marginTop: 6, boxShadow: '0 4px 14px rgba(0,0,0,.15)'
+        }}>
+          {isSafe ? '✅ 正确做法 · 点赞' : '🚫 危险行为 · 远离'}
+        </div>
+      </div>
+
+      {/* 底部安全口诀条 */}
+      <Pop at={55}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 285, transform: 'translateX(-50%)',
+          background: '#fff', border: '3px solid #86efac', borderRadius: 24,
+          padding: '8px 24px', boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+          fontFamily: FONT, fontSize: 24, fontWeight: 900, color: '#166534', whiteSpace: 'nowrap'
+        }}>
+          🌟 安全锦囊：{rule || '保护自己，安全第一！'}
+        </div>
+      </Pop>
+
+      {frame > 60 ? <StarBurst at={62} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+/* ---------- 13. 科学小实验：探索大自然 ---------- */
+export function ExperimentAnim(props) {
+  const { title = '科学小实验', pic = '🛶 💧', action = '浮在水面上', desc = '' } = props;
+  const frame = useCurrentFrame();
+  const floatY = Math.sin((frame / 20) * Math.PI) * 8;
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🧪', '🔍', '💡']} />
+      <Caption at={6} size={34} top={12}>🧪 科学小问号 · 探索神奇大自然</Caption>
+
+      {/* 实验演示台 */}
+      <Pop at={18}>
+        <div style={{
+          position: 'absolute', left: 140, top: 78, width: 440, height: 190,
+          background: 'linear-gradient(180deg, #f0fdf4 0%, #e0f2fe 100%)',
+          borderRadius: 28, border: '4px solid #7dd3fc',
+          boxShadow: '0 8px 28px rgba(2,132,199,.15)', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', overflow: 'hidden'
+        }}>
+          <div style={{ fontSize: 68, transform: `translateY(${floatY}px)` }}>
+            {pic}
+          </div>
+          <div style={{
+            background: '#0284c7', color: '#fff', borderRadius: 999,
+            padding: '4px 20px', fontFamily: FONT, fontSize: 24, fontWeight: 900, marginTop: 10
+          }}>
+            ✨ 科学现象：{action}
+          </div>
+        </div>
+      </Pop>
+
+      {/* 底部原理卡 */}
+      <Pop at={55}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 285, transform: 'translateX(-50%)',
+          background: '#fff', border: '3px solid #fed7aa', borderRadius: 22,
+          padding: '8px 26px', boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+          fontFamily: FONT, fontSize: 23, fontWeight: 900, color: '#9a3412', whiteSpace: 'nowrap'
+        }}>
+          💡 原理：{desc || '大自然真奇妙，仔细观察发现多！'}
+        </div>
+      </Pop>
+
+      {frame > 60 ? <StarBurst at={62} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+/* ---------- 14. 社会常识与好习惯 ---------- */
+export function SocietyJobAnim(props) {
+  const { title = '社会大家庭', pic = '🤝', role = '好朋友', desc = '' } = props;
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const popScale = spring({ frame: frame - 20, fps, config: { damping: 11, stiffness: 130 } });
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🤝', '❤️', '🎈']} />
+      <Caption at={6} size={34} top={12}>🤝 社会大本营 · 礼貌懂事好宝宝</Caption>
+
+      <Pop at={18}>
+        <div style={{
+          position: 'absolute', left: 210, top: 76, width: 300, height: 195,
+          background: '#fff', borderRadius: 30, border: '4px solid #fbcfe8',
+          boxShadow: '0 10px 28px rgba(236,72,153,.14)', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', transform: `scale(${popScale})`
+        }}>
+          <div style={{ fontSize: 74 }}>{pic}</div>
+          <div style={{
+            background: '#ec4899', color: '#fff', padding: '4px 18px', borderRadius: 999,
+            fontFamily: FONT, fontSize: 26, fontWeight: 900, marginTop: 8
+          }}>
+            {role}
+          </div>
+        </div>
+      </Pop>
+
+      <Pop at={55}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 288, transform: 'translateX(-50%)',
+          background: '#fff', border: '3px solid #f472b6', borderRadius: 22,
+          padding: '8px 26px', boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+          fontFamily: FONT, fontSize: 23, fontWeight: 900, color: '#be185d', whiteSpace: 'nowrap'
+        }}>
+          ❤️ {desc || '懂礼貌、爱分享，大家都是好伙伴！'}
+        </div>
+      </Pop>
+
+      {frame > 60 ? <StarBurst at={62} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+/* ---------- 15. 全场景智能兜底概念卡动画（100%覆盖全模块） ---------- */
+export function ConceptCardAnim(props) {
+  const { title = '知识小宝典', pic = '⭐', ans = '', why = '' } = props;
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const scale = spring({ frame: frame - 18, fps, config: { damping: 10, stiffness: 130 } });
+  const pulse = 1 + 0.04 * Math.sin((frame / 20) * Math.PI * 2);
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🌟', '🎈', '🎓']} />
+      <Caption at={6} size={34} top={12}>🎓 {title} · 动画大解析</Caption>
+
+      {/* 中央主卡片 */}
+      <Pop at={16}>
+        <div style={{
+          position: 'absolute', left: 110, top: 76, width: 220, height: 195,
+          background: '#fff', borderRadius: 28, border: '4px solid #fed7aa',
+          boxShadow: '0 8px 24px rgba(249,115,22,.15)', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', transform: `scale(${scale})`
+        }}>
+          <div style={{ fontSize: 68, textAlign: 'center' }}>{pic}</div>
+          <div style={{ fontFamily: FONT, fontSize: 18, color: '#a58c6b', fontWeight: 800, marginTop: 4 }}>
+            观察图画想一想
+          </div>
+        </div>
+      </Pop>
+
+      {/* 右侧答案大徽章 */}
+      <Pop at={34}>
+        <div style={{
+          position: 'absolute', left: 360, top: 82, width: 260, height: 184,
+          background: 'linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%)', borderRadius: 28,
+          border: '4px solid #86efac', boxShadow: '0 10px 26px rgba(16,185,129,.18)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          transform: `scale(${pulse})`
+        }}>
+          <div style={{ fontSize: 46 }}>🎉</div>
+          <div style={{ fontSize: 18, color: '#047857', fontWeight: 900 }}>正确答案</div>
+          <div style={{
+            fontFamily: FONT, fontSize: 32, fontWeight: 900, color: '#15803d',
+            marginTop: 4, textAlign: 'center', padding: '0 12px'
+          }}>
+            {ans}
+          </div>
+        </div>
+      </Pop>
+
+      {/* 底部解析精要条 */}
+      <Pop at={58}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 288, transform: 'translateX(-50%)',
+          background: '#fff', border: '3px solid #fde047', borderRadius: 22,
+          padding: '8px 24px', boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+          fontFamily: FONT, fontSize: 21, fontWeight: 900, color: INK, whiteSpace: 'nowrap',
+          maxWidth: 660, overflow: 'hidden', textOverflow: 'ellipsis'
+        }}>
+          💡 小老师说：{why || '学会新本领，你真是个聪明的小宝贝！'}
+        </div>
+      </Pop>
+
+      {frame > 62 ? <StarBurst at={65} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
+export const ALL = {
+  add: AddAnim, sub: SubAnim, split: SplitAnim, count: CountAnim, compare: CompareAnim,
+  ordinal: OrdinalAnim, neighbor: NeighborAnim, oddEven: OddEvenAnim, oddLine: OddLineAnim,
+  wordCard: WordCardAnim, antonym: AntonymAnim, safetyRule: SafetyRuleAnim,
+  experiment: ExperimentAnim, societyJob: SocietyJobAnim, conceptCard: ConceptCardAnim
+};

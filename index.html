@@ -280,7 +280,7 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 <script src="data_song.js"></script>
 <script src="data_eng.js"></script>
 <script src="data_society.js"></script>
-<script src="anim/anim-player.js?v=3"></script>
+<script src="anim/anim-player.js?v=4"></script>
 
 <script>
 /* =========================================================
@@ -854,7 +854,7 @@ function showAns(celebrate, silentMark){
       '<div class="why">'+q.w+'</div>'+
       '<div class="btnrow2">'+
         '<button class="spk2" id="btnSayWhy" onclick="sayWhy(this)">🔊 听小老师讲一讲</button>'+
-        ((S.mid==='math'||S.mid==='calc') ? '<button class="spk2 animbtn" onclick="openAnim()">🎬 动画讲解</button>' : '')+
+        (m.layout!=='song' ? '<button class="spk2 animbtn" onclick="openAnim()">🎬 动画讲解</button>' : '')+
       '</div>'+
     '</div>'+
     '<div class="btnrow">'+
@@ -1104,9 +1104,13 @@ function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来
 function stripPlain(s){ return String(s||'').replace(/<[^>]+>/g,''); }
 function picTokens(s){ return Array.from(stripPlain(s).trim().split(/\s+/)); }
 function buildAnimProps(mid,si,q){
+  const m = mod(mid);
+  const s = m && m.sets ? m.sets[si] : null;
   const toks = picTokens(q.pic);
   const emo  = toks.length ? toks[0] : '🍎';
   const cntOf = e => toks.filter(t=>t===e).length;
+
+  // 1. 口算加减法（加法、减法、分成）
   if(mid==='calc'){
     const ns=(q.q.match(/\d+/g)||[]).map(Number);
     if(si===0||si===2){
@@ -1124,10 +1128,12 @@ function buildAnimProps(mid,si,q){
       return {type:'split',emoji:emo,t,p,duration:t*26+270};
     }
   }
+
+  // 2. 数学基础（数数、比较、序数、相邻数、单双数）
   if(mid==='math'){
     if(si===0||si===1){
-      const n=parseInt(q.opts[q.a],10); if(isNaN(n)) return null;
-      return {type:'count',emoji:si===0?'🟠':emo,n,duration:Math.max(200,20+n*30+170)};
+      const n=parseInt(q.opts[q.a],10);
+      if(!isNaN(n)) return {type:'count',emoji:si===0?'🟠':emo,n,duration:Math.max(200,20+n*30+170)};
     }
     if(si===2){
       const gs=stripPlain(q.pic).split('　').map(x=>x.trim()).filter(Boolean);
@@ -1148,8 +1154,8 @@ function buildAnimProps(mid,si,q){
       return {type:'ordinal',items:toks,pos,duration:120+toks.length*38+110};
     }
     if(si===4){
-      const n=parseInt(stripPlain(q.pic),10); if(isNaN(n)) return null;
-      return {type:'neighbor',n,duration:340};
+      const n=parseInt(stripPlain(q.pic),10);
+      if(!isNaN(n)) return {type:'neighbor',n,duration:340};
     }
     if(si===5){
       const ansT=String(q.opts[q.a]);
@@ -1160,7 +1166,96 @@ function buildAnimProps(mid,si,q){
       return {type:'oddEven',emoji:emo,n:cn,duration:Math.max(340,30+cn*30+240)};
     }
   }
-  return null;
+
+  // 3. 识字乐园（反义词 vs 认字卡片）
+  if(mid==='read'){
+    if(s && /反义词/.test(s.name)){
+      const ansT = stripPlain(q.opts[q.a]);
+      const qText = stripPlain(q.q);
+      const targetMatch = qText.match(/[“"']([^“”"']+)[”"']的反义词/);
+      const leftWord = targetMatch ? targetMatch[1] : (ansT === '小' ? '大' : '反义词');
+      const rightWord = ansT;
+      const leftPic = toks[0] || '🐘';
+      const rightPic = toks[1] || '🐜';
+      const wMatch = stripPlain(q.w).match(/造句[：:](.*)/);
+      const contrastDesc = wMatch ? wMatch[1].trim() : (leftWord + ' 与 ' + rightWord + ' 是一对相反的词');
+      return {
+        type: 'antonym',
+        leftWord,
+        rightWord,
+        leftPic,
+        rightPic,
+        contrastDesc,
+        duration: 340
+      };
+    }
+    const ansT = stripPlain(q.opts[q.a]);
+    const pinyinMatch = stripPlain(q.w).match(/读音[：:]\s*([a-zA-Zāáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ]+)/);
+    const wordsMatch = stripPlain(q.w).match(/组词[：:]\s*([^。]+)/);
+    const sentMatch = stripPlain(q.w).match(/句子[：:]\s*([^。]+)/);
+    return {
+      type: 'wordCard',
+      char: ansT,
+      pinyin: pinyinMatch ? pinyinMatch[1] : '',
+      pic: isSvg(q.pic) ? '📖' : (toks[0] || '📖'),
+      words: wordsMatch ? wordsMatch[1] : (ansT + '宝宝'),
+      sentence: sentMatch ? sentMatch[1] : '',
+      duration: 360
+    };
+  }
+
+  // 4. 安全好习惯
+  if(mid==='safe'){
+    const cleanW = stripPlain(q.w).replace(/<[^>]+>/g,'').slice(0, 36);
+    return {
+      type: 'safetyRule',
+      title: s ? s.name : '安全小卫士',
+      pic: isSvg(q.pic) ? '🚦' : (toks.slice(0, 3).join(' ') || '🚦'),
+      rule: cleanW,
+      isSafe: true,
+      duration: 340
+    };
+  }
+
+  // 5. 科学小实验与探索
+  if(mid==='science'){
+    const cleanAns = stripPlain(q.opts[q.a]);
+    const cleanW = stripPlain(q.w).replace(/<[^>]+>/g,'').slice(0, 42);
+    return {
+      type: 'experiment',
+      title: s ? s.name : '科学小问号',
+      pic: isSvg(q.pic) ? '🧪' : (toks.slice(0, 3).join(' ') || '🧪'),
+      action: cleanAns,
+      desc: cleanW,
+      duration: 350
+    };
+  }
+
+  // 6. 社会大本营
+  if(mid==='society'){
+    const cleanAns = stripPlain(q.opts[q.a]);
+    const cleanW = stripPlain(q.w).replace(/<[^>]+>/g,'').slice(0, 38);
+    return {
+      type: 'societyJob',
+      title: s ? s.name : '社会大家庭',
+      pic: isSvg(q.pic) ? '🤝' : (toks[0] || '🤝'),
+      role: cleanAns,
+      desc: cleanW,
+      duration: 340
+    };
+  }
+
+  // 7. 全场景通用概念兜底动画（图形、逻辑、其他所有场景 100% 覆盖）
+  const cleanAns = stripPlain(q.opts[q.a]);
+  const cleanWhy = stripPlain(q.w).replace(/这是<b>.*?<\/b>/g,'').slice(0, 42).trim();
+  return {
+    type: 'conceptCard',
+    title: (m ? m.name : '中班学习') + (s ? ' · ' + s.name : ''),
+    pic: isSvg(q.pic) ? '🎨' : (toks[0] || '⭐'),
+    ans: cleanAns,
+    why: cleanWhy,
+    duration: 330
+  };
 }
 function toggleAnimVoice(){
   const q = curQ();
