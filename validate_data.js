@@ -19,7 +19,8 @@ const dataFiles = [
   'data_science.js',
   'data_safe.js',
   'data_eng.js',
-  'data_song.js'
+  'data_song.js',
+  'data_society.js'
 ];
 
 const sandbox = {};
@@ -135,7 +136,7 @@ if (invalidQuestions.length > 0) {
   console.error(`❌ 发现 ${invalidQuestions.length} 处题目数据异常:`);
   invalidQuestions.forEach(err => console.error(`   - ${err}`));
 } else {
-  console.log('✅ 所有 9 大模块题库字段与逻辑校验全部通过 (100% 合法)');
+  console.log(`✅ 所有 ${totalModules} 大模块题库字段与逻辑校验全部通过 (100% 合法)`);
 }
 
 if (missingAudioFiles.length > 0) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zzb-v1.4.0';
+const CACHE_NAME = 'zzb-v1.5.0';
 
 // 核心预缓存文件清单
 const PRECACHE_URLS = [
@@ -15,6 +15,7 @@ const PRECACHE_URLS = [
   './data_science.js',
   './data_shape.js',
   './data_song.js',
+  './data_society.js',
   './anim/anim-player.js'
 ];
 
