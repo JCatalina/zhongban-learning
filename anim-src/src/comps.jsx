@@ -931,9 +931,118 @@ export function ConceptCardAnim(props) {
   );
 }
 
+/* ---------- 16. 新加坡十格阵数感（Ten-Frame）：具象满五凑十 ---------- */
+export function TenFrameAnim(props) {
+  const { total = 7, a = 5, b = 2, emoji = '🍎' } = props;
+  const frame = useCurrentFrame();
+
+  const boxW = 440, boxH = 176;
+  const left0 = (720 - boxW) / 2, top0 = 84;
+  const cellW = 84, cellH = 80;
+
+  const getCellPos = (idx) => {
+    const col = idx % 5;
+    const row = Math.floor(idx / 5);
+    return {
+      x: left0 + 10 + col * (cellW + 2),
+      y: top0 + 8 + row * cellH,
+    };
+  };
+
+  const filledCount = Math.min(10, Math.max(1, total));
+  const isFullFive = filledCount >= 5;
+
+  return (
+    <AbsoluteFill>
+      <Bg emo={['🔟', '🍎', '⭐']} />
+      <Caption at={6} size={34} top={12}>🔟 十格阵数感 · 满五凑十看一看</Caption>
+
+      {/* 2x5 十格阵大棋盘 */}
+      <Pop at={14}>
+        <div style={{
+          position: 'absolute', left: left0, top: top0, width: boxW, height: boxH,
+          background: '#fff', borderRadius: 24, border: '4px solid #f59e0b',
+          boxShadow: '0 10px 28px rgba(245,158,11,.16)', boxSizing: 'border-box',
+          display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gridTemplateRows: 'repeat(2, 1fr)',
+          overflow: 'hidden'
+        }}>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} style={{
+              borderRight: (i % 5 < 4) ? '2px dashed #fde68a' : 'none',
+              borderBottom: i < 5 ? '3px solid #f59e0b' : 'none',
+              display: 'flex', alignItems: 'center', justifyContent: 'center'
+            }} />
+          ))}
+        </div>
+      </Pop>
+
+      {/* 小球/物品逐一落入格子 */}
+      {Array.from({ length: filledCount }).map((_, i) => {
+        const at = 24 + i * 16;
+        const pos = getCellPos(i);
+        const isSecondRow = i >= 5;
+        return (
+          <Pop key={'ball' + i} at={at}>
+            <div style={{
+              position: 'absolute', left: pos.x + 8, top: pos.y + 6,
+              fontSize: 52, filter: isSecondRow ? 'hue-rotate(60deg)' : 'none'
+            }}>
+              {emoji}
+            </div>
+            {/* 数字标记 */}
+            <div style={{
+              position: 'absolute', left: pos.x + 4, top: pos.y + 4,
+              background: '#f97316', color: '#fff', borderRadius: 999,
+              width: 22, height: 22, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 14, fontWeight: 900, fontFamily: FONT
+            }}>
+              {i + 1}
+            </div>
+          </Pop>
+        );
+      })}
+
+      {/* 满5个提示 */}
+      {isFullFive ? (
+        <Pop at={24 + 5 * 16 + 4}>
+          <div style={{
+            position: 'absolute', left: left0 + boxW + 16, top: top0 + 18,
+            background: '#10b981', color: '#fff', padding: '4px 12px', borderRadius: 12,
+            fontFamily: FONT, fontSize: 16, fontWeight: 900, whiteSpace: 'nowrap'
+          }}>
+            第一排满5个啦！⭐
+          </div>
+        </Pop>
+      ) : null}
+
+      {/* 底部数感公式条 */}
+      <Pop at={Math.max(50, 24 + filledCount * 16 + 12)}>
+        <div style={{
+          position: 'absolute', left: '50%', top: 284, transform: 'translateX(-50%)',
+          background: '#fff', border: '3px solid #f59e0b', borderRadius: 24,
+          padding: '8px 28px', boxShadow: '0 6px 18px rgba(0,0,0,.08)',
+          fontFamily: FONT, fontSize: 24, fontWeight: 900, color: INK, whiteSpace: 'nowrap'
+        }}>
+          {filledCount <= 5 ? (
+            <span>数一数：正好有 {filledCount} 个！</span>
+          ) : (
+            <span>
+              先满 5 个，再加 {filledCount - 5} 个 ＝ 一共 <span style={{ color: '#ef4444' }}>{filledCount}</span> 个
+              {filledCount < 10 ? <span style={{ color: '#6b7280', fontSize: 18, marginLeft: 10 }}>（还差 {10 - filledCount} 个满 10）</span> : '（满 10 啦！🎉）'}
+            </span>
+          )}
+        </div>
+      </Pop>
+
+      {frame > 24 + filledCount * 16 + 20 ? <StarBurst at={24 + filledCount * 16 + 22} count={8} /> : null}
+    </AbsoluteFill>
+  );
+}
+
 export const ALL = {
   add: AddAnim, sub: SubAnim, split: SplitAnim, count: CountAnim, compare: CompareAnim,
   ordinal: OrdinalAnim, neighbor: NeighborAnim, oddEven: OddEvenAnim, oddLine: OddLineAnim,
   wordCard: WordCardAnim, antonym: AntonymAnim, safetyRule: SafetyRuleAnim,
-  experiment: ExperimentAnim, societyJob: SocietyJobAnim, conceptCard: ConceptCardAnim
+  experiment: ExperimentAnim, societyJob: SocietyJobAnim, conceptCard: ConceptCardAnim,
+  tenFrame: TenFrameAnim
 };

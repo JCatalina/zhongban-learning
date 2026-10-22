@@ -216,6 +216,105 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#3d3227;color:#fff;padding:10px 20px;border-radius:999px;font-size:.92rem;opacity:0;transition:.3s;z-index:120;pointer-events:none;max-width:86vw;}
 #toast.show{opacity:.96;transform:translateX(-50%) translateY(0);}
 
+/* ---------- ✍️ 汉字笔顺与手指描红（Hanzi-Writer） ---------- */
+.hanzi-modal{text-align:center;}
+.hanzi-box{
+  position:relative;width:240px;height:240px;margin:12px auto;
+  background:#fff;border:3px solid #f97316;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(249,115,22,.2), 0 6px 20px rgba(249,115,22,.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.mizige-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(45deg, transparent 49.6%, #fed7aa 49.6%, #fed7aa 50.4%, transparent 50.4%),
+    linear-gradient(-45deg, transparent 49.6%, #fed7aa 49.6%, #fed7aa 50.4%, transparent 50.4%),
+    linear-gradient(to right, transparent 49.5%, #fca5a5 49.5%, #fca5a5 50.5%, transparent 50.5%),
+    linear-gradient(to bottom, transparent 49.5%, #fca5a5 49.5%, #fca5a5 50.5%, transparent 50.5%);
+}
+.hanzi-target{position:relative;z-index:2;width:220px;height:220px;}
+.hanzi-target svg{width:100% !important;height:100% !important;}
+.hanzi-pinyin{font-size:1.8rem;font-weight:900;color:#c2410c;letter-spacing:2px;margin-bottom:4px;}
+.hanzi-info{font-size:.95rem;color:#78350f;background:#fffbeb;border-radius:12px;padding:8px 14px;margin-top:10px;line-height:1.6;}
+
+/* ---------- 📚 故事绘本专区 ---------- */
+.story-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:14px;}
+.story-card{
+  background:#fff;border-radius:24px;padding:18px;cursor:pointer;
+  box-shadow:0 6px 20px rgba(201,159,98,.12);transition:.2s;border:3px solid transparent;
+  display:flex;flex-direction:column;gap:8px;
+}
+.story-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(201,159,98,.22);}
+.story-cover{
+  height:130px;border-radius:18px;display:flex;align-items:center;justify-content:center;
+  font-size:64px;box-shadow:inset 0 0 20px rgba(0,0,0,.04);
+}
+.story-badge{
+  display:inline-block;padding:2px 10px;border-radius:999px;font-size:.75rem;font-weight:800;color:#fff;
+  align-self:flex-start;
+}
+.story-reader-card{
+  background:#fff;border-radius:28px;padding:22px;
+  box-shadow:0 8px 30px rgba(201,159,98,.15);margin-top:12px;
+}
+.story-stage{
+  border-radius:22px;padding:28px 16px;text-align:center;
+  font-size:72px;margin-bottom:18px;transition:background .4s ease;
+  min-height:150px;display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.story-text-box{
+  font-size:1.32rem;font-weight:800;line-height:1.9;color:#332619;
+  padding:8px 12px;letter-spacing:1px;text-align:justify;text-justify:inter-ideograph;
+}
+.story-keywords{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 16px;}
+.story-kw{
+  background:#fff;border:2px solid #fcd34d;color:#92400e;border-radius:999px;
+  padding:4px 14px;font-size:.85rem;font-weight:800;cursor:pointer;transition:.15s;
+}
+.story-kw:hover{background:#fef3c7;}
+
+/* ---------- 🖐️ 触屏/鼠标原生拖拽 ---------- */
+.drag-container{
+  background:#fff9f0;border:2px dashed #f59e0b;border-radius:20px;
+  padding:16px;margin:16px 0;
+}
+.drag-items-pool{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;min-height:64px;
+  margin-bottom:16px;padding:8px;background:rgba(255,255,255,.6);border-radius:16px;
+}
+.drag-item{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  background:#fff;border:2px solid #f97316;border-radius:18px;padding:10px 16px;
+  font-size:1.25rem;font-weight:900;color:#7c2d12;box-shadow:0 4px 10px rgba(249,115,22,.18);
+  cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:transform .12s, box-shadow .12s;
+}
+.drag-item:active{cursor:grabbing;transform:scale(1.08);box-shadow:0 8px 20px rgba(249,115,22,.3);}
+.drag-item.placed{opacity:.35;pointer-events:none;transform:scale(.9);}
+.drop-zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;}
+.drop-zone{
+  border:3px dashed #cbd5e1;border-radius:20px;background:#fff;padding:14px 10px;
+  text-align:center;min-height:120px;display:flex;flex-direction:column;align-items:center;
+  gap:8px;transition:.2s;
+}
+.drop-zone.hover{border-color:#10b981;background:#ecfdf5;transform:scale(1.03);}
+.drop-zone.filled{border-color:#34d399;border-style:solid;background:#f0fdf4;}
+
+/* ---------- 🔟 新加坡数学十格阵实时演练板 ---------- */
+.tenframe-board{
+  background:#fff;border:3px solid #3b82f6;border-radius:22px;
+  padding:14px;margin:14px auto;max-width:440px;box-shadow:0 6px 18px rgba(59,130,246,.12);
+}
+.tenframe-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:8px;
+}
+.tenframe-cell{
+  aspect-ratio:1;border:2px solid #93c5fd;border-radius:14px;background:#f0f9ff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:32px;
+  transition:.15s;
+}
+.tenframe-cell:hover{background:#e0f2fe;transform:scale(1.04);}
+.tenframe-cell.filled{background:#fff;border-color:#2563eb;}
+
 /* ---------- 打印 ---------- */
 #printArea{display:none;}
 @media print{
@@ -340,6 +439,9 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 <script src="data_song.js"></script>
 <script src="data_eng.js"></script>
 <script src="data_society.js"></script>
+<script src="data_story.js"></script>
+<script src="hanzi-writer.min.js"></script>
+<script src="hanzi-data.js"></script>
 <script src="anim/anim-player.js?v=4"></script>
 
 <script>
@@ -691,6 +793,10 @@ function route(){
   const h = (location.hash||'#/home').replace(/^#\/?/,'');
   const p = h.split('/').filter(Boolean);
   if(!p.length || p[0]==='home') renderHome();
+  else if(p[0]==='story'){
+    if(p[1]) renderStoryReader(p[1], p[2]!==undefined ? parseInt(p[2],10) : 0);
+    else renderStoryBooks();
+  }
   else if(p[0]==='m'){
     const m=mod(p[1]);
     const si = p[2]!==undefined ? parseInt(p[2],10) : null;
@@ -706,6 +812,7 @@ window.addEventListener('hashchange', route);
 function buildTabs(cur){
   const el=document.getElementById('tabs');
   let html='<button class="tab'+(cur==='home'?' on':'')+'" style="'+(cur==='home'?'background:#f97316':'')+'" onclick="location.hash=\'#/home\'">🏠 首页</button>';
+  html+='<button class="tab'+(cur==='story'?' on':'')+'" style="'+(cur==='story'?'background:#10b981':'')+'" onclick="location.hash=\'#/story\'">📚 故事绘本</button>';
   for(const m of DATASETS){
     const on = cur===m.id;
     html+='<button class="tab'+(on?' on':'')+'" style="'+(on?('background:'+m.color):'')+'" onclick="location.hash=\'#/m/'+m.id+'\'">'+
@@ -751,6 +858,14 @@ function renderHome(){
     '<div class="todaytag" onclick="location.hash=\'#/m/'+(w.mid||'read')+(w.si!==undefined?('/'+w.si):'')+'\'">🎯 今日推荐('+w.d+')：'+w.t+' →</div>'+
     wrongHtml+
     '<div class="sub" style="margin-top:8px;font-size:.88rem;opacity:.9">💡 '+w.x+'</div>'+
+  '</div>'+
+  '<div class="card" style="cursor:pointer;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:2px solid #6ee7b7;margin-top:14px;display:flex;align-items:center;gap:14px" onclick="location.hash=\'#/story\'">'+
+    '<span style="font-size:2.4rem">📚</span>'+
+    '<div style="flex:1">'+
+      '<div style="font-weight:900;font-size:1.05rem;color:#065f46">经典启蒙故事绘本 · 晓晓原声伴读</div>'+
+      '<div style="font-size:.84rem;color:#047857;margin-top:2px">《小蝌蚪找妈妈》《小猴子下山》《懂礼貌的小熊》《三只小猪》</div>'+
+    '</div>'+
+    '<button class="mainbtn" style="background:#10b981;padding:8px 16px;font-size:.9rem">去听故事 ▶</button>'+
   '</div>'+
   '<div class="sect">📚 选择学科学一学 <span class="line"></span></div>'+
   '<div class="mgrid">'+cards+'</div>'+
@@ -849,24 +964,58 @@ function renderQ(){
   S.done=false; S.firstTry=true; S.wrongs=0;
   const solvedQ = isDone(S.mid,S.si,S.qi);
   const pic = isSvg(q.pic) ? q.pic : q.pic;
+  const hanziChar = getCharFromQ(q);
+
+  let interactHtml = '';
+  if(q.drag){
+    // 原生触屏/鼠标动手拖拽题型
+    interactHtml =
+      '<div class="drag-container" id="dragContainer">' +
+        '<div style="font-size:.92rem;font-weight:900;color:#c2410c;text-align:center;margin-bottom:10px">🖐️ 动动小手指：按住物品拖进对应的框里吧！</div>' +
+        '<div class="drag-items-pool">' +
+          q.drag.items.map(it => '<div class="drag-item" data-type="' + it.type + '">' + it.text + '</div>').join('') +
+        '</div>' +
+        '<div class="drop-zones">' +
+          q.drag.zones.map(z => '<div class="drop-zone" data-target="' + z.target + '"><div style="font-weight:900;font-size:1.05rem">' + z.label + '</div><div style="font-size:.78rem;color:#8a6d4b">' + z.desc + '</div></div>').join('') +
+        '</div>' +
+      '</div>';
+  } else {
+    // 标准点选
+    interactHtml =
+      '<div class="opts" id="opts">' +
+        q.opts.map((o,i)=>'<button class="opt" data-i="'+i+'" onclick="choose('+i+',this)">'+optHtml(o)+'</button>').join('') +
+      '</div>';
+  }
+
   document.getElementById('mBody').innerHTML =
   '<div class="qtop">'+
     '<button class="tbtn" onclick="history.back()">← 返回</button>'+
     '<div class="qprog">第 '+(S.qi+1)+' / '+s.qs.length+' 题 · 本组 ⭐'+S.setStars+'</div>'+
+    (hanziChar ? '<button class="tbtn" style="color:#c2410c;border-color:#f97316;font-weight:900;background:#fff7ed" onclick="openHanziWriter(\''+hanziChar+'\')">✍️ 笔顺描红</button>' : '')+
     '<button class="tbtn" onclick="printSet()">🖨️ 作业纸</button>'+
   '</div>'+
   '<div class="qcard" id="qcard">'+
     '<div class="qpic'+(q.picSmall?' small':'')+'" id="qpic">'+pic+'</div>'+
     '<div class="qtext">'+q.q+' <button class="spk" id="btnSayQ" title="读题" onclick="sayQ(this)">🔊</button></div>'+
-    '<div class="opts" id="opts">'+
-      q.opts.map((o,i)=>'<button class="opt" data-i="'+i+'" onclick="choose('+i+',this)">'+optHtml(o)+'</button>').join('')+
-    '</div>'+
+    interactHtml+
     '<div class="hintwrap"><details><summary>💡 提示</summary><p>'+(q.h||'数一数、看一看图，再想一想哦！')+'</p></details></div>'+
     '<div class="feedback" id="feedback"></div>'+
     '<div class="btnrow">'+
       '<button class="answersmall" id="btnAnswer" onclick="revealAnswer()">👀 看答案</button>'+
     '</div>'+
   '</div>';
+
+  if(q.drag){
+    setTimeout(() => {
+      initPointerDrag('dragContainer', () => {
+        S.done = true;
+        mark(S.qi, 'first');
+        S.setStars = starsOfSet(S.mid, S.si);
+        showAns(true, false);
+      });
+    }, 80);
+  }
+
   if(store.s.autoRead) setTimeout(() => {
     const b = document.getElementById('btnSayQ');
     sayQ(b);
@@ -907,6 +1056,9 @@ function showAns(celebrate, silentMark){
     if(celebrate) { sfx(true); confetti(card); card.scrollIntoView({behavior:'smooth',block:'center'}); }
   }catch(e){}
   const alr = silentMark ? '（这道题之前做过啦）' : '';
+  const hanziChar = getCharFromQ(q);
+  const isTenFrameApplicable = (S.mid === 'calc' || S.mid === 'math') && (!m.sets[S.si] || !/反义词/.test(m.sets[S.si].name));
+
   fb.innerHTML =
     (celebrate?'<div class="praise">'+PRAISE[Math.floor(Math.random()*PRAISE.length)]+'</div>':'<div class="praise">答案来咯！🧐</div>')+
     '<div class="anscard">'+
@@ -915,6 +1067,8 @@ function showAns(celebrate, silentMark){
       '<div class="btnrow2">'+
         '<button class="spk2" id="btnSayWhy" onclick="sayWhy(this)">🔊 听小老师讲一讲</button>'+
         (m.layout!=='song' ? '<button class="spk2 animbtn" onclick="openAnim()">🎬 动画讲解</button>' : '')+
+        (hanziChar ? '<button class="spk2" style="background:#fff7ed;border-color:#f97316;color:#c2410c;font-weight:900" onclick="openHanziWriter(\''+hanziChar+'\')">✍️ 笔顺描红</button>' : '')+
+        (isTenFrameApplicable ? '<button class="spk2" style="background:#eff6ff;border-color:#3b82f6;color:#1d4ed8;font-weight:900" onclick="openTenFrameModal()">🔟 十格阵教具</button>' : '')+
       '</div>'+
     '</div>'+
     '<div class="btnrow">'+
@@ -1173,11 +1327,422 @@ function openSettings(){
 function closeModal(){
   stopSpeak();
   if(window.ZZBAnim) window.ZZBAnim.stop();
+  if(_activeWriter){ try{ _activeWriter.cancelQuiz(); }catch(e){} _activeWriter = null; }
   const mc=document.getElementById('modalCard');
   mc.classList.remove('wide');
   document.getElementById('modalBack').classList.add('hidden');
 }
 function testSpeak(){ speak('你好呀，我是小老师！今天我们一起来学习新本领吧。', 'zh-CN', 'test_welcome'); }
+
+/* ---------- ✍️ 汉字笔顺与手指描红（Hanzi-Writer） ---------- */
+let _activeWriter = null;
+function getCharFromQ(q){
+  if(!q) return null;
+  const ans = stripPlain(q.opts[q.a]);
+  if(ans && window.HANZI_DATA && window.HANZI_DATA[ans]) return ans;
+  for(const opt of q.opts){
+    const t = stripPlain(opt);
+    if(t && t.length === 1 && window.HANZI_DATA && window.HANZI_DATA[t]) return t;
+  }
+  return null;
+}
+
+function openHanziWriter(char, customPinyin, customWords){
+  if(!window.HanziWriter){
+    toast('笔顺组件正在加载，请稍候重试～');
+    return;
+  }
+  const charData = window.HANZI_DATA ? window.HANZI_DATA[char] : null;
+  if(!charData){
+    toast('暂未收录生字「' + char + '」的笔顺数据');
+    return;
+  }
+
+  const q = curQ();
+  let pinyin = customPinyin;
+  let words = customWords;
+  if(!pinyin && q && q.w){
+    const pm = stripPlain(q.w).match(/读音[：:]\s*([a-zA-Zāáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜ]+)/);
+    if(pm) pinyin = pm[1];
+    const wm = stripPlain(q.w).match(/组词[：:]\s*([^。]+)/);
+    if(wm) words = wm[1];
+  }
+  pinyin = pinyin || '';
+  words = words || (char + '宝宝');
+
+  const el = document.getElementById('modalCard');
+  el.classList.remove('wide');
+  el.innerHTML =
+    '<div class="hanzi-modal">' +
+      '<div class="hanzi-pinyin">' + pinyin + ' <button class="spk" style="width:34px;height:34px;font-size:.95rem;vertical-align:middle" onclick="speak(\'' + char + '\',\'zh-CN\')">🔊</button></div>' +
+      '<div class="hanzi-box">' +
+        '<div class="mizige-bg"></div>' +
+        '<div id="hanziTarget" class="hanzi-target"></div>' +
+      '</div>' +
+      '<div class="hanzi-info">💡 <b>组词巧记：</b>' + words + '</div>' +
+      '<div class="btnrow" style="margin-top:14px">' +
+        '<button class="mainbtn" onclick="animateHanzi()">▶️ 笔顺演示</button>' +
+        '<button class="ghostbtn" style="border-color:#f97316;color:#ea580c;font-weight:900" onclick="quizHanzi()">✍️ 手指描红</button>' +
+        '<button class="ghostbtn" onclick="closeModal()">关闭</button>' +
+      '</div>' +
+    '</div>';
+  document.getElementById('modalBack').classList.remove('hidden');
+
+  setTimeout(() => {
+    const target = document.getElementById('hanziTarget');
+    if(!target) return;
+    target.innerHTML = '';
+    _activeWriter = HanziWriter.create(target, char, {
+      width: 220,
+      height: 220,
+      padding: 10,
+      showOutline: true,
+      strokeColor: '#332619',
+      radicalColor: '#f97316',
+      outlineColor: '#fed7aa',
+      drawingColor: '#2563eb',
+      drawingWidth: 20,
+      strokeAnimationSpeed: 1.2,
+      delayBetweenStrokes: 180,
+      charDataLoader: function(c, onComplete){
+        if(window.HANZI_DATA && window.HANZI_DATA[c]){
+          onComplete(window.HANZI_DATA[c]);
+        }
+      }
+    });
+    animateHanzi();
+  }, 80);
+}
+
+function animateHanzi(){
+  if(!_activeWriter) return;
+  _activeWriter.cancelQuiz();
+  _activeWriter.animateCharacter();
+}
+
+function quizHanzi(){
+  if(!_activeWriter) return;
+  toast('用手指或鼠标在田字格里一笔一划写出来吧！');
+  _activeWriter.quiz({
+    onMistake: function(strokeData) {
+      sfx(false);
+      toast('笔画写错啦，再试一笔哦～');
+    },
+    onCorrectStroke: function(strokeData) {
+      sfx(true);
+    },
+    onComplete: function(summaryData) {
+      sfx(true);
+      const box = document.querySelector('.hanzi-box');
+      if(box) confetti(box);
+      toast('太棒啦！「' + _activeWriter._character + '」写得真工整！🎉');
+    }
+  });
+}
+
+/* ---------- 🔟 新加坡数学十格阵（Ten-Frame） ---------- */
+let _tenFrameCount = 0;
+function openTenFrameModal(initNum){
+  let n = initNum;
+  if(n === undefined){
+    const q = curQ();
+    const digits = (q ? q.q.match(/\d+/g) : []) || [];
+    const ansN = q ? parseInt(stripPlain(q.opts[q.a]), 10) : NaN;
+    n = !isNaN(ansN) && ansN <= 10 && ansN > 0 ? ansN : (digits.length ? parseInt(digits[0], 10) : 5);
+  }
+  if(isNaN(n) || n < 1 || n > 10) n = 5;
+  _tenFrameCount = n;
+
+  const el = document.getElementById('modalCard');
+  el.classList.add('wide');
+  el.innerHTML =
+    '<h3>🔟 新加坡数学 · 十格阵数感教具</h3>' +
+    '<div style="text-align:center;font-size:.92rem;color:#8a6d4b;margin-bottom:8px">' +
+      '新加坡数学核心教具：先满 5 个（第一排），再凑 10 个！点击方格可放入或拿走小球 🏀' +
+    '</div>' +
+    '<div id="tenFrameBoard" class="tenframe-board"></div>' +
+    '<div id="tenFrameFormula" style="text-align:center;font-size:1.15rem;font-weight:900;color:#1e3a8a;margin:10px 0"></div>' +
+    '<div class="btnrow" style="margin-top:14px">' +
+      '<button class="mainbtn" onclick="playTenFrameAnim(' + n + ')">🎬 看十格阵动画演示</button>' +
+      '<button class="ghostbtn" onclick="resetTenFrame(0)">清空小球</button>' +
+      '<button class="ghostbtn" onclick="resetTenFrame(5)">放满 5 个</button>' +
+      '<button class="ghostbtn" onclick="resetTenFrame(10)">凑满 10 个</button>' +
+      '<button class="ghostbtn" onclick="closeModal()">关闭</button>' +
+    '</div>';
+  document.getElementById('modalBack').classList.remove('hidden');
+  renderTenFrameBoard();
+}
+
+function renderTenFrameBoard(){
+  const board = document.getElementById('tenFrameBoard');
+  const formula = document.getElementById('tenFrameFormula');
+  if(!board) return;
+  let gridHtml = '<div class="tenframe-grid">';
+  for(let i = 0; i < 10; i++){
+    const filled = i < _tenFrameCount;
+    gridHtml += '<div class="tenframe-cell ' + (filled ? 'filled' : '') + '" onclick="toggleTenFrameCell(' + i + ')">' +
+      (filled ? (i < 5 ? '🔴' : '🔵') : '') +
+    '</div>';
+  }
+  gridHtml += '</div>';
+  board.innerHTML = gridHtml;
+
+  const topRow = Math.min(_tenFrameCount, 5);
+  const bottomRow = Math.max(0, _tenFrameCount - 5);
+  const remain = 10 - _tenFrameCount;
+  let formulaText = '当前一共有 <b>' + _tenFrameCount + '</b> 个小球';
+  if(_tenFrameCount === 0){
+    formulaText = '当前是 0 个，快点一下方格放小球吧！';
+  } else if(_tenFrameCount === 5){
+    formulaText = '🌟 第一排正好满 5 个啦！数感小达人！';
+  } else if(_tenFrameCount === 10){
+    formulaText = '🎉 太棒了！两排全部摆满，正好是 10！';
+  } else if(_tenFrameCount > 5){
+    formulaText = '第一排满 5 个 ＋ 第二排 ' + bottomRow + ' 个 ＝ 一共 <b>' + _tenFrameCount + '</b> 个（还差 ' + remain + ' 个满 10）';
+  } else {
+    formulaText = '第一排有 ' + topRow + ' 个（还差 ' + (5 - topRow) + ' 个满 5）';
+  }
+  if(formula) formula.innerHTML = formulaText;
+}
+
+function toggleTenFrameCell(i){
+  sfx(true);
+  if(i + 1 === _tenFrameCount){
+    _tenFrameCount--;
+  } else {
+    _tenFrameCount = i + 1;
+  }
+  renderTenFrameBoard();
+}
+
+function resetTenFrame(n){
+  sfx(true);
+  _tenFrameCount = n;
+  renderTenFrameBoard();
+}
+
+function playTenFrameAnim(n){
+  const el = document.getElementById('modalCard');
+  el.classList.add('wide');
+  el.innerHTML =
+    '<h3>🎬 新加坡数学 · 十格阵动画演示</h3>' +
+    '<div class="animbox" id="animBox"></div>' +
+    '<div class="animtips">💡 画面演示先满 5、再凑 10 的新加坡数学数感思维！</div>' +
+    '<div class="btnrow" style="margin-top:12px">' +
+      '<button class="mainbtn" onclick="openTenFrameModal(' + n + ')">返回互动演练板</button>' +
+      '<button class="ghostbtn" onclick="closeModal()">关闭</button>' +
+    '</div>';
+  animSfx();
+  setTimeout(() => {
+    const box = document.getElementById('animBox');
+    if(box && window.ZZBAnim){
+      window.ZZBAnim.play({
+        type: 'tenFrame',
+        emoji: '🍎',
+        total: n || _tenFrameCount || 6,
+        duration: 360
+      }, box);
+    }
+  }, 60);
+}
+
+/* ---------- 📚 故事绘本专区 ---------- */
+function renderStoryBooks(){
+  buildTabs('story');
+  updatePill();
+  const books = window.STORY_BOOKS || [];
+  let cardsHtml = '<div class="story-grid">';
+  books.forEach(b => {
+    const readKey = 'story_read_' + b.id;
+    const isFinished = store.done && store.done[readKey];
+    cardsHtml +=
+      '<div class="story-card" style="border-color:' + b.themeColor + '33" onclick="location.hash=\'#/story/' + b.id + '/0\'">' +
+        '<div class="story-cover" style="background:' + b.themeColor + '18">' + b.cover + '</div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:center">' +
+          '<div style="font-weight:900;font-size:1.18rem;color:#332619">' + b.title + '</div>' +
+          '<span class="story-badge" style="background:' + b.themeColor + '">' + b.badge + '</span>' +
+        '</div>' +
+        '<div style="font-size:.82rem;color:#8a6d4b;line-height:1.5">' + b.desc + '</div>' +
+        '<div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:bold">' +
+          '<span style="color:#a58c6b">共 ' + b.pages.length + ' 页 · 晓晓原声伴读</span>' +
+          '<span style="color:' + (isFinished ? '#10b981' : '#f59e0b') + '">' + (isFinished ? '✅ 已读完' : '开始阅读 ▶') + '</span>' +
+        '</div>' +
+      '</div>';
+  });
+  cardsHtml += '</div>';
+
+  document.getElementById('main').innerHTML =
+    '<div class="mhead">' +
+      '<span class="big">📚</span>' +
+      '<h2>故事绘本 · 晓晓原声伴读</h2>' +
+      '<div class="dsc">精选中班 4 部经典启蒙短篇绘本，图文并茂，搭配离线晓晓原声朗读，培养专注力与好品德！</div>' +
+      '<button class="tbtn" onclick="location.hash=\'#/home\'">🏠 首页</button>' +
+    '</div>' +
+    cardsHtml;
+}
+
+function renderStoryReader(bookId, pageIdx){
+  buildTabs('story');
+  const books = window.STORY_BOOKS || [];
+  const book = books.find(b => b.id === bookId) || books[0];
+  if(!book) { location.hash = '#/story'; return; }
+  const pi = Math.max(0, Math.min(pageIdx || 0, book.pages.length - 1));
+  const page = book.pages[pi];
+  const isLast = pi === book.pages.length - 1;
+
+  if(isLast){
+    store.done['story_read_' + book.id] = true;
+    save();
+  }
+
+  let kwHtml = '';
+  if(page.keywords && page.keywords.length){
+    kwHtml = '<div class="story-keywords">' +
+      '<span style="font-size:.82rem;color:#8a6d4b;align-self:center">💡 识字巧认：</span>' +
+      page.keywords.map(kw => '<button class="story-kw" onclick="speak(\'' + kw + '\',\'zh-CN\')">🔤 ' + kw + '</button>').join('') +
+    '</div>';
+  }
+
+  document.getElementById('main').innerHTML =
+    '<div class="qtop">' +
+      '<button class="tbtn" onclick="location.hash=\'#/story\'">← 绘本馆</button>' +
+      '<div class="qprog">《' + book.title + '》 第 ' + (pi + 1) + ' / ' + book.pages.length + ' 页</div>' +
+      '<button class="tbtn" onclick="location.hash=\'#/home\'">🏠 首页</button>' +
+    '</div>' +
+    '<div class="story-reader-card">' +
+      '<div class="story-stage" style="background:' + page.bg + '">' + page.emoji + '</div>' +
+      '<div style="text-align:center;margin-bottom:8px">' +
+        '<span style="font-weight:900;color:' + book.themeColor + ';font-size:1.1rem">【' + page.scene + '】</span>' +
+        '<button class="spk" id="btnStorySpeak" style="width:38px;height:38px;margin-left:8px;vertical-align:middle" onclick="playStoryAudio(\'' + page.audioId + '\', this)">🔊</button>' +
+      '</div>' +
+      '<div class="story-text-box">' + page.text + '</div>' +
+      kwHtml +
+      '<div class="btnrow" style="margin-top:20px">' +
+        (pi > 0 ? '<button class="ghostbtn" onclick="location.hash=\'#/story/' + book.id + '/' + (pi - 1) + '\'">⬅️ 上一页</button>' : '') +
+        (!isLast ? '<button class="mainbtn" onclick="location.hash=\'#/story/' + book.id + '/' + (pi + 1) + '\'">下一页 ➡️</button>'
+                 : '<button class="mainbtn" style="background:linear-gradient(135deg,#10b981,#059669)" onclick="finishStory(\'' + book.id + '\')">🎉 读完啦！领取勋章</button>') +
+      '</div>' +
+    '</div>';
+
+  if(store.s.autoRead){
+    setTimeout(() => {
+      const b = document.getElementById('btnStorySpeak');
+      playStoryAudio(page.audioId, b);
+    }, 350);
+  }
+}
+
+function playStoryAudio(audioId, btn){
+  const books = window.STORY_BOOKS || [];
+  let foundText = '';
+  for(const b of books){
+    const p = b.pages.find(x => x.audioId === audioId);
+    if(p) { foundText = p.text; break; }
+  }
+  speak(foundText, 'zh-CN', audioId, btn);
+}
+
+function finishStory(bookId){
+  sfx(true);
+  const card = document.querySelector('.story-reader-card');
+  if(card) confetti(card);
+  toast('恭喜读完绘本！获得阅读小学士勋章 ⭐⭐⭐⭐⭐');
+  setTimeout(() => { location.hash = '#/story'; }, 1600);
+}
+
+/* ---------- 🖐️ 触屏/鼠标原生拖拽 ---------- */
+function initPointerDrag(containerId, onAllPlaced){
+  const container = document.getElementById(containerId);
+  if(!container) return;
+  const items = container.querySelectorAll('.drag-item');
+  const zones = container.querySelectorAll('.drop-zone');
+
+  let activeItem = null;
+  let startX = 0, startY = 0;
+  let initLeft = 0, initTop = 0;
+  let currentHoverZone = null;
+
+  items.forEach(item => {
+    item.addEventListener('pointerdown', e => {
+      if(item.classList.contains('placed')) return;
+      activeItem = item;
+      item.setPointerCapture(e.pointerId);
+      const rect = item.getBoundingClientRect();
+      startX = e.clientX;
+      startY = e.clientY;
+      initLeft = rect.left;
+      initTop = rect.top;
+
+      item.style.position = 'fixed';
+      item.style.left = initLeft + 'px';
+      item.style.top = initTop + 'px';
+      item.style.zIndex = '999';
+      item.style.width = rect.width + 'px';
+      item.style.transition = 'none';
+    });
+
+    item.addEventListener('pointermove', e => {
+      if(activeItem !== item) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      item.style.left = (initLeft + dx) + 'px';
+      item.style.top = (initTop + dy) + 'px';
+
+      currentHoverZone = null;
+      zones.forEach(zone => {
+        const zr = zone.getBoundingClientRect();
+        if(e.clientX >= zr.left && e.clientX <= zr.right && e.clientY >= zr.top && e.clientY <= zr.bottom){
+          zone.classList.add('hover');
+          currentHoverZone = zone;
+        } else {
+          zone.classList.remove('hover');
+        }
+      });
+    });
+
+    const onPointerUp = e => {
+      if(activeItem !== item) return;
+      try{ item.releasePointerCapture(e.pointerId); }catch(err){}
+      activeItem = null;
+      zones.forEach(z => z.classList.remove('hover'));
+
+      if(currentHoverZone){
+        const targetType = currentHoverZone.dataset.target;
+        const itemType = item.dataset.type;
+        if(targetType === itemType || targetType === 'any'){
+          sfx(true);
+          item.classList.add('placed');
+          item.style.position = 'static';
+          item.style.zIndex = '';
+          item.style.width = '';
+          currentHoverZone.appendChild(item);
+          currentHoverZone.classList.add('filled');
+          checkAllPlaced();
+          return;
+        } else {
+          sfx(false);
+          toast('哎呀，放错地方啦，再试一试！');
+        }
+      }
+
+      item.style.position = 'static';
+      item.style.left = '';
+      item.style.top = '';
+      item.style.zIndex = '';
+      item.style.width = '';
+    };
+
+    item.addEventListener('pointerup', onPointerUp);
+    item.addEventListener('pointercancel', onPointerUp);
+  });
+
+  function checkAllPlaced(){
+    const remaining = container.querySelectorAll('.drag-item:not(.placed)');
+    if(remaining.length === 0){
+      if(typeof onAllPlaced === 'function') onAllPlaced();
+    }
+  }
+}
 
 /* ---------- 🎬 动画讲解（Remotion 播放器） ---------- */
 function stripPlain(s){ return String(s||'').replace(/<[^>]+>/g,''); }

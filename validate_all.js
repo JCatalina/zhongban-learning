@@ -84,7 +84,7 @@ vm.runInContext(animMockCode, sandbox);
 const validAnimTypes = new Set([
   'add', 'sub', 'split', 'count', 'compare', 'ordinal',
   'neighbor', 'oddEven', 'oddLine', 'wordCard', 'antonym',
-  'safetyRule', 'experiment', 'societyJob', 'conceptCard'
+  'safetyRule', 'experiment', 'societyJob', 'conceptCard', 'tenFrame'
 ]);
 
 let animTested = 0;
@@ -110,8 +110,32 @@ datasets.forEach(m => {
 console.log(`[INFO] 动画全量覆盖测试: 共测试 ${animTested} 道题，失败: ${animFailed}`);
 console.log('[INFO] 各动画类型分布:', typeCounts);
 
-if (animFailed === 0 && picWarnings === 0) {
-  console.log('🎉 验证全部通过！100% 题目均已获得专属或兜底 Remotion 动画，配图零豆腐块！');
+// 4. 绘本与离线字库专项校验
+console.log('[INFO] 开始绘本与离线字库专项校验...');
+vm.runInContext(fs.readFileSync('data_story.js', 'utf8'), sandbox);
+vm.runInContext(fs.readFileSync('hanzi-data.js', 'utf8'), sandbox);
+
+const books = sandbox.window.STORY_BOOKS || [];
+let storyAudioMissing = 0;
+books.forEach(b => {
+  b.pages.forEach(p => {
+    const audioPath = 'audio/' + p.audioId + '.mp3';
+    if(!fs.existsSync(audioPath) || fs.statSync(audioPath).size < 100){
+      console.error(`[FAIL] 绘本音频缺失: ${audioPath}`);
+      storyAudioMissing++;
+    }
+  });
+});
+
+const hanziKeys = Object.keys(sandbox.window.HANZI_DATA || {});
+if(hanziKeys.length < 60) {
+  console.error(`[FAIL] 离线字库数量不足: ${hanziKeys.length}`);
+} else {
+  console.log(`[INFO] 离线字库完备，收录 ${hanziKeys.length} 个核心中班汉字笔画`);
+}
+
+if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60) {
+  console.log('🎉 验证全部通过！四大开源对标功能（笔顺描红、原生拖拽、十格阵、故事绘本）完整就绪！');
 } else {
   console.error('存在验证不通过项，请检查修复！');
   process.exit(1);
