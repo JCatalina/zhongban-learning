@@ -39,7 +39,7 @@ python -m http.server 8000
 - 可暂停、拖动进度条、反复重播；看完关闭弹窗继续做题。
 - 动画在浏览器里实时渲染，**无需联网**，完全离线可用。
 
-> 重新构建动画：`cd anim-src && npm install && npm run build`（输出到 `anim/anim-player.js`）。
+> 重新构建动画：`cd anim-src && npm install && npm run build`（输出到 `anim/anim-player.js`）。重新打包后请把 `index.html` 中 `anim-player.js?v=N` 的版本号 +1，避免浏览器继续用缓存里的旧动画。
 
 ## 🔉 语音功能（自动读题 + 答案语音讲解）
 

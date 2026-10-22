@@ -17,11 +17,12 @@ function play(props, container) {
       component: Comp,
       inputProps: props,
       durationInFrames: props.duration || 300,
+      initialFrame: props.initialFrame || 0,
       fps: 30,
       compositionWidth: 720,
       compositionHeight: 405,
       controls: true,
-      autoPlay: true,
+      autoPlay: props.paused ? false : true,
       loop: false,
       acknowledgeRemotionLicense: true,
       style: {
