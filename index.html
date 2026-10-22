@@ -560,6 +560,15 @@ function sfx(ok){
   const t = AC.currentTime;
   if(ok){ note(523.25,t,0.12); note(783.99,t+0.1,0.2); } else { note(196,t,0.22); }
 }
+function animSfx(){
+  if(!store.s.sfx) return;
+  acInit(); if(!AC) return;
+  const t = AC.currentTime;
+  note(523.25, t, 0.08);        // C5
+  note(659.25, t + 0.08, 0.08);  // E5
+  note(783.99, t + 0.16, 0.12);  // G5
+  note(1046.50, t + 0.24, 0.22); // C6 清脆收尾
+}
 
 /* ---------- 庆祝动画 ---------- */
 function confetti(el){
@@ -1082,6 +1091,7 @@ function openSettings(){
   document.getElementById('modalBack').classList.remove('hidden');
 }
 function closeModal(){
+  stopSpeak();
   if(window.ZZBAnim) window.ZZBAnim.stop();
   const mc=document.getElementById('modalCard');
   mc.classList.remove('wide');
@@ -1151,6 +1161,16 @@ function buildAnimProps(mid,si,q){
   }
   return null;
 }
+function toggleAnimVoice(){
+  const q = curQ();
+  const audioId = S.mid + '_' + S.si + '_' + S.qi + '_w';
+  const btn = document.getElementById('btnAnimVoice');
+  if(btn && btn.classList.contains('speaking-active')){
+    stopSpeak();
+  } else {
+    speak(q.w, q.lang, audioId, btn);
+  }
+}
 function openAnim(){
   const m=mod(S.mid), q=curQ();
   const p=buildAnimProps(S.mid,S.si,q);
@@ -1158,14 +1178,28 @@ function openAnim(){
   if(!window.ZZBAnim){ toast('动画组件加载失败，请检查网络后刷新页面'); return; }
   const el=document.getElementById('modalCard');
   el.classList.add('wide');
-  el.innerHTML='<h3>🎬 动画讲解 <span style="font-size:.85rem;font-weight:600;color:#a58c6b">— '+(m.short)+' · 看完动画再试一次，秒懂！</span></h3>'+
+  el.innerHTML='<h3>🎬 动画讲解 <span style="font-size:.85rem;font-weight:600;color:#a58c6b">— '+(m.short)+' · 边看动画边听小老师讲！</span></h3>'+
     '<div class="animbox" id="animBox"></div>'+
-    '<div class="animtips">⏯ 点中间的播放键开始，可以随时暂停、重播；看完点「关闭」</div>'+
-    '<div class="btnrow" style="margin-top:12px"><button class="mainbtn" onclick="closeModal()">关闭动画</button></div>';
+    '<div class="animtips">💡 画面演示解题步骤，小老师同步原声讲解；随时可点下方按钮重听或暂停</div>'+
+    '<div class="btnrow" style="margin-top:12px">'+
+      '<button class="spk2" id="btnAnimVoice" onclick="toggleAnimVoice()">🔊 听小老师讲解（点我重播）</button>'+
+      '<button class="mainbtn" onclick="closeModal()">关闭动画</button>'+
+    '</div>';
   document.getElementById('modalBack').classList.remove('hidden');
+
+  // 1. 播放欢快启蒙开场琶音
+  animSfx();
+
+  // 2. 挂载并启动 Remotion 播放器
   setTimeout(()=>{
     const box=document.getElementById('animBox');
     if(box && window.ZZBAnim) window.ZZBAnim.play(p, box);
+
+    // 3. 伴随动画启动小老师高保真原声讲解（带按钮动效）
+    setTimeout(()=>{
+      const btn = document.getElementById('btnAnimVoice');
+      speak(q.w, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w', btn);
+    }, 240);
   }, 60);
 }
 function clearData(){
