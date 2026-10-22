@@ -4013,5 +4013,265 @@
     "id": "story_pigs_5",
     "text": "大灰狼想从烟囱偷偷滑进屋里，正好扑通一声掉进滚烫的水锅里，烫得他嚎叫着夹着尾巴逃回深山再也不敢来了！三只小猪紧紧拥抱在一起，明白了只有勤劳踏实才能获得真正的安全。",
     "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_0_q",
+    "text": "小猪佩奇开心地向大家自我介绍，她会说什么呢？。请选一选：I'm Peppa Pig!、Good night!、I'm hungry.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_0_w",
+    "text": "I'm Peppa Pig!（我是小猪佩奇！）每集动画片开头的经典台词，你也可以大声向大家介绍自己哦！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_1_q",
+    "text": "天下雨了，佩奇最爱穿上雨靴去踩泥坑，她会兴奋地喊什么？。请选一选：I love muddy puddles!、I want water.、Go to school.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_1_w",
+    "text": "I love muddy puddles!（我最爱泥坑啦！）佩奇踩水时还会开心地说 Jump up and down（跳上跳下）！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_2_q",
+    "text": "乔治最爱的玩具是绿色大恐龙，他模仿恐龙叫会喊什么？。请选一选：Dinosaur! Grrr!、Kitty! Meow!、Puppy! Woof!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_2_w",
+    "text": "Dinosaur! Grrr!（大恐龙！嗷呜！）恐龙就是 Dinosaur，乔治睡觉都要抱着它呢！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_3_q",
+    "text": "晚饭时间到了，佩奇想吃最爱的意大利面，她怎么礼貌地向猪妈妈表达？。请选一选：Spaghetti, please!、No, thank you.、Goodbye!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_3_w",
+    "text": "Spaghetti, please!（请给我意大利面！）表达想要什么东西，在后面加上 please 最有礼貌啦！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_4_q",
+    "text": "刷完牙躺在床上准备睡觉了，佩奇和乔治互道晚安会说什么？。请选一选：Good night, sleep tight!、Good morning!、Let's go play!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_4_w",
+    "text": "Good night, sleep tight!（晚安，睡个好觉！）小猪佩奇一家晚上都会温柔地说 Good night，Sweet dreams（做个好梦）！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_5_q",
+    "text": "佩奇学会了骑两轮自行车，她开心地对爸爸喊什么？。请选一选：Look, I can ride my bike!、Where is my shoe?、I'm tired.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_5_w",
+    "text": "Look, I can ride my bike!（看呀，我会骑自行车啦！）展示新本领时大声说 Look, I can do it！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_6_q",
+    "text": "佩奇和好朋友小羊苏西玩捉迷藏，数完数去抓人时会大喊什么？。请选一选：Ready or not, here I come!、Sit down, please.、Thank you!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_6_w",
+    "text": "Ready or not, here I come!（准备好没有，我来找你们啦！）捉迷藏必学的地道口头禅！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_7_q",
+    "text": "佩奇和全家人倒在地上哈哈大笑，佩奇开心地哼哼叫并说什么？。请选一选：That's so funny!、I am sad.、Help me, please.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_4_7_w",
+    "text": "That's so funny!（太好笑啦！太逗啦！）佩奇还会开心地发出经典的 Snort, snort（猪叫欢笑声）！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_0_q",
+    "text": "莱德队长吹哨召集狗狗们，准备出发救援时，最著名的口号是什么？。请选一选：PAW Patrol is on a roll!、Go to sleep, pups!、Eat your dinner!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_0_w",
+    "text": "PAW Patrol is on a roll!（汪汪队要出动啦 / 出发救援！）全剧最燃最热血的出动口号！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_1_q",
+    "text": "勇敢的德国牧羊犬阿奇（Chase）接受任务时，会自信满满地说什么？。请选一选：Chase is on the case!、I want ice cream.、Where is my hat?",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_1_w",
+    "text": "Chase is on the case!（包在阿奇身上 / 阿奇来解决！）遇到小困难，像阿奇一样勇敢自信！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_2_q",
+    "text": "热情又可爱的斑点狗毛毛（Marshall）准备救火救援时，会兴奋地喊什么？。请选一选：I'm ready for a ruff-ruff rescue!、Good night, Marshall.、No, I can't.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_2_w",
+    "text": "I'm ready for a ruff-ruff rescue!（我准备好大显身手去救援啦！）毛毛虽然爱摔跤，但救援从不退缩！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_3_q",
+    "text": "会开直升机的小狗天天（Skye），准备展翅高飞时会欢呼什么？。请选一选：Let's take to the sky!、Wash your paws!、Sit on the floor.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_3_w",
+    "text": "Let's take to the sky!（让我们飞上蓝天吧！）天天翻着跟头飞向天空，太帅气啦！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_4_q",
+    "text": "汪汪队最温暖人心、鼓励每一个小朋友的经典格言是什么？。请选一选：No job is too big, no pup is too small!、Stop and go back!、I am too small.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_4_w",
+    "text": "No job is too big, no pup is too small!（没有困难的工作，只有勇敢的狗狗！）说明再小的小朋友也能发挥大力量！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_5_q",
+    "text": "市长爷爷被救了，对狗狗们说 Thank you，狗狗们会礼貌地回答什么？。请选一选：You're welcome!、Goodbye!、I'm sorry.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_5_w",
+    "text": "You're welcome!（不用客气 / 很高兴能帮到您！）帮助了别人听到感谢，要大声回答 You're welcome！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_6_q",
+    "text": "莱德队长对市民们常说的求助电话承诺是什么？。请选一选：Whenever you're in trouble, just yelp for help!、Don't call me.、Go away, trouble.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_6_w",
+    "text": "Whenever you're in trouble, just yelp for help!（只要遇到麻烦，尽管大声呼救！）yelp for help 就是呼救的意思！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_7_q",
+    "text": "开推土机的斗牛犬小力（Rubble），准备开工时最爱喊什么？。请选一选：Rubble on the double!、I want to sleep.、Look at the cat.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_5_7_w",
+    "text": "Rubble on the double!（小力全速出动 / 开工啦！）on the double 就是动作快快的意思！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_0_q",
+    "text": "口渴了想喝水，怎样用英语整句话向爸爸妈妈表达？。请选一选：I want some water, please!、Give me water!、Water is bad.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_0_w",
+    "text": "I want some water, please!（请给我倒点水好吗！）完整的表达加上 please，礼貌又可爱！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_1_q",
+    "text": "吃完了一颗草莓还想再吃一颗，最简单地道的英语怎么说？。请选一选：More, please!、No more!、I am full.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_1_w",
+    "text": "More, please!（请再给我一点 / 我还想要！）小朋友最快学会的日常高频语块！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_2_q",
+    "text": "把画笔或者玩具递给同伴，嘴里应该微笑着说什么？。请选一选：Here you go!、Don't touch!、Mine!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_2_w",
+    "text": "Here you go!（给你拿好啦！）双手递东西给别人说 Here you go，对方会回你一句 Thank you！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_3_q",
+    "text": "准备出门去公园玩啦，妈妈提醒你穿上鞋子会怎么说？。请选一选：Put on your shoes! Let's go!、Take off shoes!、Stay home.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_3_w",
+    "text": "Put on your shoes! Let's go!（穿上鞋子，我们出发啦！）自己穿好鞋大声喊 Let's go！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_4_q",
+    "text": "准备吃饭啦，爸爸喊你去洗洗手，会做出搓手动作说什么？。请选一选：Let's wash hands!、Don't wash.、Eat directly.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_4_w",
+    "text": "Let's wash hands!（我们去洗手手吧！）洗手时还可以唱 Wash, wash, wash your hands！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_5_q",
+    "text": "吃到一口甜甜的水果蛋糕，开心地向大家夸赞味道好极了，会喊什么？。请选一选：Yummy! It's so delicious!、It's too salty.、I don't like it.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_5_w",
+    "text": "Yummy! It's so delicious!（真好吃！太美味啦！）摸摸小肚子开心地说 Yummy yummy！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_6_q",
+    "text": "在马路上看见一辆红色的双层大巴士，惊讶地指给妈妈看，怎么描述？。请选一选：Look, a big red bus!、It is a small bike.、I can't see.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_6_w",
+    "text": "Look, a big red bus!（看呀，好大一辆红色的公交车！）学会用 Look + 颜色 + 物品，描述身边事物！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_7_q",
+    "text": "找不到最心爱的小熊玩偶了，急急忙忙问妈妈，应该怎么问？。请选一选：Where is my teddy bear?、I hate teddy bear.、Teddy bear is sleeping.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_7_w",
+    "text": "Where is my teddy bear?（我的小熊玩具在哪里呀？）找到之后就可以大声欢呼 Here it is（在这里呀）！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_8_q",
+    "text": "晚上玩累了揉眼睛打哈欠，告诉爸爸你困了，怎么说？。请选一选：I'm tired. Time for bed!、I'm energetic.、Let's run!",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_8_w",
+    "text": "I'm tired. Time for bed!（我好困呀，该睡觉啦！）tired 是累了困了，说一句 Good night 睡个香香觉！",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_9_q",
+    "text": "过家家玩超市买东西游戏，店长阿姨微笑着问你：What do you want？你怎么回答？。请选一选：Two apples, please!、I have no money.、Goodbye store.",
+    "lang": "zh-CN"
+  },
+  {
+    "id": "eng_6_9_w",
+    "text": "Two apples, please!（请给我两个苹果！）数字 + 水果 + please，秒变英文流利小顾客！",
+    "lang": "zh-CN"
   }
 ]

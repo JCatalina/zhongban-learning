@@ -1,8 +1,9 @@
-/* 英语启蒙 · 数字、颜色、动物、水果、礼貌语（磨耳朵, 不要求拼写） */
+/* 英语启蒙 · 数字、颜色、动物、水果、小猪佩奇、汪汪队、生活情境语块
+   4–5岁是语音敏感期，只"听和说"，结合原版动画与生活情境，自然习得整句表达！ */
 window.DATASETS = window.DATASETS || [];
 window.DATASETS.push({
 id:'eng', name:'英语磨耳朵', short:'英语', icon:'🔤', color:'#14b8a6',
-desc:'数字、颜色、动物、水果、礼貌语。4–5岁是语音敏感期，只"听和说"，不要求写！',
+desc:'原版动画经典台词（小猪佩奇、汪汪队）、生活日常高频句、数字与动物。只听和说，轻松开口！',
 sets:[
 {
 em:'🔢', name:'英语数字 1–6',
@@ -50,6 +51,47 @@ qs:[
 {pic:'🎁', q:'收到礼物，说"谢谢你"用英语怎么说？', h:'三个字，T 开头。', opts:['Sorry','Goodbye','Thank you'], a:2, w:'<b>Thank you</b>（三克油）是"谢谢你"。别人帮助你，说 Thank you，最有礼貌！'},
 {pic:'👋', q:'放学回家，说"再见"用英语怎么说？', h:'拜拜用英文怎么念？', opts:['Goodbye','Hello','Sorry'], a:0, w:'<b>Goodbye</b>（古德拜）是"再见"。或者更简单地说 Bye-bye！'},
 {pic:'🙏', q:'不小心碰到别人，说"对不起"用英语怎么说？', h:'S 开头。', opts:['Sad','Sorry','Sit'], a:1, w:'<b>Sorry</b>（骚瑞）是"对不起"。做错事先说 Sorry，别人回答 That\'s OK（没关系），还是好朋友！'}
+]
+},
+{
+em:'🐷', name:'动画大明星 · 小猪佩奇原声口语',
+qs:[
+{pic:'🐷 🎀', q:'小猪佩奇开心地向大家自我介绍，她会说什么呢？', h:'我是佩奇，这是我的弟弟乔治。', opts:['I\'m Peppa Pig!','Good night!','I\'m hungry.'], a:0, w:'<b>I\'m Peppa Pig!</b>（我是小猪佩奇！）每集动画片开头的经典台词，你也可以大声向大家介绍自己哦！'},
+{pic:'🌧️ 💦 👢', q:'天下雨了，佩奇最爱穿上雨靴去踩泥坑，她会兴奋地喊什么？', h:'踩泥坑英文是 muddy puddles！', opts:['I love muddy puddles!','I want water.','Go to school.'], a:0, w:'<b>I love muddy puddles!</b>（我最爱泥坑啦！）佩奇踩水时还会开心地说 Jump up and down（跳上跳下）！'},
+{pic:'🦖 🦕', q:'乔治最爱的玩具是绿色大恐龙，他模仿恐龙叫会喊什么？', h:'恐龙英文叫 Dinosaur，还会嗷呜叫！', opts:['Dinosaur! Grrr!','Kitty! Meow!','Puppy! Woof!'], a:0, w:'<b>Dinosaur! Grrr!</b>（大恐龙！嗷呜！）恐龙就是 Dinosaur，乔治睡觉都要抱着它呢！'},
+{pic:'🍝 😋 🍽️', q:'晚饭时间到了，佩奇想吃最爱的意大利面，她怎么礼貌地向猪妈妈表达？', h:'表达想要某样东西加 please。', opts:['Spaghetti, please!','No, thank you.','Goodbye!'], a:0, w:'<b>Spaghetti, please!</b>（请给我意大利面！）表达想要什么东西，在后面加上 please 最有礼貌啦！'},
+{pic:'🛏️ 🌙 ⭐', q:'刷完牙躺在床上准备睡觉了，佩奇和乔治互道晚安会说什么？', h:'晚安英文叫 Good night。', opts:['Good night, sleep tight!','Good morning!','Let\'s go play!'], a:0, w:'<b>Good night, sleep tight!</b>（晚安，睡个好觉！）小猪佩奇一家晚上都会温柔地说 Good night，Sweet dreams（做个好梦）！'},
+{pic:'🚲 👧 🌳', q:'佩奇学会了骑两轮自行车，她开心地对爸爸喊什么？', h:'看！我会骑车啦！', opts:['Look, I can ride my bike!','Where is my shoe?','I\'m tired.'], a:0, w:'<b>Look, I can ride my bike!</b>（看呀，我会骑自行车啦！）展示新本领时大声说 Look, I can do it！'},
+{pic:'🙈 🌳 🔍', q:'佩奇和好朋友小羊苏西玩捉迷藏，数完数去抓人时会大喊什么？', h:'不管你藏没藏好，我来啦！', opts:['Ready or not, here I come!','Sit down, please.','Thank you!'], a:0, w:'<b>Ready or not, here I come!</b>（准备好没有，我来找你们啦！）捉迷藏必学的地道口头禅！'},
+{pic:'😂 🐷 🎈', q:'佩奇和全家人倒在地上哈哈大笑，佩奇开心地哼哼叫并说什么？', h:'太好玩啦，太逗啦！', opts:['That\'s so funny!','I am sad.','Help me, please.'], a:0, w:'<b>That\'s so funny!</b>（太好笑啦！太逗啦！）佩奇还会开心地发出经典的 Snort, snort（猪叫欢笑声）！'}
+]
+},
+{
+em:'🐾', name:'动画大明星 · 汪汪队立大功',
+qs:[
+{pic:'🐶 🚨 🐕', q:'莱德队长吹哨召集狗狗们，准备出发救援时，最著名的口号是什么？', h:'汪汪队要出动啦！', opts:['PAW Patrol is on a roll!','Go to sleep, pups!','Eat your dinner!'], a:0, w:'<b>PAW Patrol is on a roll!</b>（汪汪队要出动啦 / 出发救援！）全剧最燃最热血的出动口号！'},
+{pic:'👮 🐕 🚨', q:'勇敢的德国牧羊犬阿奇（Chase）接受任务时，会自信满满地说什么？', h:'包在阿奇身上！', opts:['Chase is on the case!','I want ice cream.','Where is my hat?'], a:0, w:'<b>Chase is on the case!</b>（包在阿奇身上 / 阿奇来解决！）遇到小困难，像阿奇一样勇敢自信！'},
+{pic:'🚒 🐶 🔥', q:'热情又可爱的斑点狗毛毛（Marshall）准备救火救援时，会兴奋地喊什么？', h:'我准备好汪汪救援啦！', opts:['I\'m ready for a ruff-ruff rescue!','Good night, Marshall.','No, I can\'t.'], a:0, w:'<b>I\'m ready for a ruff-ruff rescue!</b>（我准备好大显身手去救援啦！）毛毛虽然爱摔跤，但救援从不退缩！'},
+{pic:'🚁 🐶 💖', q:'会开直升机的小狗天天（Skye），准备展翅高飞时会欢呼什么？', h:'让我们飞上天空！', opts:['Let\'s take to the sky!','Wash your paws!','Sit on the floor.'], a:0, w:'<b>Let\'s take to the sky!</b>（让我们飞上蓝天吧！）天天翻着跟头飞向天空，太帅气啦！'},
+{pic:'🏆 🐕 🐾', q:'汪汪队最温暖人心、鼓励每一个小朋友的经典格言是什么？', h:'没有困难的工作，只有勇敢的狗狗！', opts:['No job is too big, no pup is too small!','Stop and go back!','I am too small.'], a:0, w:'<b>No job is too big, no pup is too small!</b>（没有困难的工作，只有勇敢的狗狗！）说明再小的小朋友也能发挥大力量！'},
+{pic:'🤝 🐶 💖', q:'市长爷爷被救了，对狗狗们说 Thank you，狗狗们会礼貌地回答什么？', h:'不用谢，随时为您效劳！', opts:['You\'re welcome!','Goodbye!','I\'m sorry.'], a:0, w:'<b>You\'re welcome!</b>（不用客气 / 很高兴能帮到您！）帮助了别人听到感谢，要大声回答 You\'re welcome！'},
+{pic:'📞 🚨 🐕', q:'莱德队长对市民们常说的求助电话承诺是什么？', h:'只要遇到麻烦，大声呼救就行啦！', opts:['Whenever you\'re in trouble, just yelp for help!','Don\'t call me.','Go away, trouble.'], a:0, w:'<b>Whenever you\'re in trouble, just yelp for help!</b>（只要遇到麻烦，尽管大声呼救！）yelp for help 就是呼救的意思！'},
+{pic:'🚜 🐶 🟡', q:'开推土机的斗牛犬小力（Rubble），准备开工时最爱喊什么？', h:'小力快速出动！', opts:['Rubble on the double!','I want to sleep.','Look at the cat.'], a:0, w:'<b>Rubble on the double!</b>（小力全速出动 / 开工啦！）on the double 就是动作快快的意思！'}
+]
+},
+{
+em:'🖐️', name:'生活情境脱口秀（Kids Daily Talk）',
+qs:[
+{pic:'🥛 💦', q:'口渴了想喝水，怎样用英语整句话向爸爸妈妈表达？', h:'我想要水，请给我水。', opts:['I want some water, please!','Give me water!','Water is bad.'], a:0, w:'<b>I want some water, please!</b>（请给我倒点水好吗！）完整的表达加上 please，礼貌又可爱！'},
+{pic:'🍓 😋', q:'吃完了一颗草莓还想再吃一颗，最简单地道的英语怎么说？', h:'还想要，请再给一点。', opts:['More, please!','No more!','I am full.'], a:0, w:'<b>More, please!</b>（请再给我一点 / 我还想要！）小朋友最快学会的日常高频语块！'},
+{pic:'🎁 🤝', q:'把画笔或者玩具递给同伴，嘴里应该微笑着说什么？', h:'给你拿好哦。', opts:['Here you go!','Don\'t touch!','Mine!'], a:0, w:'<b>Here you go!</b>（给你拿好啦！）双手递东西给别人说 Here you go，对方会回你一句 Thank you！'},
+{pic:'👟 🚪', q:'准备出门去公园玩啦，妈妈提醒你穿上鞋子会怎么说？', h:'Put on 就是穿戴上的意思。', opts:['Put on your shoes! Let\'s go!','Take off shoes!','Stay home.'], a:0, w:'<b>Put on your shoes! Let\'s go!</b>（穿上鞋子，我们出发啦！）自己穿好鞋大声喊 Let\'s go！'},
+{pic:'🧼 💧', q:'准备吃饭啦，爸爸喊你去洗洗手，会做出搓手动作说什么？', h:'让我们把小手洗干净。', opts:['Let\'s wash hands!','Don\'t wash.','Eat directly.'], a:0, w:'<b>Let\'s wash hands!</b>（我们去洗手手吧！）洗手时还可以唱 Wash, wash, wash your hands！'},
+{pic:'🍰 😋', q:'吃到一口甜甜的水果蛋糕，开心地向大家夸赞味道好极了，会喊什么？', h:'真美味！真好吃！', opts:['Yummy! It\'s so delicious!','It\'s too salty.','I don\'t like it.'], a:0, w:'<b>Yummy! It\'s so delicious!</b>（真好吃！太美味啦！）摸摸小肚子开心地说 Yummy yummy！'},
+{pic:'🚌 🛑', q:'在马路上看见一辆红色的双层大巴士，惊讶地指给妈妈看，怎么描述？', h:'看！一辆红色大巴士！', opts:['Look, a big red bus!','It is a small bike.','I can\'t see.'], a:0, w:'<b>Look, a big red bus!</b>（看呀，好大一辆红色的公交车！）学会用 Look + 颜色 + 物品，描述身边事物！'},
+{pic:'🧸 🔍', q:'找不到最心爱的小熊玩偶了，急急忙忙问妈妈，应该怎么问？', h:'我的小熊在哪里呢？', opts:['Where is my teddy bear?','I hate teddy bear.','Teddy bear is sleeping.'], a:0, w:'<b>Where is my teddy bear?</b>（我的小熊玩具在哪里呀？）找到之后就可以大声欢呼 Here it is（在这里呀）！'},
+{pic:'🥱 🛏️', q:'晚上玩累了揉眼睛打哈欠，告诉爸爸你困了，怎么说？', h:'我累了，我困了。', opts:['I\'m tired. Time for bed!','I\'m energetic.','Let\'s run!'], a:0, w:'<b>I\'m tired. Time for bed!</b>（我好困呀，该睡觉啦！）tired 是累了困了，说一句 Good night 睡个香香觉！'},
+{pic:'🛒 🏪', q:'过家家玩超市买东西游戏，店长阿姨微笑着问你：What do you want？你怎么回答？', h:'我想要两个苹果，请给我。', opts:['Two apples, please!','I have no money.','Goodbye store.'], a:0, w:'<b>Two apples, please!</b>（请给我两个苹果！）数字 + 水果 + please，秒变英文流利小顾客！'}
 ]
 }
 ]

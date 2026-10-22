@@ -1157,7 +1157,7 @@ function renderParents(){
   document.getElementById('main').innerHTML =
   '<div class="mhead"><span class="big">👨‍👩‍👧</span><h2>家长专区 · 中班教学规划</h2>'+
   '<div class="dsc">给爸爸妈妈的完整中班学年教学规划，包含目标、步骤、周计划和好方法。</div>'+
-  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button></div>'+
+  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button><button class="tbtn" style="color:#0f766e;border-color:#14b8a6;font-weight:900" onclick="printEnglishCheatSheet()">🖨️ 打印日常英语小抄</button></div>'+
 
   '<div class="card"><b style="font-size:1.05rem">📊 孩子学习进度总览</b>'+
   '<div style="margin:14px 0 4px">总体完成：'+allSol+' / '+allTot+' 题（'+pct+'%），累计 ⭐ '+totalStars()+'</div>'+
@@ -1217,7 +1217,21 @@ function renderParents(){
     '<p><b>逻辑思维：</b>ABAB 找规律、简单分类、比长短高矮，都是练"观察力"的好素材。</p>'+
     '<p><b>科学：</b>动物本领、四季天气、植物生长——回答"为什么"时给孩子主动观察的机会。</p>'+
     '<p><b>安全与习惯：</b>红绿灯、陌生人、洗手刷牙等，抓住日常场景随时巩固。</p>'+
-    '<p><b>英语：</b>4–5 岁是语音敏感期，只做"磨耳朵"：数字、颜色、动物、水果、礼貌语，不要求写、不要求拼。</p>'+
+    '<p><b>英语：</b>4–5 岁是二语习得黄金期，不教语法不背单词卡，通过原版动画和日常情境自然开口！详情见下方专门规划。</p>'+
+    '</div></details>'+
+    '<details class="acc"><summary>🔤 幼儿英语自然习得规划（小猪佩奇、汪汪队与生活高频语块）<span class="arr">▶</span></summary><div class="bd">'+
+    '<p><b>① 为什么同龄孩子能自动整句表达？</b>高端双语园不靠死记硬背，而是建立"画面/情境 $\Longleftrightarrow$ 声音语块"的直接映射，跳过中文翻译。</p>'+
+    '<p><b>② 借助爱看的原版动画（零抗拒法宝）：</b><br>'+
+    '• <b>小猪佩奇</b>：踩水坑 <code>I love muddy puddles! Jump up and down!</code> ｜ 恐龙玩具 <code>Dinosaur! Grrr!</code> ｜ 晚餐 <code>Spaghetti, please!</code><br>'+
+    '• <b>汪汪队立大功</b>：出动口号 <code>PAW Patrol is on a roll!</code> ｜ 阿奇解决 <code>Chase is on the case!</code> ｜ 互助精神 <code>No job is too big, no pup is too small!</code></p>'+
+    '<p><b>③ 家庭日常 10 句脱口而出（TPR 动作互动）：</b><br>'+
+    '穿鞋出门 <code>Put on your shoes, let\'s go!</code> ｜ 饭前洗手 <code>Let\'s wash hands!</code> ｜ 喝水 <code>I want some water, please!</code> ｜ 递东西 <code>Here you go!</code> ｜ 美味 <code>Yummy! It\'s delicious!</code> ｜ 晚安 <code>Good night, sweet dreams!</code></p>'+
+    '<p><b>④ 家长四大黄金心法：</b><br>'+
+    '1. <b>绝不搞随堂中英抽测</b>（不问"这个英文怎么说"）；<br>'+
+    '2. <b>三明治表达法过渡</b>（允许前期中英夹杂，理解动作后再全英）；<br>'+
+    '3. <b>把英语与最快乐的事绑定</b>（每天 15 分钟原版动画作为期待的娱乐）；<br>'+
+    '4. <b>接纳沉默期与小错误</b>（只要在听在理解，绝不批评纠正，静待语言回路成熟）。</p>'+
+    '<p>💡 <b>贴心支持：</b>点击页面顶部的「🖨️ 打印日常英语小抄」，可一键打印 A4 亲子口语纸，贴在冰箱上随时对照说！</p>'+
     '</div></details>'+
     '<details class="acc"><summary>💗 给家长的话（务必读一读）<span class="arr">▶</span></summary><div class="bd">'+
     '<p>① <b>兴趣第一：</b>不赶进度、不比较别人家孩子，孩子想停就停。</p>'+
@@ -1300,6 +1314,41 @@ function printPlan(){
   '3. 每次不超过20分钟，注意用眼距离和光线　4. 生活即课堂<br>'+
   '5. 答错先让孩子再试一试，不要代答　6. 学完给拥抱</div>'+
   '</div>';
+  window.print();
+}
+
+function printEnglishCheatSheet(){
+  document.getElementById('printArea').innerHTML =
+    '<div class="print-sheet">' +
+    '<h1>中班家庭日常 10 句亲子英文微小抄</h1>' +
+    '<div class="pmeta"><span>贴在冰箱或玄关 · 随时对照说</span><span>4–5岁中班二语习得</span><span>零抗拒 · 高频动作与情境语块</span></div>' +
+    '<h2 style="font-size:14px;margin:8px 0 4px">一、家庭生活高频 10 句脱口而出（配合手势动作 TPR）</h2>' +
+    '<table class="plan" style="margin-bottom:10px;font-size:12px">' +
+    '<tr><th style="width:75px">场景</th><th>英文原句 (English Chunk)</th><th>通俗翻译</th><th>家长动作配合指引</th></tr>' +
+    '<tr><td>👟 出门穿鞋</td><td><b>Put on your shoes, let\'s go!</b></td><td>穿上鞋子，我们出发啦！</td><td>指着鞋子做穿鞋手势，欢呼出门</td></tr>' +
+    '<tr><td>🧼 饭前洗手</td><td><b>Let\'s wash hands! Rub, rub, rub.</b></td><td>去洗手手吧！搓搓搓。</td><td>夸张模仿搓泡泡，开水龙头</td></tr>' +
+    '<tr><td>🥛 渴了喝水</td><td><b>I want some water, please!</b></td><td>请给我倒点水好吗！</td><td>引导孩子表达需求时加 please</td></tr>' +
+    '<tr><td>🍓 想要加餐</td><td><b>More, please!</b></td><td>我还想要一点！</td><td>吃完水果/零食时引导复述</td></tr>' +
+    '<tr><td>🎁 递给物品</td><td><b>Here you go!</b> — <b>Thank you!</b></td><td>给你拿好啦！— 谢谢！</td><td>双手递物品时说，引导回应 Thank you</td></tr>' +
+    '<tr><td>👀 看到好物</td><td><b>Look, a big bus! It\'s so big!</b></td><td>看！好大一辆公交车！</td><td>手指前方，瞪大眼睛做惊喜状</td></tr>' +
+    '<tr><td>😋 吃到美味</td><td><b>Yummy! It\'s so delicious!</b></td><td>真好吃！太美味啦！</td><td>摸摸小肚子，露出甜蜜笑容</td></tr>' +
+    '<tr><td>🧸 寻找物品</td><td><b>Where is my teddy bear? Here it is!</b></td><td>我的小熊在哪？在这里！</td><td>玩捉迷藏或找玩具时一问一答</td></tr>' +
+    '<tr><td>🥱 玩累困了</td><td><b>I\'m tired. Time for bed!</b></td><td>我好困呀，该睡觉啦！</td><td>揉揉眼睛，伸个懒腰</td></tr>' +
+    '<tr><td>🌙 睡前晚安</td><td><b>Good night, sweet dreams!</b></td><td>晚安，做个甜甜的好梦！</td><td>抱一抱，亲一下额头</td></tr>' +
+    '</table>' +
+    '<h2 style="font-size:14px;margin:8px 0 4px">二、动画片名台词借力（孩子一听就兴奋）</h2>' +
+    '<div style="font-size:12px;line-height:1.75;background:#f8fafc;padding:6px 10px;border-radius:8px;border:1px solid #e2e8f0">' +
+    '🐷 <b>小猪佩奇</b>：踩水坑 <code>I love muddy puddles! Jump up and down!</code> ｜ 恐龙玩具 <code>Dinosaur! Grrr!</code> ｜ 晚餐 <code>Spaghetti, please!</code><br>' +
+    '🐾 <b>汪汪队</b>：出动口号 <code>PAW Patrol is on a roll!</code> ｜ 阿奇出动 <code>Chase is on the case!</code> ｜ 救助他人 <code>No job is too big, no pup is too small!</code>' +
+    '</div>' +
+    '<h2 style="font-size:14px;margin:8px 0 4px">三、家长 4 大不抗拒黄金心法</h2>' +
+    '<div style="font-size:11.5px;line-height:1.7">' +
+    '1. <b>绝不搞随堂抽测</b>：不问"这个英文怎么说"，直接在情境中自然说出，大脑直接建立画面与声音通路；<br>' +
+    '2. <b>三明治表达过渡</b>：初期允许中英夹杂（"宝贝，把 shoes 穿上，let\'s go"），听懂后自然过渡到全英文；<br>' +
+    '3. <b>绑定最快乐的事情</b>：把 15 分钟原版动画（小猪佩奇/汪汪队）作为一天最期待的放松娱乐，而不是家庭作业；<br>' +
+    '4. <b>接纳沉默期与小错误</b>：只要在听在理解，哪怕暂时不开口或发音不准，也绝不批评纠正，静待语言神经回路成熟！' +
+    '</div>' +
+    '</div>';
   window.print();
 }
 
@@ -1889,7 +1938,21 @@ function buildAnimProps(mid,si,q){
     };
   }
 
-  // 7. 全场景通用概念兜底动画（图形、逻辑、其他所有场景 100% 覆盖）
+  // 7. 英语启蒙与情境口语
+  if(mid==='eng'){
+    const cleanAns = stripPlain(q.opts[q.a]);
+    const cleanW = stripPlain(q.w).replace(/<[^>]+>/g,'').slice(0, 42).trim();
+    return {
+      type: 'conceptCard',
+      title: '🔤 ' + (s ? s.name : '英语磨耳朵'),
+      pic: isSvg(q.pic) ? '🔤' : (toks.slice(0, 2).join(' ') || '🔤'),
+      ans: cleanAns,
+      why: cleanW,
+      duration: 340
+    };
+  }
+
+  // 8. 全场景通用概念兜底动画（图形、逻辑、其他所有场景 100% 覆盖）
   const cleanAns = stripPlain(q.opts[q.a]);
   const cleanWhy = stripPlain(q.w).replace(/这是<b>.*?<\/b>/g,'').slice(0, 42).trim();
   return {
