@@ -219,19 +219,79 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 /* ---------- 打印 ---------- */
 #printArea{display:none;}
 @media print{
-  body{background:#fff;}
+  @page{
+    size: A4 portrait;
+    margin: 12mm 10mm;
+  }
+  body{background:#fff !important; color:#000 !important;}
   #app,#modalBack,#toast{display:none !important;}
   #printArea{display:block !important;}
 }
-.print-sheet{padding:10px;color:#000;}
-.print-sheet h1{font-size:20px;text-align:center;margin:6px 0;}
-.print-sheet .pmeta{display:flex;gap:14px;font-size:13px;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px;justify-content:space-between;font-weight:bold;}
-.pitem{display:flex;align-items:center;gap:12px;margin:12px 0;font-size:16px;min-height:52px;page-break-inside:avoid;}
-.pitem .ppic{font-size:30px;min-width:70px;max-width:250px;text-align:center;flex:0 0 auto;white-space:nowrap;line-height:1.35;}
-.pitem .ppic.long{font-size:16px;letter-spacing:1px;}
-.pitem .pq{flex:1;font-weight:bold;line-height:1.6;}
-.pblank{width:90px;border-bottom:2px solid #000;height:30px;flex:0 0 auto;}
-.pans{margin-top:16px;border-top:1px dashed #999;padding-top:8px;font-size:11px;color:#444;line-height:1.8;}
+.print-sheet{padding:6px 10px;color:#000;box-sizing:border-box;}
+.print-sheet h1{font-size:19px;text-align:center;margin:4px 0;font-weight:900;}
+.print-sheet .pmeta{display:flex;gap:14px;font-size:13px;border-bottom:2px solid #000;padding-bottom:6px;margin:8px 0 10px;justify-content:space-between;font-weight:bold;}
+
+.pitem{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:10px 0;
+  padding:4px 0;
+  font-size:15px;
+  min-height:48px;
+  page-break-inside:avoid;
+  border-bottom:1px dashed #e2e8f0;
+  box-sizing:border-box;
+}
+.pitem .ppic-box{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  min-width:54px;
+  max-width:210px;
+  text-align:center;
+  overflow:hidden;
+}
+.pitem .ppic{
+  display:inline-block;
+  line-height:1.25;
+  white-space:nowrap;
+  text-align:center;
+}
+.pitem .ppic svg{
+  max-height:36px;
+  width:auto;
+  vertical-align:middle;
+}
+.pitem .ppic.pic-lg{font-size:24px;}
+.pitem .ppic.pic-md{font-size:19px;}
+.pitem .ppic.pic-sm{font-size:15px;letter-spacing:1px;}
+.pitem .ppic.pic-xs{font-size:13px;letter-spacing:0.5px;}
+
+.pitem .pq{
+  flex:1 1 auto;
+  min-width:0;
+  font-weight:bold;
+  line-height:1.55;
+  color:#111;
+  word-break:break-word;
+}
+.pitem .pblank{
+  width:75px;
+  flex:0 0 75px;
+  border-bottom:2px solid #000;
+  height:24px;
+  margin-left:6px;
+}
+.pans{
+  margin-top:14px;
+  border-top:1px dashed #666;
+  padding-top:8px;
+  font-size:11.5px;
+  color:#333;
+  line-height:1.75;
+}
 .poemprint h3{font-size:17px;margin:14px 0 2px;}
 .poemprint .pl{font-size:15px;line-height:2;font-weight:bold;}
 
@@ -1022,14 +1082,33 @@ function renderParents(){
 }
 
 /* ---------- 打印 ---------- */
+function formatPrintPic(rawPic){
+  if(!rawPic) return '';
+  return rawPic.replace(/　+/g, ' ');
+}
+function printPicClass(pic){
+  if(!pic) return 'pic-lg';
+  const toks = picTokens(pic);
+  const n = toks.length;
+  if(n >= 7) return 'pic-xs';
+  if(n >= 5) return 'pic-sm';
+  if(n >= 3) return 'pic-md';
+  return 'pic-lg';
+}
 function printSet(){
   const m=mod(S.mid), s=m.sets[S.si], qs=s.qs;
   document.getElementById('printArea').innerHTML='<div class="print-sheet">'+
-    '<h1>🏫 中班作业纸 · '+(S.qi===0?'':'(从第'+(S.qi+1)+'题起)')+'</h1><h1 style="font-size:16px">'+m.name+' — '+s.name+'</h1>'+
+    '<h1>🏫 中班作业纸 · '+(S.qi===0?'':'(从第'+(S.qi+1)+'题起)')+'</h1><h1 style="font-size:16px;color:#333;margin:4px 0 10px">'+m.name+' — '+s.name+'</h1>'+
     '<div class="pmeta"><span>姓名：__________</span><span>日期：____年__月__日</span><span>用时：______</span><span>得分：______</span></div>'+
-    qs.slice(S.qi).map((q,i)=>
-      '<div class="pitem"><span class="ppic'+(picTokens(q.pic).length>5?' long':'')+'">'+q.pic+'</span><span class="pq">'+(S.qi+i+1)+'. '+q.q+'</span><span class="pblank"></span></div>'
-    ).join('')+
+    qs.slice(S.qi).map((q,i)=>{
+      const cls = printPicClass(q.pic);
+      const picHtml = q.pic ? ('<span class="ppic-box"><span class="ppic '+cls+'">'+formatPrintPic(q.pic)+'</span></span>') : '';
+      return '<div class="pitem">'+
+        picHtml +
+        '<span class="pq">'+(S.qi+i+1)+'. '+q.q+'</span>'+
+        '<span class="pblank"></span>'+
+      '</div>';
+    }).join('')+
     '<div class="pans">【家长区·答案】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+optText(q.opts[q.a])+'　'+(q.ans!==undefined?q.ans:'')).join('　')+'</div>'+
     '<div class="pans">【讲解】'+qs.slice(S.qi).map((q,i)=>(S.qi+i+1)+'. '+(q.w||'')).join('　')+'</div>'+
   '</div>';
