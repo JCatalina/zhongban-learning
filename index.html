@@ -328,6 +328,7 @@ function pickVoice(lang){
   return vs.find(v=>/xiaoxiao|晓晓|huihui|kangkang|yaoyao/i.test(v.name)) || vs[0];
 }
 let _ttsAudio = null;
+const _isWeChat = /MicroMessenger/i.test(navigator.userAgent);
 function _playOnlineTTS(txt, lang){
   try{
     if(!_ttsAudio) _ttsAudio = new Audio();
@@ -345,7 +346,8 @@ function _playOnlineTTS(txt, lang){
 function speak(txt, lang){
   if(!txt) return false;
   if(_ttsAudio){ try{ _ttsAudio.pause(); }catch(e){} }
-  if(synth){
+  // 微信内置浏览器虽然暴露了 speechSynthesis 对象但实际是空壳不发声，必须跳过
+  if(!_isWeChat && synth){
     try{
       synth.cancel();
       const u = new SpeechSynthesisUtterance(txt);
