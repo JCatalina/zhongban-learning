@@ -1,0 +1,19 @@
+{
+  "name": "中班学习乐园 · 4-5岁家庭作业互动课堂",
+  "short_name": "中班乐园",
+  "description": "专为 4-5 岁幼儿设计的家庭学习乐园：看图识字、数学动画、古诗跟读，离线高保真童声朗读！",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff8ec",
+  "theme_color": "#f97316",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

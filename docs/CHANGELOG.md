@@ -1,0 +1,16 @@
+# 中班学习乐园 — 变更日志 (CHANGELOG)
+
+> 格式准则：按时间倒序排列；记录每次重要功能发布、架构演进与关键缺陷修复。
+
+---
+
+| 日期 | 版本 | 变更类型 | 变更摘要说明 | 关联提交 / 文档 |
+| :--- | :--- | :--- | :--- | :--- |
+| 2026-10-22 | **v1.4.0** | `feat(suite)` | **用户规划蓝图全面交付（五大进阶功能落地）**：<br>1. **错题复习本**：首页一键直达未得满星错题，支持针对性巩固与星级重燃；<br>2. **15分钟儿童护眼卫士**：防沉迷护眼弹窗与眼保健提醒，设置面板支持15/20/30分钟或关闭自定义；<br>3. **视听呼吸动效 & 下一题预加载**：播放按钮呼吸波纹反馈，下一题音频静默后台预加载；<br>4. **PWA 离线支持**：新增 `manifest.json`、`sw.js` 与 `icon.svg`，支持添加到手机主屏幕脱网独立运行；<br>5. **自动化质量校验**：新增 `validate_data.js`，实现 9 大题库、266 道题与 547 个音频全量自动化 CI 校验 | [总体架构.md §4.5–§4.7](./总体架构.md) |
+| 2026-10-22 | **v1.2.0** | `feat(audio)` | **全站引入离线静态音频引擎**：预生成 547 个高保真微软晓晓 MP3 音频文件；前端 `speak()` 重构为同源静态音频优先播放；彻底根治微信浏览器发音问题 | [`26948ba`](https://github.com/JCatalina/zhongban-learning/commit/26948ba)<br>[总体架构.md §4.1](./总体架构.md#41-全离线静态-mp3-优先音频引擎) |
+| 2026-10-22 | v1.1.5 | `fix(audio)` | **微信内置浏览器发音与白屏排查**：发现微信 WebView 的 `speechSynthesis` 为静默空壳对象；消除 TDZ 暂时性死区导致的白屏问题，增加安全沙箱保护 | [`bf44bd6`](https://github.com/JCatalina/zhongban-learning/commit/bf44bd6)<br>[`fef18e5`](https://github.com/JCatalina/zhongban-learning/commit/fef18e5) |
+| 2026-10-22 | **v1.1.2** | `fix(view)` | **移动端题图排版自适应优化**：针对数数题物品过多（如 10 颗糖果）在小屏手机上被截断的问题，引入 `measurePicWidth` 动态测量与比例缩放机制 | [`e2da5f7`](https://github.com/JCatalina/zhongban-learning/commit/e2da5f7)<br>[总体架构.md §4.4](./总体架构.md#44-动态自适应排版与-a4-作业纸打印引擎) |
+| 2026-10-22 | v1.1.1 | `fix(anim)` | **动画播放器视觉体验优化**：修复 Remotion 动画讲解弹窗在部分尺寸下结尾字幕与标题重叠、内容被播放器底栏遮挡的问题 | [`e6a579f`](https://github.com/JCatalina/zhongban-learning/commit/e6a579f) |
+| 2026-10-22 | **v1.1.0** | `feat(anim)` | **引入 Remotion 数学动画讲解引擎**：基于 React + Remotion 构建自包含播放器 `anim-player.js`，实现加减法、分成、数数、比较符号等 9 大类数学场景动态参数化动画演示 | [`86a1365`](https://github.com/JCatalina/zhongban-learning/commit/86a1365)<br>[总体架构.md §4.2](./总体架构.md#42-remotion-离线数学动画讲解子系统) |
+| 2026-10-22 | v1.0.1 | `ci(pages)` | **接入 GitHub Actions 自动化部署**：新增 `.github/workflows/pages.yml`，实现 `main` 分支代码推送后自动发布静态站点至 GitHub Pages | [`074b996`](https://github.com/JCatalina/zhongban-learning/commit/074b996)<br>[`c998a9e`](https://github.com/JCatalina/zhongban-learning/commit/c998a9e) |
+| 2026-10-21 | **v1.0.0** | `feat(init)` | **项目初版发布**：建立 9 大学科题库（266 题 + 7 篇古诗儿歌）、答题状态机、星星奖励系统、A4 作业纸打印与家长教学规划专区 | [总体架构.md](./总体架构.md) |

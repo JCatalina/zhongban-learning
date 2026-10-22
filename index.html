@@ -4,7 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>中班学习乐园 · 幼儿园中班家庭作业</title>
-<link rel="icon" href="data:,"/>
+<meta name="description" content="专为 4–5 岁幼儿园中班小朋友设计的家庭作业互动乐园：看图识字、数学动画、古诗跟读、加减法故事题，离线高保真童声朗读！"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="🐰 中班学习乐园 · 4-5岁家庭作业互动课堂"/>
+<meta property="og:description" content="看图识字、趣味数学动画、儿歌古诗跟读、A4试卷打印，内置离线微软晓晓童声！"/>
+<link rel="icon" type="image/svg+xml" href="icon.svg"/>
+<link rel="apple-touch-icon" href="icon.svg"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#f97316"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="中班乐园"/>
 <style>
 :root{
   --orange:#f97316; --pink:#ec4899; --red:#ef4444; --blue:#3b82f6; --sky:#0ea5e9;
@@ -21,6 +31,18 @@ body{
 }
 button{font-family:inherit;cursor:pointer;border:none;}
 .hidden{display:none !important;}
+
+/* ---------- 语音朗读呼吸动效 ---------- */
+.speaking-active{
+  animation: pulseSpeaking .75s infinite alternate ease-in-out !important;
+  box-shadow: 0 0 0 4px rgba(249,115,22,.35) !important;
+  border-color: #f97316 !important;
+  color: #ea580c !important;
+}
+@keyframes pulseSpeaking{
+  0%{ transform: scale(1); filter: brightness(1); }
+  100%{ transform: scale(1.08); filter: brightness(1.12); }
+}
 
 /* ---------- 顶部 ---------- */
 .topbar{
@@ -266,13 +288,46 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 window.DATASETS = window.DATASETS || [];
 
 /* ---------- 存储 ---------- */
-function freshStore(){ return { s:{ rate:0.8, autoRead:true, sfx:true }, done:{} }; }
+function freshStore(){ return { s:{ rate:0.8, autoRead:true, sfx:true, eyeCare:15 }, done:{} }; }
 let store;
 try{ store = JSON.parse(localStorage.getItem('zzb_store')) || freshStore(); }
 catch(e){ store = freshStore(); }
 if(!store.s) store.s = Object.assign(freshStore().s, store.s||{});
+if(store.s.eyeCare === undefined) store.s.eyeCare = 15;
 if(!store.done) store.done = {};
 function save(){ try{ localStorage.setItem('zzb_store', JSON.stringify(store)); }catch(e){} }
+
+/* ---------- 儿童护眼健康卫士 ---------- */
+let _eyeTimer = null;
+let _learnSeconds = 0;
+function initEyeCareTimer(){
+  clearInterval(_eyeTimer);
+  _eyeTimer = setInterval(() => {
+    const limitMin = store.s.eyeCare !== undefined ? store.s.eyeCare : 15;
+    if(limitMin <= 0) return;
+    _learnSeconds++;
+    if(_learnSeconds >= limitMin * 60){
+      _learnSeconds = 0;
+      openEyeCareModal(limitMin);
+    }
+  }, 1000);
+}
+function openEyeCareModal(min){
+  const el = document.getElementById('modalCard');
+  if(!el) return;
+  el.classList.remove('wide');
+  el.innerHTML =
+    '<div style="text-align:center;padding:10px 0">'+
+      '<div style="font-size:52px;margin-bottom:12px">🌳 👀 ✨</div>'+
+      '<h3 style="color:#047857;margin-bottom:10px">小眼睛要休息一下啦～</h3>'+
+      '<div style="font-size:.95rem;color:#8a6d4b;line-height:1.8;margin-bottom:16px">'+
+        '你已经连续认真学习了 <b>'+min+' 分钟</b>，真棒！👏<br>'+
+        '快站起来伸个懒腰，眨眨眼，看看窗外的远方和绿树吧～'+
+      '</div>'+
+      '<button class="mainbtn" onclick="closeModal()">休息好了，继续闯关 🚀</button>'+
+    '</div>';
+  document.getElementById('modalBack').classList.remove('hidden');
+}
 
 /* ---------- 会话状态 ---------- */
 let S = { mid:null, si:null, qi:0, done:false, firstTry:true, wrongs:0, setStars:0, streak:0 };
@@ -297,7 +352,39 @@ function mark(qi,kind){
   const md = store.done[S.mid] = store.done[S.mid]||{};
   const d  = md[S.si] = md[S.si]||{first:[],helped:[]};
   if(!d[kind].includes(qi)) d[kind].push(qi);
+  // 如果首次答对，从需要帮助的列表中移出
+  if(kind === 'first'){
+    const hIdx = d.helped.indexOf(qi);
+    if(hIdx !== -1) d.helped.splice(hIdx, 1);
+  }
   save(); updatePill();
+}
+
+/* ---------- 错题本检索 ---------- */
+function getAllWrongQs(){
+  const list = [];
+  for(const m of DATASETS){
+    if(m.layout === 'song') continue;
+    const md = store.done[m.id] || {};
+    m.sets.forEach((s, si) => {
+      const d = md[si] || { first: [], helped: [] };
+      d.helped.forEach(qi => {
+        if(!d.first.includes(qi) && s.qs[qi]){
+          list.push({
+            mid: m.id,
+            mName: m.name,
+            mIcon: m.icon,
+            mColor: m.color,
+            si,
+            sName: s.name,
+            qi,
+            q: s.qs[qi]
+          });
+        }
+      });
+    });
+  }
+  return list;
 }
 
 const GLYPH_NAME = {'○':'圆形','□':'正方形','▭':'长方形','△':'三角形','☆':'星形','♡':'心形','▲':'三角形','■':'正方形','●':'圆形'};
@@ -331,15 +418,38 @@ let _ttsAudio = null;
 let _audioPlayer = null;
 const _isWeChat = /MicroMessenger/i.test(navigator.userAgent);
 
+function setSpeakingState(active, btn){
+  document.querySelectorAll('.speaking-active').forEach(el => el.classList.remove('speaking-active'));
+  if(active && btn && btn.classList){
+    btn.classList.add('speaking-active');
+  }
+}
+
+function _ensureAudioPlayer(){
+  if(!_audioPlayer){
+    _audioPlayer = new Audio();
+    _audioPlayer.addEventListener('ended', () => setSpeakingState(false));
+    _audioPlayer.addEventListener('pause', () => setSpeakingState(false));
+    _audioPlayer.addEventListener('error', () => setSpeakingState(false));
+  }
+  return _audioPlayer;
+}
+
 function stopSpeak(){
+  setSpeakingState(false);
   if(_audioPlayer){ try{ _audioPlayer.pause(); _audioPlayer.currentTime = 0; }catch(e){} }
   if(_ttsAudio){ try{ _ttsAudio.pause(); _ttsAudio.currentTime = 0; }catch(e){} }
   if(synth){ try{ synth.cancel(); }catch(e){} }
 }
 
-function _playOnlineTTS(txt, lang){
+function _playOnlineTTS(txt, lang, btn){
   try{
-    if(!_ttsAudio) _ttsAudio = new Audio();
+    if(!_ttsAudio){
+      _ttsAudio = new Audio();
+      _ttsAudio.addEventListener('ended', () => setSpeakingState(false));
+      _ttsAudio.addEventListener('pause', () => setSpeakingState(false));
+      _ttsAudio.addEventListener('error', () => setSpeakingState(false));
+    }
     _ttsAudio.pause();
     const isEn = (lang && lang.startsWith('en')) || /^[a-zA-Z0-9\s.,?!'-]+$/.test(String(txt).trim());
     const voiceType = isEn ? '2' : '1';
@@ -347,12 +457,16 @@ function _playOnlineTTS(txt, lang){
     _ttsAudio.src = 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(String(txt).trim()) + '&type=' + voiceType + '&le=' + voiceLang;
     _ttsAudio.currentTime = 0;
     const p = _ttsAudio.play();
-    if(p && typeof p.catch === 'function') p.catch(function(){});
+    if(p && typeof p.then === 'function'){
+      p.then(() => { if(btn) setSpeakingState(true, btn); }).catch(function(){});
+    } else if(btn) {
+      setSpeakingState(true, btn);
+    }
     return true;
   }catch(e){ return false; }
 }
 
-function _fallbackTTS(txt, lang){
+function _fallbackTTS(txt, lang, btn){
   if(!txt) return false;
   if(!_isWeChat && synth){
     try{
@@ -362,50 +476,76 @@ function _fallbackTTS(txt, lang){
       const v = pickVoice(u.lang); if(v) u.voice = v;
       u.rate  = store.s.rate || 0.8;
       u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
+      u.onend = () => setSpeakingState(false);
+      u.onerror = () => setSpeakingState(false);
       synth.speak(u);
+      if(btn) setSpeakingState(true, btn);
       return true;
     }catch(e){}
   }
-  return _playOnlineTTS(txt, lang);
+  return _playOnlineTTS(txt, lang, btn);
 }
 
-function speak(txt, lang, audioId){
+function speak(txt, lang, audioId, btn){
   stopSpeak();
   if(!txt && !audioId) return false;
 
   // 1. 优先播放本地预生成的标准 MP3 音频（同源无跨域、高保真晓晓童声、微信100%支持）
   if(audioId){
     try{
-      if(!_audioPlayer) _audioPlayer = new Audio();
-      _audioPlayer.src = 'audio/' + audioId + '.mp3';
-      _audioPlayer.currentTime = 0;
-      const p = _audioPlayer.play();
-      if(p && typeof p.catch === 'function'){
-        p.catch(function(err){
+      const player = _ensureAudioPlayer();
+      player.src = 'audio/' + audioId + '.mp3';
+      player.currentTime = 0;
+      const p = player.play();
+      if(p && typeof p.then === 'function'){
+        p.then(() => {
+          if(btn) setSpeakingState(true, btn);
+        }).catch(function(err){
           console.warn('本地音频被手势限制或未加载完成，尝试回退:', err);
-          _fallbackTTS(txt, lang);
+          _fallbackTTS(txt, lang, btn);
         });
+      } else {
+        if(btn) setSpeakingState(true, btn);
       }
       return true;
     }catch(e){
-      return _fallbackTTS(txt, lang);
+      return _fallbackTTS(txt, lang, btn);
     }
   }
 
   // 2. 无本地音频 ID 时回退处理
-  return _fallbackTTS(txt, lang);
+  return _fallbackTTS(txt, lang, btn);
 }
 
-function sayQ(){
+function preloadNextAudio(){
+  try{
+    const m = mod(S.mid);
+    if(!m || !m.sets || !m.sets[S.si]) return;
+    const nqi = S.qi + 1;
+    if(nqi < m.sets[S.si].qs.length){
+      const nextQAudio = new Audio();
+      nextQAudio.preload = 'auto';
+      nextQAudio.src = 'audio/' + S.mid + '_' + S.si + '_' + nqi + '_q.mp3';
+
+      const nextWAudio = new Audio();
+      nextWAudio.preload = 'auto';
+      nextWAudio.src = 'audio/' + S.mid + '_' + S.si + '_' + nqi + '_w.mp3';
+    }
+  }catch(e){}
+}
+
+function sayQ(btn){
   const q = curQ();
   let t = q.q;
   const spoke = q.opts.map(optText).filter(speakableOpt);
   if(spoke.length) t += '。请选一选：' + spoke.join('、');
-  speak(t, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_q');
+  const targetBtn = btn || document.getElementById('btnSayQ') || document.querySelector('.qtext .spk');
+  speak(t, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_q', targetBtn);
 }
-function sayWhy(){
+function sayWhy(btn){
   const q = curQ();
-  speak((q.w || '') , q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w');
+  const targetBtn = btn || document.getElementById('btnSayWhy') || document.querySelector('.anscard .spk2');
+  speak((q.w || '') , q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w', targetBtn);
 }
 
 /* ---------- 音效 ---------- */
@@ -481,7 +621,12 @@ function route(){
   const h = (location.hash||'#/home').replace(/^#\/?/,'');
   const p = h.split('/').filter(Boolean);
   if(!p.length || p[0]==='home') renderHome();
-  else if(p[0]==='m'){ const m=mod(p[1]); const si = p[2]!==undefined ? parseInt(p[2],10) : null; renderModule(m,si); }
+  else if(p[0]==='m'){
+    const m=mod(p[1]);
+    const si = p[2]!==undefined ? parseInt(p[2],10) : null;
+    const qi = p[3]!==undefined ? parseInt(p[3],10) : null;
+    renderModule(m,si,qi);
+  }
   else if(p[0]==='parents') renderParents();
   else renderHome();
 }
@@ -523,12 +668,18 @@ function renderHome(){
       '<div class="mbar"><i style="width:'+pct+'%;background:'+m.color+'"></i></div>'+
       '<div class="cnt">已完成 '+sol+'/'+tot+' 题</div></div>';
   }
+  const wrongs = getAllWrongQs();
+  const wrongHtml = wrongs.length > 0
+    ? '<div class="todaytag" style="background:linear-gradient(135deg,#ffeedd,#ffd8c4);color:#c2410c;margin-top:10px" onclick="openWrongBook()">🎯 错题复习本：有 '+wrongs.length+' 道待满星题目，点击去攻克 →</div>'
+    : '<div class="todaytag" style="background:linear-gradient(135deg,#e6f9f0,#c8f5dc);color:#047857;margin-top:10px">🌟 太棒啦！目前所有已做题目都是满星！</div>';
+
   document.getElementById('main').innerHTML =
   '<div class="banner">'+
     '<div class="floats">🧸🎈</div>'+
     '<h1>你好呀，'+dateStr+'！👋</h1>'+
     '<div class="sub">今天想学点什么新本领呢？每天 15–20 分钟，快乐学本领！</div>'+
     '<div class="todaytag" onclick="location.hash=\'#/m/'+(w.mid||'read')+(w.si!==undefined?('/'+w.si):'')+'\'">🎯 今日推荐('+w.d+')：'+w.t+' →</div>'+
+    wrongHtml+
     '<div class="sub" style="margin-top:8px;font-size:.88rem;opacity:.9">💡 '+w.x+'</div>'+
   '</div>'+
   '<div class="sect">📚 选择学科学一学 <span class="line"></span></div>'+
@@ -547,8 +698,45 @@ function renderHome(){
   updatePill();
 }
 
+function openWrongBook(){
+  const wrongs = getAllWrongQs();
+  const el = document.getElementById('modalCard');
+  if(!el) return;
+  el.classList.add('wide');
+  if(!wrongs.length){
+    el.innerHTML =
+      '<h3>🎯 错题复习本</h3>'+
+      '<div style="text-align:center;padding:24px 0">'+
+        '<div style="font-size:48px;margin-bottom:12px">🎉 ⭐ ✨</div>'+
+        '<div style="font-size:1.1rem;font-weight:bold;color:#047857">太厉害啦！目前没有任何待巩固的错题！</div>'+
+        '<div style="color:#8a6d4b;margin-top:8px">所有做过的题目都已获得满星 ⭐⭐</div>'+
+        '<button class="mainbtn" style="margin-top:16px" onclick="closeModal()">太棒啦</button>'+
+      '</div>';
+  } else {
+    let listHtml = '<div style="max-height:55vh;overflow-y:auto;margin:12px 0;display:flex;flex-direction:column;gap:8px">';
+    wrongs.forEach((item, idx) => {
+      listHtml +=
+        '<div class="setcard" style="border-color:'+item.mColor+'44;padding:12px;cursor:pointer" onclick="closeModal();location.hash=\'#/m/'+item.mid+'/'+item.si+'/'+item.qi+'\'">'+
+          '<span class="em">'+item.mIcon+'</span>'+
+          '<div style="flex:1">'+
+            '<div style="font-weight:bold;font-size:.95rem">'+item.mName+' · '+item.sName+'（第'+(item.qi+1)+'题）</div>'+
+            '<div style="font-size:.85rem;color:#8a6d4b;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+item.q.q+'</div>'+
+          '</div>'+
+          '<span class="go">去攻克 ▶</span>'+
+        '</div>';
+    });
+    listHtml += '</div>';
+    el.innerHTML =
+      '<h3>🎯 错题复习本（共 '+wrongs.length+' 题待满星）</h3>'+
+      '<div style="font-size:.88rem;color:#8a6d4b">攻克错题并独立答对，即可点亮该题的满星 ⭐⭐！</div>'+
+      listHtml+
+      '<div class="btnrow"><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
+  }
+  document.getElementById('modalBack').classList.remove('hidden');
+}
+
 /* ---------- 模块页 / 组页 / 题页 ---------- */
-function renderModule(m, si){
+function renderModule(m, si, qi){
   if(!m){ renderHome(); return; }
   buildTabs(m.id);
   updatePill();
@@ -564,7 +752,9 @@ function renderModule(m, si){
   } else if(m.layout==='song'){
     renderSongSet(m,si);
   } else {
-    S.mid=m.id; S.si=si; S.qi=0; S.setStars=0; S.streak=0;
+    S.mid=m.id; S.si=si;
+    S.qi = (qi!==undefined && qi!==null && qi>=0 && qi<m.sets[si].qs.length) ? qi : 0;
+    S.setStars=0; S.streak=0;
     renderQ();
   }
 }
@@ -597,7 +787,7 @@ function renderQ(){
   '</div>'+
   '<div class="qcard" id="qcard">'+
     '<div class="qpic'+(q.picSmall?' small':'')+'" id="qpic">'+pic+'</div>'+
-    '<div class="qtext">'+q.q+' <button class="spk" title="读题" onclick="sayQ()">🔊</button></div>'+
+    '<div class="qtext">'+q.q+' <button class="spk" id="btnSayQ" title="读题" onclick="sayQ(this)">🔊</button></div>'+
     '<div class="opts" id="opts">'+
       q.opts.map((o,i)=>'<button class="opt" data-i="'+i+'" onclick="choose('+i+',this)">'+optHtml(o)+'</button>').join('')+
     '</div>'+
@@ -607,10 +797,14 @@ function renderQ(){
       '<button class="answersmall" id="btnAnswer" onclick="revealAnswer()">👀 看答案</button>'+
     '</div>'+
   '</div>';
-  if(store.s.autoRead) setTimeout(sayQ, 450);
+  if(store.s.autoRead) setTimeout(() => {
+    const b = document.getElementById('btnSayQ');
+    sayQ(b);
+  }, 450);
   if(solvedQ) setTimeout(()=>showAns(false,true), 250);
   requestAnimationFrame(fitPic);
   setTimeout(fitPic, 60);
+  setTimeout(preloadNextAudio, 800);
 }
 
 function choose(i, el){
@@ -649,7 +843,7 @@ function showAns(celebrate, silentMark){
       '<div class="ah">✅ 正确答案：'+optHtml(q.opts[q.a])+' '+alr+'</div>'+
       '<div class="why">'+q.w+'</div>'+
       '<div class="btnrow2">'+
-        '<button class="spk2" onclick="sayWhy()">🔊 听小老师讲一讲</button>'+
+        '<button class="spk2" id="btnSayWhy" onclick="sayWhy(this)">🔊 听小老师讲一讲</button>'+
         ((S.mid==='math'||S.mid==='calc') ? '<button class="spk2 animbtn" onclick="openAnim()">🎬 动画讲解</button>' : '')+
       '</div>'+
     '</div>'+
@@ -658,7 +852,12 @@ function showAns(celebrate, silentMark){
         ? '<button class="mainbtn" onclick="nextQ()">下一题 ➡️</button>'
         : '<button class="mainbtn" onclick="nextQ()">本组完成 🏁</button>')+
     '</div>';
-  if(!silentMark) speak(q.w, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w');
+  if(!silentMark) {
+    setTimeout(() => {
+      const b = document.getElementById('btnSayWhy');
+      speak(q.w, q.lang, S.mid + '_' + S.si + '_' + S.qi + '_w', b);
+    }, 120);
+  }
 }
 
 function revealAnswer(){
@@ -863,11 +1062,20 @@ function printPlan(){
 
 /* ---------- 设置 ---------- */
 function openSettings(){
+  const ec = store.s.eyeCare !== undefined ? store.s.eyeCare : 15;
   const el=document.getElementById('modalCard');
   el.innerHTML='<h3>⚙️ 设置</h3>'+
   '<div class="formrow">🐢 朗读语速 <input type="range" min="0.5" max="1.2" step="0.05" value="'+store.s.rate+'" oninput="store.s.rate=+this.value;save()"><span>🐇 '+store.s.rate.toFixed(2)+'</span></div>'+
   '<div class="formrow">🔊 自动读题（不识字也能用） <span class="switch'+(store.s.autoRead?' on':'')+'" onclick="store.s.autoRead=!store.s.autoRead;save();openSettings()"></span></div>'+
   '<div class="formrow">🎵 答题音效 <span class="switch'+(store.s.sfx?' on':'')+'" onclick="store.s.sfx=!store.s.sfx;save();openSettings()"></span></div>'+
+  '<div class="formrow">👀 护眼提醒卫士 '+
+    '<select style="padding:5px 10px;border-radius:8px;border:1px solid #e0c9a8;background:#fff8ec;font-size:.85rem;color:#5a3e1b;outline:none" onchange="store.s.eyeCare=+this.value;save();initEyeCareTimer()">'+
+      '<option value="15" '+(ec===15?'selected':'')+'>每 15 分钟（推荐）</option>'+
+      '<option value="20" '+(ec===20?'selected':'')+'>每 20 分钟</option>'+
+      '<option value="30" '+(ec===30?'selected':'')+'>每 30 分钟</option>'+
+      '<option value="0" '+(ec===0?'selected':'')+'>关闭护眼提醒</option>'+
+    '</select>'+
+  '</div>'+
   '<div class="small">自动读题会在每道题出现时朗读题目和选项。全站已内置微软晓晓高保真原声音频，100% 离线完美支持手机、微信内置浏览器与电脑。</div>'+
   '<div class="voices">🎙️ 语音引擎：已启用离线高保真儿童语音包（全场景即点即播）</div>'+
   '<div class="btnrow" style="margin-top:14px"><button class="mainbtn" onclick="testSpeak()">🎧 试听「你好呀」</button><button class="ghostbtn" onclick="closeModal()">关闭</button></div>';
@@ -965,8 +1173,18 @@ function clearData(){
 }
 
 /* ---------- 启动 ---------- */
+initEyeCareTimer();
 updatePill();
 route();
+
+/* ---------- PWA 离线支持 ---------- */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.warn('Service Worker 注册提示:', err);
+    });
+  });
+}
 
 /* 调试暴露（供家长查看进度） */
 window.__APP = { data: DATASETS, store, S };
