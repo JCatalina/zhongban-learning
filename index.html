@@ -327,19 +327,37 @@ function pickVoice(lang){
   if(!vs.length) return null;
   return vs.find(v=>/xiaoxiao|晓晓|huihui|kangkang|yaoyao/i.test(v.name)) || vs[0];
 }
-function speak(txt, lang){
-  if(!synth) { toast('当前浏览器不支持语音朗读 (请用 Edge / Chrome 打开)'); return false; }
-  if(!txt) return false;
+let _ttsAudio = null;
+function _playOnlineTTS(txt, lang){
   try{
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(txt);
-    u.lang  = lang || 'zh-CN';
-    const v = pickVoice(u.lang); if(v) u.voice = v;
-    u.rate  = store.s.rate || 0.8;
-    u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
-    synth.speak(u);
+    if(!_ttsAudio) _ttsAudio = new Audio();
+    _ttsAudio.pause();
+    const isEn = (lang && lang.startsWith('en')) || /^[a-zA-Z0-9\s.,?!'-]+$/.test(String(txt).trim());
+    const voiceType = isEn ? '2' : '1';
+    const voiceLang = isEn ? 'en' : 'zh';
+    _ttsAudio.src = 'https://dict.youdao.com/dictvoice?audio=' + encodeURIComponent(String(txt).trim()) + '&type=' + voiceType + '&le=' + voiceLang;
+    _ttsAudio.currentTime = 0;
+    const p = _ttsAudio.play();
+    if(p && typeof p.catch === 'function') p.catch(function(){});
     return true;
   }catch(e){ return false; }
+}
+function speak(txt, lang){
+  if(!txt) return false;
+  if(_ttsAudio){ try{ _ttsAudio.pause(); }catch(e){} }
+  if(synth){
+    try{
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(txt);
+      u.lang  = lang || 'zh-CN';
+      const v = pickVoice(u.lang); if(v) u.voice = v;
+      u.rate  = store.s.rate || 0.8;
+      u.pitch = u.lang.startsWith('en') ? 1.0 : 1.12;
+      synth.speak(u);
+      return true;
+    }catch(e){}
+  }
+  return _playOnlineTTS(txt, lang);
 }
 function sayQ(){
   const q = curQ();
