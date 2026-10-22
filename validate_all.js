@@ -185,8 +185,32 @@ scenes.forEach((sc, scIdx) => {
 
 console.log(`[INFO] 场景口语学堂检验完毕: ${scenes.length} 大场景，${totalSceneWords} 个核心词，${totalSceneSents} 个生活高频句，音频缺失: ${engAudioMissing}`);
 
-if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100) {
-  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀完整就绪，零缺陷交付！');
+// 6. Lottie 少儿灵动矢量动画校验
+console.log('[INFO] 开始 Lottie 少儿灵动矢量动画校验...');
+let lottieErrors = 0;
+if (!fs.existsSync('lottie.min.js') || fs.statSync('lottie.min.js').size < 100000) {
+  console.error('[FAIL] 缺少本地离线 lottie.min.js 运行时或文件过小');
+  lottieErrors++;
+}
+if (!fs.existsSync('lottie_scenes_anim.js') || fs.statSync('lottie_scenes_anim.js').size < 2000) {
+  console.error('[FAIL] 缺少 lottie_scenes_anim.js 或文件过小');
+  lottieErrors++;
+}
+try {
+  vm.runInContext(fs.readFileSync('lottie_scenes_anim.js', 'utf8'), sandbox);
+  if (!sandbox.window.SceneAnimManager || typeof sandbox.window.SceneAnimManager.mount !== 'function') {
+    console.error('[FAIL] SceneAnimManager 未正确导出');
+    lottieErrors++;
+  } else {
+    console.log('[PASS] SceneAnimManager 接口完备，支持 mount, setSpeaking, tickle, cheer');
+  }
+} catch (e) {
+  console.error('[FAIL] lottie_scenes_anim.js 解析出错:', e);
+  lottieErrors++;
+}
+
+if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100 && lottieErrors === 0) {
+  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀 + Lottie灵动动画完整就绪，零缺陷交付！');
 } else {
   console.error('存在验证不通过项，请检查修复！');
   process.exit(1);

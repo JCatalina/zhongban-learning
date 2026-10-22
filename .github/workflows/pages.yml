@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html README.md manifest.json sw.js icon.svg _site/
-          cp data_*.js _site/
+          cp *.js _site/
           cp -r anim _site/
           cp -r audio _site/
 
