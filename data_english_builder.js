@@ -6652,16 +6652,3 @@ window.DATA_ENG_BUILDER = [
   }
 ];
 
-// 挂载到主系统 DATASETS 统一管理
-(function() {
-  if (typeof window !== 'undefined' && window.DATASETS) {
-    window.DATASETS.push({
-      id: 'eng_builder',
-      title: '英语造句学堂',
-      icon: '🔤',
-      badge: '300句生活造句',
-      desc: '认单词 ➔ 学句架 ➔ 乐高积木拼装造句，6大主题300组生活高频表达',
-      builderData: window.DATA_ENG_BUILDER
-    });
-  }
-})();

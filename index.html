@@ -1043,12 +1043,12 @@ const AGAIN  = ['再想一想哦～🤔','差一点点，加油！💪','没关�
 /* ---------- 工具 ---------- */
 const mod  = id  => DATASETS.find(m=>m.id===id);
 const curQ = () => mod(S.mid).sets[S.si].qs[S.qi];
-function totalQs(m){ return m.sets.reduce((a,s)=>a+s.qs.length,0); }
+function totalQs(m){ return (m && Array.isArray(m.sets)) ? m.sets.reduce((a,s)=>a+((s&&s.qs)?s.qs.length:0),0) : 0; }
 function setInfo(mid,si){ const d=(store.done[mid]||{})[si]||{first:[],helped:[]}; return d; }
 function starsOfSet(mid,si){ const d=setInfo(mid,si); return d.first.length*2+d.helped.length; }
 function solvedOfSet(mid,si){ const d=setInfo(mid,si); return d.first.length+d.helped.length; }
-function starsOfMod(m){ return m.sets.reduce((a,s,si)=>a+starsOfSet(m.id,si),0); }
-function solvedOfMod(m){ return m.sets.reduce((a,s,si)=>a+solvedOfSet(m.id,si),0); }
+function starsOfMod(m){ return (m && Array.isArray(m.sets)) ? m.sets.reduce((a,s,si)=>a+starsOfSet(m.id,si),0) : 0; }
+function solvedOfMod(m){ return (m && Array.isArray(m.sets)) ? m.sets.reduce((a,s,si)=>a+solvedOfSet(m.id,si),0) : 0; }
 function totalStars(){ return DATASETS.reduce((a,m)=>a+starsOfMod(m),0); }
 function totalSolved(){ return DATASETS.reduce((a,m)=>a+solvedOfMod(m),0); }
 function totalAll(){ return DATASETS.reduce((a,m)=>a+totalQs(m),0); }
@@ -1428,6 +1428,14 @@ function renderHome(){
       '<div style="font-size:.84rem;color:#2563eb;margin-top:2px">告别枯燥做题！先识词 ➔ 积木组句 ➔ 慢速精听 ➔ 情境脱口秀！</div>'+
     '</div>'+
     '<button class="mainbtn" style="background:#2563eb;padding:8px 16px;font-size:.9rem">开启口语 ▶</button>'+
+  '</div>'+
+  '<div class="card" style="cursor:pointer;background:linear-gradient(135deg,#faf5ff,#f3e8ff);border:2px solid #c084fc;margin-top:14px;display:flex;align-items:center;gap:14px" onclick="location.hash=\'#/eng-builder\'">'+
+    '<span style="font-size:2.4rem">🔤</span>'+
+    '<div style="flex:1">'+
+      '<div style="font-weight:900;font-size:1.05rem;color:#581c87">🔤 幼儿英语三阶造句学堂 · 6大主题300组</div>'+
+      '<div style="font-size:.84rem;color:#7e22ce;margin-top:2px">认单词 ➔ 学句架 ➔ 乐高积木拼装生活句，趣味造句大连线！</div>'+
+    '</div>'+
+    '<button class="mainbtn" style="background:#8b5cf6;padding:8px 16px;font-size:.9rem">趣味造句 ▶</button>'+
   '</div>'+
   '<div class="sect">📚 选择学科学一学 <span class="line"></span></div>'+
   '<div class="mgrid">'+cards+'</div>'+
