@@ -273,6 +273,241 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 }
 .story-kw:hover{background:#fef3c7;}
 
+/* ---------- 🔗 幼儿动手连线互动引擎 (Match Line Engine) ---------- */
+function renderMatchHtml(q){
+  const pairs = q.match.pairs || [];
+  const leftList = pairs.map((p, idx) => ({ ...p.left, pairId: idx }));
+  const rightList = pairs.map((p, idx) => ({ ...p.right, pairId: idx }));
+  
+  // 洗牌打乱右侧顺序
+  for(let i = rightList.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = rightList[i];
+    rightList[i] = rightList[j];
+    rightList[j] = temp;
+  }
+
+  const leftCols = leftList.map(item =>
+    '<div class="match-item" data-col="left" data-pair="' + item.pairId + '">' +
+      '<div class="match-item-content">' +
+        (item.pic ? '<span class="match-item-pic">' + item.pic + '</span>' : '') +
+        '<span>' + item.text + '</span>' +
+      '</div>' +
+      '<div class="match-dot"></div>' +
+    '</div>'
+  ).join('');
+
+  const rightCols = rightList.map(item =>
+    '<div class="match-item" data-col="right" data-pair="' + item.pairId + '">' +
+      '<div class="match-dot"></div>' +
+      '<div class="match-item-content">' +
+        (item.pic ? '<span class="match-item-pic">' + item.pic + '</span>' : '') +
+        '<span>' + item.text + '</span>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+
+  return '<div class="match-container" id="matchContainer">' +
+    '<div class="match-tip-bar">' +
+      '<span>🔗 动动小手指：按住连线，或分别点击两边配对！</span>' +
+      '<button class="match-reset-btn" type="button" onclick="resetCurrentMatch()">🔄 重新连线</button>' +
+    '</div>' +
+    '<div class="match-board" id="matchBoard">' +
+      '<svg class="match-svg-canvas" id="matchCanvas"></svg>' +
+      '<div class="match-col" id="matchColLeft">' + leftCols + '</div>' +
+      '<div class="match-col" id="matchColRight">' + rightCols + '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+const MATCH_LINE_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6', '#06b6d4'];
+
+function initPointerMatch(containerId, onAllMatched){
+  const container = document.getElementById(containerId);
+  if(!container) return;
+  const board = container.querySelector('.match-board');
+  const svg = container.querySelector('.match-svg-canvas');
+  const items = container.querySelectorAll('.match-item');
+  if(!board || !svg) return;
+
+  const matchedPairs = new Map();
+  let selectedItem = null;
+  let activeDragItem = null;
+  let previewPath = null;
+  let isDragging = false;
+  let startX = 0, startY = 0;
+
+  function getDotPoint(item){
+    const dot = item.querySelector('.match-dot');
+    const dotRect = dot.getBoundingClientRect();
+    const boardRect = board.getBoundingClientRect();
+    return {
+      x: dotRect.left + dotRect.width / 2 - boardRect.left,
+      y: dotRect.top + dotRect.height / 2 - boardRect.top
+    };
+  }
+
+  function calcCurvePath(p1, p2){
+    const cx1 = p1.x + (p2.x - p1.x) * 0.45;
+    const cy1 = p1.y;
+    const cx2 = p1.x + (p2.x - p1.x) * 0.55;
+    const cy2 = p2.y;
+    return 'M ' + p1.x + ' ' + p1.y + ' C ' + cx1 + ' ' + cy1 + ', ' + cx2 + ' ' + cy2 + ', ' + p2.x + ' ' + p2.y;
+  }
+
+  function refreshAllLines(){
+    matchedPairs.forEach(rec => {
+      const p1 = getDotPoint(rec.leftItem);
+      const p2 = getDotPoint(rec.rightItem);
+      rec.pathEl.setAttribute('d', calcCurvePath(p1, p2));
+    });
+  }
+
+  window.addEventListener('resize', refreshAllLines);
+
+  function confirmMatch(itemA, itemB){
+    const left = itemA.dataset.col === 'left' ? itemA : itemB;
+    const right = itemA.dataset.col === 'right' ? itemA : itemB;
+    const pairId = left.dataset.pair;
+
+    const color = MATCH_LINE_COLORS[matchedPairs.size % MATCH_LINE_COLORS.length];
+    const p1 = getDotPoint(left);
+    const p2 = getDotPoint(right);
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('class', 'match-line confirmed');
+    path.setAttribute('stroke', color);
+    path.setAttribute('d', calcCurvePath(p1, p2));
+    svg.appendChild(path);
+
+    left.classList.add('matched');
+    right.classList.add('matched');
+    left.classList.remove('selected');
+    right.classList.remove('selected');
+
+    matchedPairs.set(pairId, { leftItem: left, rightItem: right, color: color, pathEl: path });
+    sfx(true);
+
+    const totalPairs = board.querySelectorAll('.match-col:first-child .match-item').length;
+    if(matchedPairs.size >= totalPairs){
+      setTimeout(() => {
+        if(typeof onAllMatched === 'function') onAllMatched();
+      }, 350);
+    }
+  }
+
+  function triggerMismatch(itemA, itemB){
+    sfx(false);
+    toast('哎呀，它们不是好朋友哦，再试一次！');
+    itemA.classList.add('error-shake');
+    itemB.classList.add('error-shake');
+    setTimeout(() => {
+      itemA.classList.remove('error-shake');
+      itemB.classList.remove('error-shake');
+    }, 450);
+  }
+
+  window.resetCurrentMatch = function(){
+    matchedPairs.forEach(rec => rec.pathEl.remove());
+    matchedPairs.clear();
+    items.forEach(it => {
+      it.classList.remove('matched', 'selected', 'error-shake');
+    });
+    if(previewPath) { previewPath.removeAttribute('d'); }
+    selectedItem = null;
+    activeDragItem = null;
+    isDragging = false;
+    toast('已重置，重新连一连吧！');
+  };
+
+  items.forEach(item => {
+    item.addEventListener('pointerdown', e => {
+      if(item.classList.contains('matched')) return;
+      activeDragItem = item;
+      isDragging = false;
+      startX = e.clientX;
+      startY = e.clientY;
+
+      if(!previewPath){
+        previewPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        previewPath.setAttribute('class', 'match-line preview');
+        svg.appendChild(previewPath);
+      }
+    });
+
+    item.addEventListener('pointermove', e => {
+      if(activeDragItem !== item) return;
+      const dist = Math.hypot(e.clientX - startX, e.clientY - startY);
+      if(dist > 8 && !isDragging){
+        isDragging = true;
+        try{ item.setPointerCapture(e.pointerId); }catch(err){}
+      }
+
+      if(isDragging && previewPath){
+        const boardRect = board.getBoundingClientRect();
+        const startPt = getDotPoint(item);
+        const currPt = {
+          x: e.clientX - boardRect.left,
+          y: e.clientY - boardRect.top
+        };
+        previewPath.setAttribute('d', calcCurvePath(startPt, currPt));
+      }
+    });
+
+    const onPointerEnd = e => {
+      if(activeDragItem !== item) return;
+      const wasDragging = isDragging;
+      activeDragItem = null;
+      isDragging = false;
+      try{ item.releasePointerCapture(e.pointerId); }catch(err){}
+
+      if(previewPath){
+        previewPath.removeAttribute('d');
+      }
+
+      if(wasDragging){
+        const elemUnder = document.elementFromPoint(e.clientX, e.clientY);
+        const targetItem = elemUnder ? elemUnder.closest('.match-item') : null;
+        if(targetItem && targetItem !== item && !targetItem.classList.contains('matched')){
+          if(targetItem.dataset.col !== item.dataset.col){
+            if(targetItem.dataset.pair === item.dataset.pair){
+              confirmMatch(item, targetItem);
+            } else {
+              triggerMismatch(item, targetItem);
+            }
+          }
+        }
+      } else {
+        if(selectedItem === item){
+          item.classList.remove('selected');
+          selectedItem = null;
+        } else if(!selectedItem){
+          item.classList.add('selected');
+          selectedItem = item;
+          try{ sfx(true); }catch(err){}
+        } else {
+          if(selectedItem.dataset.col === item.dataset.col){
+            selectedItem.classList.remove('selected');
+            item.classList.add('selected');
+            selectedItem = item;
+          } else {
+            const first = selectedItem;
+            first.classList.remove('selected');
+            selectedItem = null;
+            if(first.dataset.pair === item.dataset.pair){
+              confirmMatch(first, item);
+            } else {
+              triggerMismatch(first, item);
+            }
+          }
+        }
+      }
+    };
+
+    item.addEventListener('pointerup', onPointerEnd);
+    item.addEventListener('pointercancel', onPointerEnd);
+  });
+}
+
 /* ---------- 🖐️ 触屏/鼠标原生拖拽 ---------- */
 .drag-container{
   background:#fff9f0;border:2px dashed #f59e0b;border-radius:20px;
@@ -298,6 +533,80 @@ table.plan td:first-child{font-weight:800;white-space:nowrap;}
 }
 .drop-zone.hover{border-color:#10b981;background:#ecfdf5;transform:scale(1.03);}
 .drop-zone.filled{border-color:#34d399;border-style:solid;background:#f0fdf4;}
+
+/* ---------- 🔗 幼儿动手连线互动舞台 (Match Line Engine) ---------- */
+.match-container{
+  background:#f8fafc;border:2.5px solid #e2e8f0;border-radius:24px;
+  padding:16px 14px;margin:16px 0;box-shadow:0 6px 20px rgba(0,0,0,.04);
+  position:relative;user-select:none;-webkit-user-select:none;
+}
+.match-tip-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.92rem;font-weight:900;color:#c2410c;margin-bottom:8px;padding:0 4px;
+}
+.match-reset-btn{
+  background:#fff;border:1.5px solid #cbd5e1;border-radius:14px;padding:4px 12px;
+  font-size:.8rem;font-weight:800;color:#64748b;cursor:pointer;transition:.15s;
+}
+.match-reset-btn:hover{background:#f1f5f9;color:#334155;border-color:#94a3b8;}
+.match-board{
+  position:relative;display:flex;justify-content:space-between;align-items:stretch;
+  gap:12px;margin:10px 0 6px;min-height:220px;
+}
+.match-col{
+  display:flex;flex-direction:column;justify-content:space-around;gap:12px;
+  width:44%;z-index:2;
+}
+.match-item{
+  background:#fff;border:2.5px solid #cbd5e1;border-radius:18px;
+  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;touch-action:none;transition:all .18s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 3px 8px rgba(0,0,0,.05);position:relative;min-height:52px;
+}
+.match-item:hover{
+  border-color:#38bdf8;background:#f0f9ff;transform:scale(1.02);
+}
+.match-item.selected{
+  border-color:#3b82f6;background:#eff6ff;transform:scale(1.04);
+  box-shadow:0 6px 18px rgba(59,130,246,.25);
+}
+.match-item.matched{
+  border-color:#10b981;background:#f0fdf4;color:#065f46;
+  cursor:default;transform:scale(1);box-shadow:none;
+}
+.match-item.error-shake{
+  animation:matchShake .4s ease-in-out;border-color:#ef4444;background:#fef2f2;
+}
+@keyframes matchShake{
+  0%,100%{transform:translateX(0);}
+  20%,60%{transform:translateX(-6px);}
+  40%,80%{transform:translateX(6px);}
+}
+.match-item-content{
+  display:flex;align-items:center;gap:8px;font-size:1.15rem;font-weight:900;
+  color:#1e293b;pointer-events:none;
+}
+.match-item.matched .match-item-content{color:#047857;}
+.match-item-pic{font-size:1.4rem;line-height:1;}
+.match-dot{
+  width:16px;height:16px;border-radius:50%;background:#e2e8f0;
+  border:3px solid #94a3b8;flex-shrink:0;transition:.2s;pointer-events:none;
+}
+.match-item.selected .match-dot{background:#3b82f6;border-color:#1d4ed8;transform:scale(1.25);}
+.match-item.matched .match-dot{background:#10b981;border-color:#059669;}
+.match-svg-canvas{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:1;overflow:visible;
+}
+.match-line{
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+}
+.match-line.preview{
+  stroke:#3b82f6;stroke-width:4;stroke-dasharray:6,6;opacity:.85;
+}
+.match-line.confirmed{
+  stroke-width:5;filter:drop-shadow(0 2px 6px rgba(0,0,0,.15));
+}
 
 /* ---------- 🔟 新加坡数学十格阵实时演练板 ---------- */
 .tenframe-board{
@@ -1172,7 +1481,10 @@ function renderQ(){
   const hanziChar = getCharFromQ(q);
 
   let interactHtml = '';
-  if(q.drag){
+  if(q.match){
+    // 🔗 原生触屏/鼠标动手连线题型 (Match Line)
+    interactHtml = renderMatchHtml(q);
+  } else if(q.drag){
     // 原生触屏/鼠标动手拖拽题型
     interactHtml =
       '<div class="drag-container" id="dragContainer">' +
@@ -1210,7 +1522,16 @@ function renderQ(){
     '</div>'+
   '</div>';
 
-  if(q.drag){
+  if(q.match){
+    setTimeout(() => {
+      initPointerMatch('matchContainer', () => {
+        S.done = true;
+        mark(S.qi, 'first');
+        S.setStars = starsOfSet(S.mid, S.si);
+        showAns(true, false);
+      });
+    }, 80);
+  } else if(q.drag){
     setTimeout(() => {
       initPointerDrag('dragContainer', () => {
         S.done = true;
@@ -1474,6 +1795,20 @@ function printSet(){
     '<h1>🏫 中班作业纸 · '+(S.qi===0?'':'(从第'+(S.qi+1)+'题起)')+'</h1><h1 style="font-size:16px;color:#333;margin:4px 0 10px">'+m.name+' — '+s.name+'</h1>'+
     '<div class="pmeta"><span>姓名：__________</span><span>日期：____年__月__日</span><span>用时：______</span><span>得分：______</span></div>'+
     qs.slice(S.qi).map((q,i)=>{
+      if(q.match){
+        return '<div class="pitem" style="display:block;margin:12px 0">'+
+          '<div class="pq" style="margin-bottom:8px"><b>' + (S.qi+i+1) + '. ' + q.q + '</b> (动手连连看)</div>'+
+          '<div style="display:flex;justify-content:space-around;padding:10px 16px;background:#fdfdfd;border:1px dashed #cbd5e1;border-radius:12px">'+
+            '<div style="display:flex;flex-direction:column;gap:10px">' +
+              q.match.pairs.map((p, idx) => '<div style="display:flex;align-items:center;gap:6px"><span>' + (p.left.pic || '') + ' ' + p.left.text + '</span> <span style="display:inline-block;width:10px;height:10px;border:1.5px solid #333;border-radius:50%"></span></div>').join('') +
+            '</div>' +
+            '<div style="width:100px;border-left:1px dotted #ccc;border-right:1px dotted #ccc;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:12px">连线区</div>' +
+            '<div style="display:flex;flex-direction:column;gap:10px">' +
+              [...q.match.pairs].reverse().map((p, idx) => '<div style="display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;border:1.5px solid #333;border-radius:50%"></span> <span>' + (p.right.pic || '') + ' ' + p.right.text + '</span></div>').join('') +
+            '</div>' +
+          '</div>'+
+        '</div>';
+      }
       const cls = printPicClass(q.pic);
       const picHtml = q.pic ? ('<span class="ppic-box"><span class="ppic '+cls+'">'+formatPrintPic(q.pic)+'</span></span>') : '';
       return '<div class="pitem">'+

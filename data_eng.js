@@ -37,7 +37,7 @@ qs:[
 {pic:'🐷', q:'"小猪" 用英语怎么说？', h:'粉粉的小猪英文名是 P 开头。', opts:['pig','cat','fish'], a:0, w:'<b>pig</b>（皮格）是小猪。A pig says "oink, oink"——小猪噜噜叫！'},
 {pic:'🐰', q:'"小兔子" 用英语怎么说？', h:'它跳跳跳，英文名是 R 开头。', opts:['rabbit','dog','bird'], a:0, w:'<b>rabbit</b>（瑞比特）是小兔子。A rabbit can hop, hop, hop——小兔跳跳跳！'},
 {pic:'🐟', q:'"小鱼" 用英语怎么说？', h:'它在水里游，英文名 F 开头。', opts:['fish','cat','pig'], a:0, w:'<b>fish</b>（费什）是小鱼。A fish can swim——小鱼水里游，一天到晚吐泡泡！'},
-{pic:'🐦', q:'"小鸟" 用英语怎么说？', h:'它会飞，英文名 B 开头。', opts:['bird','dog','rabbit'], a:0, w:'<b>bird</b>（伯德）是小鸟。A bird can fly——小鸟天上飞，叽叽喳喳唱不停！'}
+{pic:'🐦', q:'"小鸟" 用英语怎么说？', h:'它会飞，英文名 B 开头。', opts:['bird','dog','rabbit'], a:0, w:'<b>bird</b>（伯德）是小鸟。A bird can fly——小鸟天上飞，叽叽喳喳唱不停！'},{pic:'🔤', q:'English Matching: 动动小手，把英文小动物和对应图画连起来吧！', h:'Cat 是小猫，Dog 是小狗，Bird 是小鸟，Fish 是小鱼！', opts:['连线完成','Cat-小猫, Dog-小狗','Bird-小鸟, Fish-小鱼'], a:0, w:'Well done! <b>Cat 🐱 是小猫、Dog 🐶 是小狗、Bird 🐦 是小鸟、Fish 🐟 是小鱼</b>！', match:{pairs:[{left:{text:'Cat',pic:'🐱'},right:{text:'小花猫',pic:'🐱'}},{left:{text:'Dog',pic:'🐶'},right:{text:'小狗狗',pic:'🐶'}},{left:{text:'Bird',pic:'🐦'},right:{text:'小鸟儿',pic:'🐦'}},{left:{text:'Fish',pic:'🐟'},right:{text:'小鱼儿',pic:'🐟'}}]}}
 ]
 },
 {
