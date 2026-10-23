@@ -2083,7 +2083,7 @@ function renderEnglishStage(sceneId, sentenceIndex){
     '</div>';
 
   if(window.SceneAnimManager){
-    window.SceneAnimManager.mount('engSceneLottieBox', scene.id);
+    window.SceneAnimManager.mount('engSceneLottieBox', scene.id, sent.id);
   }
 
   if(store.s.autoRead){

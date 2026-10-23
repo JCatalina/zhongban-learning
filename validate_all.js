@@ -203,6 +203,18 @@ try {
     lottieErrors++;
   } else {
     console.log('[PASS] SceneAnimManager 接口完备，支持 mount, setSpeaking, tickle, cheer');
+    const animKeys = sandbox.window.SceneAnimManager._keys || [];
+    let missingAnimKeys = 0;
+    for (let i = 1; i <= 100; i++) {
+      if (!animKeys.includes('s' + i)) {
+        console.error('[FAIL] 缺失句子专属动画模板: s' + i);
+        missingAnimKeys++;
+        lottieErrors++;
+      }
+    }
+    if (missingAnimKeys === 0 && animKeys.length === 100) {
+      console.log('[PASS] 场景口语 100 句专属动作模板全量就绪 (' + animKeys.length + '/100)，完全杜绝千句一图！');
+    }
   }
 } catch (e) {
   console.error('[FAIL] lottie_scenes_anim.js 解析出错:', e);
