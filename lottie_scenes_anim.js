@@ -1,7 +1,7 @@
 /**
  * 🗣️ 场景口语学堂 · 100句专属动作灵动少儿动画引擎 (Duolingo Style 100 Action Stages)
  * 纯矢量、轻量、高帧率、每句专属独立动作、声画联动、支持触控交互与弹性反馈
- * 彻底消除生僻 Emoji 豆腐块与限制长方形缺陷，100% 跨平台与各端浏览器稳定呈现
+ * 彻底消除生僻 Emoji 豆腐块与限制长方形缺陷，100% 严格对照真实台词 1:1 精准配图！
  */
 
 (function(){
@@ -10,7 +10,7 @@
   let activeContainer = null;
   let currentSentId = 's1';
 
-  // 全量 100 句专属动作模板库 (零豆腐块、纯矢量与经典超兼容图元)
+  // 全量 100 句专属动作模板库 (零豆腐块、纯矢量与真实台词精准匹配)
   const ACTION_TEMPLATES = {
     s1: `
     <div class="lottie-character-box action-stage-s1" onclick="SceneAnimManager.tickle()">
@@ -41,7 +41,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#facc15" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">⏰</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👋</text>
               </g>
             </g>
           </g>
@@ -54,7 +54,7 @@
           <circle cx="65" cy="130" r="4" fill="#facc15" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小太阳升起来啦！挥挥小手说早上好！</div>
+      <div class="character-tip">🌟 太阳公公升起来啦，挥挥小手说早上好！</div>
     </div>
   `,
     s2: `
@@ -99,7 +99,7 @@
           <circle cx="65" cy="130" r="4" fill="#38bdf8" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 叮铃铃！小闹钟响啦，掀开小被子起床咯！</div>
+      <div class="character-tip">🌟 小闹钟响啦，掀开被子起床起得早！</div>
     </div>
   `,
     s3: `
@@ -144,7 +144,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 拉开浅蓝小窗帘，看窗外金色大太阳！</div>
+      <div class="character-tip">🌟 拉开窗帘，指着窗外金色大太阳！</div>
     </div>
   `,
     s4: `
@@ -170,13 +170,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👕</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐱</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👟</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
               </g>
             </g>
           </g>
@@ -189,7 +189,7 @@
           <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 伸伸懒腰揉揉眼睛，元气满满准备洗漱！</div>
+      <div class="character-tip">🌟 像小猫咪一样把小手举高高伸个懒腰！</div>
     </div>
   `,
     s5: `
@@ -243,7 +243,7 @@
           <circle cx="65" cy="130" r="4" fill="#0284c7" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 捧起清凉水花洗脸蛋，小水滴欢快跳跃！</div>
+      <div class="character-tip">🌟 温温的毛巾捧起水，小脸蛋洗得白又净！</div>
     </div>
   `,
     s6: `
@@ -297,7 +297,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 香皂搓一搓，好多七彩香喷喷的小泡泡！</div>
+      <div class="character-tip">🌟 香皂搓出香喷喷的泡泡，把细菌全赶跑！</div>
     </div>
   `,
     s7: `
@@ -353,7 +353,7 @@
           <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 上上下下里里外外，刷出一口雪白亮晶晶小牙齿！</div>
+      <div class="character-tip">🌟 上上下下、里里外外，刷出一口雪白小牙齿！</div>
     </div>
   `,
     s8: `
@@ -405,7 +405,7 @@
           <circle cx="65" cy="130" r="4" fill="#0ea5e9" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 柔软小毛巾擦擦干，小脸蛋干爽又舒服！</div>
+      <div class="character-tip">🌟 小手小脸用柔软毛巾擦擦干，真舒服！</div>
     </div>
   `,
     s9: `
@@ -459,7 +459,7 @@
           <circle cx="65" cy="130" r="4" fill="#f43f5e" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 照照小镜子，小木梳轻轻理顺每一根小头发！</div>
+      <div class="character-tip">🌟 照照小镜子，小木梳理顺头发整整齐齐！</div>
     </div>
   `,
     s10: `
@@ -491,7 +491,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
               </g>
             </g>
           </g>
@@ -504,7 +504,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 洗漱完毕小脸红扑扑，清清爽爽迎接新一天！</div>
+      <div class="character-tip">🌟 洗漱完毕神清气爽，精神百倍迎接新一天！</div>
     </div>
   `,
     s11: `
@@ -530,13 +530,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍎</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🍞</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🍽️</text>
               </g>
             </g>
           </g>
@@ -549,7 +549,7 @@
           <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 走近餐桌，哇！今天有超好吃的营养早餐！</div>
+      <div class="character-tip">🌟 摸摸咕噜噜小肚子，告诉妈妈该开饭啦！</div>
     </div>
   `,
     s12: `
@@ -594,7 +594,7 @@
           <circle cx="65" cy="130" r="4" fill="#0284c7" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 咕咚咕咚喝两口温开水，肚肚润润真舒服！</div>
+      <div class="character-tip">🌟 口渴啦，请给我倒一杯温开水！</div>
     </div>
   `,
     s13: `
@@ -647,7 +647,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 喝一口香浓热牛奶，嘴巴留下一圈白胡子！</div>
+      <div class="character-tip">🌟 咕嘟咕嘟喝牛奶，嘴边留下一圈白胡子！</div>
     </div>
   `,
     s14: `
@@ -679,7 +679,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🍯</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🍳</text>
               </g>
             </g>
           </g>
@@ -692,7 +692,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 金黄烤吐司抹上果酱，咬一口咔嚓脆！</div>
+      <div class="character-tip">🌟 金黄烤面包配爱心煎蛋，营养满分！</div>
     </div>
   `,
     s15: `
@@ -700,8 +700,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s15" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -715,16 +715,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍳</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👍</text>
               </g>
             </g>
           </g>
@@ -732,12 +732,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#eab308" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#eab308" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 圆圆的爱心煎蛋，蛋白软嫩蛋黄香喷喷！</div>
+      <div class="character-tip">🌟 大口咀嚼细嚼慢咽，真好吃呀！</div>
     </div>
   `,
     s16: `
@@ -745,8 +745,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s16" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#84cc16" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#84cc16" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -760,16 +760,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#84cc16" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍌</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍎</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#84cc16" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🍓</text>
+                <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🙋</text>
               </g>
             </g>
           </g>
@@ -777,12 +777,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#84cc16" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#84cc16" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#84cc16" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#ef4444" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ef4444" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 剥开黄色小香蕉，甜甜软软真可口！</div>
+      <div class="character-tip">🌟 想吃水果礼貌问大人：我可以吃个苹果吗？</div>
     </div>
   `,
     s17: `
@@ -827,7 +827,7 @@
           <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小勺子舀起暖暖蔬菜汤，吹一吹慢慢喝！</div>
+      <div class="character-tip">🌟 小碗吃光光啦，我还想要加一点！</div>
     </div>
   `,
     s18: `
@@ -835,8 +835,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s18" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#64748b" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -850,16 +850,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#64748b" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😋</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">✋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👍</text>
+                <circle cx="0" cy="0" r="14" fill="#64748b" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">😊</text>
               </g>
             </g>
           </g>
@@ -867,12 +867,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#64748b" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#64748b" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 大口咀嚼细嚼慢咽，肚子吃得圆滚滚！</div>
+      <div class="character-tip">🌟 小手轻轻摇一摇：吃饱了，谢谢您！</div>
     </div>
   `,
     s19: `
@@ -923,7 +923,7 @@
           <circle cx="65" cy="130" r="4" fill="#94a3b8" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 餐巾纸擦干净小嘴巴，干干净净好习惯！</div>
+      <div class="character-tip">🌟 吃完饭抽出一张餐巾纸，轻轻擦干净小嘴巴！</div>
     </div>
   `,
     s20: `
@@ -968,7 +968,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小肚子饱饱啦，拍拍小肚皮开开心心！</div>
+      <div class="character-tip">🌟 拍拍满足的小肚皮：我吃得饱饱的啦！</div>
     </div>
   `,
     s21: `
@@ -1018,7 +1018,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 彩色花纹小袜子穿上脚丫，暖暖和和！</div>
+      <div class="character-tip">🌟 套上一对暖融融的花袜子，暖暖和和！</div>
     </div>
   `,
     s22: `
@@ -1071,7 +1071,7 @@
           <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小脚丫伸进红色球鞋，系好十字鞋带！</div>
+      <div class="character-tip">🌟 分清左右脚，穿好帅气的红色小球鞋！</div>
     </div>
   `,
     s23: `
@@ -1116,7 +1116,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 穿上暖和的连帽大外套，不怕外面吹冷风！</div>
+      <div class="character-tip">🌟 外面风大，穿上暖和的连帽大外套！</div>
     </div>
   `,
     s24: `
@@ -1161,7 +1161,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 咦？我的遮阳小帽子跑哪儿去了呢？四处找找看！</div>
+      <div class="character-tip">🌟 咦？我的小帽子跑哪儿去了呢？四处找找看！</div>
     </div>
   `,
     s25: `
@@ -1259,7 +1259,7 @@
           <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 金色小拉链从肚子嗖的一下拉到领口，拉紧保暖！</div>
+      <div class="character-tip">🌟 拉链拉拉拉，一直拉到领口最保暖！</div>
     </div>
   `,
     s27: `
@@ -1313,7 +1313,7 @@
           <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 双肩背上心爱的小书包，侧兜装满小水壶！</div>
+      <div class="character-tip">🌟 装好水壶小手帕，背上心爱的双肩小书包！</div>
     </div>
   `,
     s28: `
@@ -1345,7 +1345,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#64748b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🗝️</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">⏱️</text>
               </g>
             </g>
           </g>
@@ -1358,7 +1358,7 @@
           <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 换好鞋子站整齐，站在玄关门前准备出发！</div>
+      <div class="character-tip">🌟 站在门口整理好：宝贝你准备好了吗？</div>
     </div>
   `,
     s29: `
@@ -1384,13 +1384,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👋</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">☀️</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
               </g>
             </g>
           </g>
@@ -1403,7 +1403,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 挥挥小手说再见：爸爸妈妈晚上见！</div>
+      <div class="character-tip">🌟 大声自信回应：是的，我准备好啦！</div>
     </div>
   `,
     s30: `
@@ -1435,7 +1435,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👣</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">☀️</text>
               </g>
             </g>
           </g>
@@ -1448,7 +1448,7 @@
           <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 跨出大门走上阳光小道，步伐轻快精神好！</div>
+      <div class="character-tip">🌟 推开大门迎着阳光，我们出发吧！</div>
     </div>
   `,
     s31: `
@@ -1493,7 +1493,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 过马路拉紧大人的手，紧紧牵着不乱跑！</div>
+      <div class="character-tip">🌟 在马路上紧紧牵着大人的手最安全！</div>
     </div>
   `,
     s32: `
@@ -1501,8 +1501,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s32" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#facc15" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#facc15" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1516,16 +1516,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#facc15" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👀</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚌</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🔍</text>
+                <circle cx="0" cy="0" r="14" fill="#facc15" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👀</text>
               </g>
             </g>
           </g>
@@ -1533,12 +1533,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#0ea5e9" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#0ea5e9" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#0ea5e9" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#facc15" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#facc15" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#facc15" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 左看看，右看看，安全第一记心间！</div>
+      <div class="character-tip">🌟 指着开过去的黄色大巴士惊叹：好大一辆车！</div>
     </div>
   `,
     s33: `
@@ -1636,8 +1636,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s35" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#facc15" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#facc15" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#64748b" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1651,16 +1651,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#facc15" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#64748b" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚌</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚗</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#facc15" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🚏</text>
+                <circle cx="0" cy="0" r="14" fill="#64748b" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💨</text>
               </g>
             </g>
           </g>
@@ -1668,12 +1668,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#facc15" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#facc15" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#facc15" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#64748b" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#64748b" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 黄色大校车开过来啦，排队在站台等候！</div>
+      <div class="character-tip">🌟 观察马路上车辆飞驰：小汽车开得好快呀！</div>
     </div>
   `,
     s36: `
@@ -1681,8 +1681,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s36" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1696,16 +1696,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚌</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">☁️</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👋</text>
+                <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">☀️</text>
               </g>
             </g>
           </g>
@@ -1713,12 +1713,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#f59e0b" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#f59e0b" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#0ea5e9" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#0ea5e9" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#0ea5e9" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 迈开小腿踩上大巴台阶，向司机叔叔问好！</div>
+      <div class="character-tip">🌟 抬头看看蓝蓝的天空，飘着洁白的云朵！</div>
     </div>
   `,
     s37: `
@@ -1726,8 +1726,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s37" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1741,16 +1741,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💺</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐦</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🔒</text>
+                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌳</text>
               </g>
             </g>
           </g>
@@ -1758,12 +1758,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#6366f1" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#6366f1" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#6366f1" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 找到靠窗座位坐坐好，系好安全带不乱动！</div>
+      <div class="character-tip">🌟 树枝上停着小鸟，叽叽喳喳在唱歌！</div>
     </div>
   `,
     s38: `
@@ -1808,7 +1808,7 @@
           <circle cx="65" cy="130" r="4" fill="#d97706" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小金毛狗狗吐着小舌头，摇着尾巴真可爱！</div>
+      <div class="character-tip">🌟 路边摇着小尾巴的毛茸茸小狗真可爱！</div>
     </div>
   `,
     s39: `
@@ -1816,8 +1816,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s39" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1831,16 +1831,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐦</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌸</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🌳</text>
+                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👃</text>
               </g>
             </g>
           </g>
@@ -1848,12 +1848,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 路边大树上小鸟在唱歌，叽叽喳喳多快活！</div>
+      <div class="character-tip">🌟 弯下腰闻一闻花坛的花朵，香喷喷的！</div>
     </div>
   `,
     s40: `
@@ -1861,8 +1861,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s40" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#64748b" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -1876,16 +1876,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#64748b" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚗</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🏫</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#64748b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🏁</text>
+                <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🐻</text>
               </g>
             </g>
           </g>
@@ -1893,12 +1893,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#64748b" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#64748b" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#f59e0b" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#f59e0b" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 马路上车辆来来往往，各走各道守规矩！</div>
+      <div class="character-tip">🌟 走到幼儿园门口，向小熊老师鞠躬问好！</div>
     </div>
   `,
     s41: `
@@ -1943,7 +1943,7 @@
           <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 像小旋风一样在绿草地上飞快奔跑！</div>
+      <div class="character-tip">🌟 在绿草地上像小旋风一样飞快奔跑！</div>
     </div>
   `,
     s42: `
@@ -1988,7 +1988,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 像小兔子一样双脚跳跃，欢呼踩水花！</div>
+      <div class="character-tip">🌟 像小兔子一样双脚跳跃，扑通跳上跳下！</div>
     </div>
   `,
     s43: `
@@ -2098,7 +2098,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 嗖的一下顺着滑梯滑到底，笑得合不拢嘴！</div>
+      <div class="character-tip">🌟 呜呼！顺着滑梯嗖的一下滑到底，真过瘾！</div>
     </div>
   `,
     s45: `
@@ -2195,7 +2195,7 @@
           <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 秋千荡得越来越高，像小鸟一样飞上半空！</div>
+      <div class="character-tip">🌟 秋千高高荡起，越来越高像小鸟飞上半空！</div>
     </div>
   `,
     s47: `
@@ -2240,7 +2240,7 @@
           <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 张开双手目不转睛，稳稳接住飞来的皮球！</div>
+      <div class="character-tip">🌟 双手准备好，目不转睛接住飞来的皮球！</div>
     </div>
   `,
     s48: `
@@ -2330,7 +2330,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小伙伴手拉手围成圆圈，一起玩耍最开心！</div>
+      <div class="character-tip">🌟 招招小手热情邀请：我们大家一起玩吧！</div>
     </div>
   `,
     s50: `
@@ -2356,7 +2356,7 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🏆</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
@@ -2375,7 +2375,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 跑得满头大汗喝口水，今天运动表现第一名！</div>
+      <div class="character-tip">🌟 排队遵守游戏规则：现在轮到我啦！</div>
     </div>
   `,
     s51: `
@@ -2383,8 +2383,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s51" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -2398,16 +2398,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🏫</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙏</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🎒</text>
+                <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
               </g>
             </g>
           </g>
@@ -2415,12 +2415,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#f43f5e" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#f43f5e" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#f43f5e" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#3b82f6" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 走进幼儿园大门，彩色风车迎风转呀转！</div>
+      <div class="character-tip">🌟 请求帮助或递物品时，礼貌说声请！</div>
     </div>
   `,
     s52: `
@@ -2428,8 +2428,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s52" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -2443,16 +2443,61 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎁</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">😊</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 收到别人帮助或礼物，甜甜说声谢谢你！</div>
+    </div>
+  `,
+    s53: `
+    <div class="lottie-character-box action-stage-s53" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s53" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s53)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐻</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😊</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🌸</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
               </g>
             </g>
           </g>
@@ -2465,21 +2510,246 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 见到老师鞠个躬，清脆大声说早上好！</div>
+      <div class="character-tip">🌟 别人说谢谢时，大方微笑着说不用谢！</div>
     </div>
   `,
-    s53: `
-    <div class="lottie-character-box action-stage-s53" onclick="SceneAnimManager.tickle()">
+    s54: `
+    <div class="lottie-character-box action-stage-s54" onclick="SceneAnimManager.tickle()">
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <radialGradient id="glow_s53" cx="50%" cy="50%" r="50%">
+          <radialGradient id="glow_s54" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s54)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙋</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🚶</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#6366f1" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#6366f1" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#6366f1" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 借过或请人注意时，礼貌说声不好意思！</div>
+    </div>
+  `,
+    s55: `
+    <div class="lottie-character-box action-stage-s55" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s55" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f97316" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s55)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😢</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🙇</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#f97316" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#f97316" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 不小心碰到别人，立刻真诚道歉说对不起！</div>
+    </div>
+  `,
+    s56: `
+    <div class="lottie-character-box action-stage-s56" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s56" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s56)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😊</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 原谅别人无心之过：没关系，不用介意！</div>
+    </div>
+  `,
+    s57: `
+    <div class="lottie-character-box action-stage-s57" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s57" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s57)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#06b6d4" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚗</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#06b6d4" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👫</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#06b6d4" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#06b6d4" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 礼貌询问小伙伴：我可以跟你一起分享吗？</div>
+    </div>
+  `,
+    s58: `
+    <div class="lottie-character-box action-stage-s58" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s58" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s58)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎁</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👐</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 双手把心爱的玩具递过去：给你玩吧！</div>
+    </div>
+  `,
+    s59: `
+    <div class="lottie-character-box action-stage-s59" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s59" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
             <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
         <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s53)" class="glow-pulse"/>
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s59)" class="glow-pulse"/>
 
         <!-- 场景环境轻微装饰 (地板或阴影) -->
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
@@ -2517,277 +2787,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 轻轻拉开小椅子，两只小手放腿上坐端正！</div>
-    </div>
-  `,
-    s54: `
-    <div class="lottie-character-box action-stage-s54" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s54" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s54)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚗</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🎁</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 双手把可爱的小汽车递给同伴：给你玩！</div>
-    </div>
-  `,
-    s55: `
-    <div class="lottie-character-box action-stage-s55" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s55" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s55)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">✋</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">💡</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#eab308" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#eab308" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 老师提问高高举起右手，等待点名发言！</div>
-    </div>
-  `,
-    s56: `
-    <div class="lottie-character-box action-stage-s56" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s56" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s56)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#06b6d4" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">📢</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#06b6d4" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🗣️</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#06b6d4" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#06b6d4" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 站起来大声清楚讲故事，声音响亮有自信！</div>
-    </div>
-  `,
-    s57: `
-    <div class="lottie-character-box action-stage-s57" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s57" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f97316" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s57)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😢</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">📦</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#f97316" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#f97316" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 不小心碰倒积木，低下头真诚说抱歉！</div>
-    </div>
-  `,
-    s58: `
-    <div class="lottie-character-box action-stage-s58" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s58" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s58)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😊</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 拍拍肩膀微笑着说：没关系，我们一起重新搭！</div>
-    </div>
-  `,
-    s59: `
-    <div class="lottie-character-box action-stage-s59" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s59" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s59)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚶</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👣</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#6366f1" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#6366f1" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#6366f1" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 下课去喝水，一个跟着一个排队不拥挤！</div>
+      <div class="character-tip">🌟 轻轻拉开小椅子，端端正正坐好！</div>
     </div>
   `,
     s60: `
@@ -2795,8 +2795,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s60" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -2810,16 +2810,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚂</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👫</text>
+                <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
               </g>
             </g>
           </g>
@@ -2827,12 +2827,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#eab308" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#eab308" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 大家轮流玩小火车，学会分享最快乐！</div>
+      <div class="character-tip">🌟 听到小口令，小手放裤线整齐起立！</div>
     </div>
   `,
     s61: `
@@ -2864,7 +2864,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">❤️</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
               </g>
             </g>
           </g>
@@ -2877,7 +2877,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 扬起大大的笑脸，今天心情阳光灿烂！</div>
+      <div class="character-tip">🌟 手舞足蹈满脸笑容：今天我好开心呀！</div>
     </div>
   `,
     s62: `
@@ -2922,7 +2922,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 温柔摸摸掉眼泪小猫咪的头，不要难过啦！</div>
+      <div class="character-tip">🌟 温柔关心哭鼻子的小伙伴：你难过了吗？</div>
     </div>
   `,
     s63: `
@@ -2967,7 +2967,7 @@
           <circle cx="65" cy="130" r="4" fill="#0284c7" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 好冷呀抱紧小肩膀，多穿一件保暖棉背心！</div>
+      <div class="character-tip">🌟 觉得有点冷，告诉老师妈妈添件暖背心！</div>
     </div>
   `,
     s64: `
@@ -3012,7 +3012,7 @@
           <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 太阳好晒好热，手里拿着冰淇淋好凉快！</div>
+      <div class="character-tip">🌟 跑得满头大汗：好热呀喝口水吃个冰淇淋！</div>
     </div>
   `,
     s65: `
@@ -3057,7 +3057,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 夹紧小腿举手报告：老师我要去上洗手间啦！</div>
+      <div class="character-tip">🌟 想小便勇敢大声举手：我要去上洗手间！</div>
     </div>
   `,
     s66: `
@@ -3102,7 +3102,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 双手捂住小肚皮揉揉，肚子有点不舒服！</div>
+      <div class="character-tip">🌟 双手捂住小肚肚揉揉：我的肚子有点不舒服！</div>
     </div>
   `,
     s67: `
@@ -3153,7 +3153,7 @@
           <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小手指着磕破的小膝盖，贴个创口贴就不疼啦！</div>
+      <div class="character-tip">🌟 小手指着磕碰的膝盖：这里碰疼啦！</div>
     </div>
   `,
     s68: `
@@ -3179,13 +3179,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😪</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💨</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">💤</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
               </g>
             </g>
           </g>
@@ -3198,7 +3198,7 @@
           <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 打了个大大的哈欠，眼皮打架有点困啦！</div>
+      <div class="character-tip">🌟 妈妈温柔在伤口上吹吹气：痛痛飞走啦！</div>
     </div>
   `,
     s69: `
@@ -3243,7 +3243,7 @@
           <circle cx="65" cy="130" r="4" fill="#f43f5e" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 张开大大的双臂，给爸爸妈妈一个大大的拥抱！</div>
+      <div class="character-tip">🌟 张开大大的双臂，扑进爸爸妈妈温暖的怀抱！</div>
     </div>
   `,
     s70: `
@@ -3269,13 +3269,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💖</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💋</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
               </g>
             </g>
           </g>
@@ -3288,7 +3288,7 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 亲亲爸爸妈妈的脸颊：我超级超级爱你们！</div>
+      <div class="character-tip">🌟 亲亲妈妈的脸颊：爸爸妈妈我超级爱你！</div>
     </div>
   `,
     s71: `
@@ -3296,8 +3296,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s71" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3311,16 +3311,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎨</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐷</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🖍️</text>
+                <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🌸</text>
               </g>
             </g>
           </g>
@@ -3328,12 +3328,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#ef4444" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#ef4444" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#f43f5e" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#f43f5e" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#f43f5e" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 抓起彩色蜡笔，在白纸上画红苹果绿大树！</div>
+      <div class="character-tip">🌟 佩奇动画经典开场第一句：我是小猪佩奇！</div>
     </div>
   `,
     s72: `
@@ -3341,8 +3341,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s72" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3356,16 +3356,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">✂️</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👢</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">📄</text>
+                <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">💦</text>
               </g>
             </g>
           </g>
@@ -3373,12 +3373,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#3b82f6" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#eab308" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#eab308" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 安全圆头剪刀沿着虚线剪出可爱小五角星！</div>
+      <div class="character-tip">🌟 穿上黄色小雨靴，我最爱跳泥坑啦！</div>
     </div>
   `,
     s73: `
@@ -3386,8 +3386,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s73" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3401,16 +3401,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0284c7" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎨</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💦</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+                <circle cx="0" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">☔</text>
               </g>
             </g>
           </g>
@@ -3418,12 +3418,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#0284c7" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#0284c7" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#0284c7" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 白胶棒轻轻涂抹背面，工整贴在作品集上！</div>
+      <div class="character-tip">🌟 扑通扑通！在雨靴下踩出欢快的大水花！</div>
     </div>
   `,
     s74: `
@@ -3468,7 +3468,7 @@
           <circle cx="65" cy="130" r="4" fill="#16a34a" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 学小恐龙嗷呜大叫，摆出威风凛凛的造型！</div>
+      <div class="character-tip">🌟 乔治抱着绿色恐龙大叫：大恐龙嗷呜！</div>
     </div>
   `,
     s75: `
@@ -3513,7 +3513,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 听到了超级好笑的谜语，大家笑得前仰后合！</div>
+      <div class="character-tip">🌟 太好笑啦！全家人倒在地上哈哈大笑！</div>
     </div>
   `,
     s76: `
@@ -3521,8 +3521,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s76" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3536,10 +3536,55 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙈</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🔍</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#8b5cf6" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 捉迷藏数到十睁开眼睛：我来找你们啦！</div>
+    </div>
+  `,
+    s77: `
+    <div class="lottie-character-box action-stage-s77" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s77" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s77)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#1d4ed8" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐶</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐾</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
@@ -3558,52 +3603,7 @@
           <circle cx="65" cy="130" r="4" fill="#1d4ed8" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 汪汪队小阿奇出动！戴上警帽立刻执行任务！</div>
-    </div>
-  `,
-    s77: `
-    <div class="lottie-character-box action-stage-s77" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s77" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s77)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚁</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 天天旋翼飞天救援，在天空翱翔划出道道彩虹！</div>
+      <div class="character-tip">🌟 莱德队长召集狗狗们：汪汪队要出动啦！</div>
     </div>
   `,
     s78: `
@@ -3611,8 +3611,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s78" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#eab308" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#eab308" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3626,16 +3626,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚜</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐶</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🔧</text>
+                <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👮</text>
               </g>
             </g>
           </g>
@@ -3643,12 +3643,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#eab308" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#eab308" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#3b82f6" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#3b82f6" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 小砾开动黄色推土机，清理碎石搭造桥梁！</div>
+      <div class="character-tip">🌟 勇敢警犬阿奇敬个礼：包在阿奇身上！</div>
     </div>
   `,
     s79: `
@@ -3693,7 +3693,7 @@
           <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 毛毛消防车水枪喷出七色彩虹清凉水柱！</div>
+      <div class="character-tip">🌟 消防小狗毛毛出击：我热情满满准备救援！</div>
     </div>
   `,
     s80: `
@@ -3701,8 +3701,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s80" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3716,16 +3716,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐾</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚁</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">⭐</text>
+                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
               </g>
             </g>
           </g>
@@ -3733,12 +3733,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#8b5cf6" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#8b5cf6" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 莱德队长竖起大拇指：只要遇到麻烦，大声呼叫！</div>
+      <div class="character-tip">🌟 直升机飞行员天天翻跟头：让我们飞上蓝天！</div>
     </div>
   `,
     s81: `
@@ -3770,7 +3770,7 @@
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🔔</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">📦</text>
               </g>
             </g>
           </g>
@@ -3783,7 +3783,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 收拾玩具音乐响起，活动结束该整理教室啦！</div>
+      <div class="character-tip">🌟 收拾音乐响起，活动结束送玩具回家啦！</div>
     </div>
   `,
     s82: `
@@ -3828,7 +3828,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 打开黄色大收纳箱，积木小车一件件送回家！</div>
+      <div class="character-tip">🌟 把玩具小车整齐放进黄色大收纳箱！</div>
     </div>
   `,
     s83: `
@@ -3873,7 +3873,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 弯腰捡起散落在地板上的小积木，一块不落！</div>
+      <div class="character-tip">🌟 弯腰把地上的积木全捡起来，一块不落！</div>
     </div>
   `,
     s84: `
@@ -3918,7 +3918,7 @@
           <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 拍拍小胸脯，我自己整理得整整齐齐真能干！</div>
+      <div class="character-tip">🌟 拍拍小胸脯自豪地说：我自己独立能做到！</div>
     </div>
   `,
     s85: `
@@ -3963,7 +3963,7 @@
           <circle cx="65" cy="130" r="4" fill="#06b6d4" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 箱子太重抬不动，礼貌请同桌帮忙抬一把！</div>
+      <div class="character-tip">🌟 箱子太重搬不动，礼貌请同伴帮忙抬一把！</div>
     </div>
   `,
     s86: `
@@ -3971,8 +3971,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s86" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -3986,25 +3986,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
             
-          <!-- 专属纯 SVG 动作图元 (免字体依赖，杜绝长方形方框) -->
-          <g transform="translate(-24, -24)">
-      <!-- 清凉水盆与捧起的水花 -->
-      <ellipse cx="24" cy="36" rx="20" ry="7" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
-      <!-- 飞溅的小水滴与水花 -->
-      <path d="M24 10 C24 10, 16 22, 16 26 C16 30, 20 34, 24 34 C28 34, 32 30, 32 26 C32 22, 24 10, 24 10 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
-      <!-- 侧边跳跃小水滴 -->
-      <circle cx="10" cy="18" r="3" fill="#38bdf8"/>
-      <circle cx="38" cy="16" r="3.5" fill="#38bdf8"/>
-      <circle cx="30" cy="8" r="2" fill="#0284c7"/>
-    </g>
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💖</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">💧</text>
+                <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">😊</text>
               </g>
             </g>
           </g>
@@ -4012,12 +4003,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#0ea5e9" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#0ea5e9" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#0ea5e9" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#10b981" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#10b981" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 饭前便后七步洗手法，手心手背洗得干干净净！</div>
+      <div class="character-tip">🌟 别人伸出援手搭了把手，真诚说声谢谢！</div>
     </div>
   `,
     s87: `
@@ -4042,21 +4033,14 @@
             <!-- 动作主角底盘/身体 -->
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#64748b" stroke-width="4"/>
             
-          <!-- 专属纯 SVG 动作图元 (免字体依赖，杜绝长方形方框) -->
-          <g transform="translate(-24, -24)">
-      <!-- 挂毛巾杆 -->
-      <rect x="6" y="8" width="36" height="4" rx="2" fill="#94a3b8"/>
-      <!-- 折叠条纹毛巾 -->
-      <path d="M12 10 L12 40 C12 42, 16 44, 20 44 L28 44 C32 44, 36 42, 36 40 L36 10 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
-      <!-- 浅色可爱条纹 -->
-      <path d="M12 20 L36 20 M12 26 L36 26 M12 32 L36 32" stroke="#fff" stroke-width="2" opacity="0.7"/>
-    </g>
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⏳</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#64748b" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">✋</text>
               </g>
             </g>
           </g>
@@ -4069,7 +4053,7 @@
           <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 擦手毛巾上按一按，小手干爽没有水渍！</div>
+      <div class="character-tip">🌟 学会耐心等待：请稍等一分钟哦！</div>
     </div>
   `,
     s88: `
@@ -4077,8 +4061,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s88" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -4092,16 +4076,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚪</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👂</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👣</text>
+                <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👩</text>
               </g>
             </g>
           </g>
@@ -4109,12 +4093,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#6366f1" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#6366f1" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#6366f1" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#ec4899" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ec4899" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 进出门轻轻推拉门把手，不推不挤防夹手！</div>
+      <div class="character-tip">🌟 安静竖起小耳朵，专心听妈妈说！</div>
     </div>
   `,
     s89: `
@@ -4159,7 +4143,7 @@
           <circle cx="65" cy="130" r="4" fill="#f97316" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 手扶好楼梯扶手，慢慢下台阶一步一步走！</div>
+      <div class="character-tip">🌟 走路看着脚下，下台阶一步一步慢慢走！</div>
     </div>
   `,
     s90: `
@@ -4185,13 +4169,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌟</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👍</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">👍</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">⭐</text>
               </g>
             </g>
           </g>
@@ -4204,7 +4188,7 @@
           <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 老师给小脑门贴上小红花：今天表现棒极了！</div>
+      <div class="character-tip">🌟 收拾得整整齐齐，妈妈给大大的赞：真能干！</div>
     </div>
   `,
     s91: `
@@ -4230,13 +4214,13 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👕</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌙</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
                 <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">🌙</text>
+            <text x="0" y="6" font-size="16" text-anchor="middle">🏡</text>
               </g>
             </g>
           </g>
@@ -4249,7 +4233,7 @@
           <circle cx="65" cy="130" r="4" fill="#6366f1" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 换上软绵绵的星星睡衣，准备进入梦乡！</div>
+      <div class="character-tip">🌟 太阳公公下山啦，外面夜幕悄悄降临！</div>
     </div>
   `,
     s92: `
@@ -4257,8 +4241,8 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s92" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
@@ -4272,16 +4256,16 @@
         <g transform="translate(140, 95)">
           <g class="anim-bounce-slow">
             <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚰</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌙</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
               <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+                <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">⭐</text>
               </g>
             </g>
           </g>
@@ -4289,12 +4273,12 @@
 
         <!-- 动态漂浮情景装饰星/气泡 -->
         <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#0ea5e9" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#0ea5e9" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#0ea5e9" opacity="0.6"/>
+          <circle cx="50" cy="50" r="6" fill="#8b5cf6" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#8b5cf6" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 睡前洗好小脚丫，香喷喷钻进被窝里！</div>
+      <div class="character-tip">🌟 抬头看看窗外一闪一闪亮晶晶的小星斗！</div>
     </div>
   `,
     s93: `
@@ -4347,7 +4331,7 @@
           <circle cx="65" cy="130" r="4" fill="#3b82f6" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 脱下拖鞋钻进棉花糖般暖和的小被窝！</div>
+      <div class="character-tip">🌟 脱下小拖鞋，钻进软软暖和的小被窝！</div>
     </div>
   `,
     s94: `
@@ -4392,7 +4376,7 @@
           <circle cx="65" cy="130" r="4" fill="#f59e0b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 翻开小熊睡前立体绘本，听爸爸妈妈讲故事！</div>
+      <div class="character-tip">🌟 依偎在妈妈怀里，读一本温馨睡前绘本！</div>
     </div>
   `,
     s95: `
@@ -4437,7 +4421,7 @@
           <circle cx="65" cy="130" r="4" fill="#eab308" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 故事讲完了，轻轻按下开关熄灭床头小台灯！</div>
+      <div class="character-tip">🌟 轻轻关上床头小台灯，房间暗下来休息啦！</div>
     </div>
   `,
     s96: `
@@ -4445,58 +4429,13 @@
       <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="glow_s96" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35"/>
-            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s96)" class="glow-pulse"/>
-
-        <!-- 场景环境轻微装饰 (地板或阴影) -->
-        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
-
-        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
-        <g transform="translate(140, 95)">
-          <g class="anim-bounce-slow">
-            <!-- 动作主角底盘/身体 -->
-            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
-            
-          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌙</text>
-            
-            <!-- 配套专属小道具/动作反馈 -->
-            <g transform="translate(38, -20)">
-              <g class="anim-wiggle">
-                <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
-            <text x="0" y="6" font-size="16" text-anchor="middle">⭐</text>
-              </g>
-            </g>
-          </g>
-        </g>
-
-        <!-- 动态漂浮情景装饰星/气泡 -->
-        <g class="anim-float">
-          <circle cx="50" cy="50" r="6" fill="#8b5cf6" opacity="0.6"/>
-          <circle cx="230" cy="65" r="8" fill="#8b5cf6" opacity="0.5"/>
-          <circle cx="65" cy="130" r="4" fill="#8b5cf6" opacity="0.6"/>
-        </g>
-      </svg>
-      <div class="character-tip">🌟 窗外月亮升起来了，星星在夜空中眨眼睛！</div>
-    </div>
-  `,
-    s97: `
-    <div class="lottie-character-box action-stage-s97" onclick="SceneAnimManager.tickle()">
-      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow_s97" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35"/>
             <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
         <!-- 背景柔和晕光 -->
-        <circle cx="140" cy="95" r="75" fill="url(#glow_s97)" class="glow-pulse"/>
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s96)" class="glow-pulse"/>
 
         <!-- 场景环境轻微装饰 (地板或阴影) -->
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
@@ -4527,7 +4466,52 @@
           <circle cx="65" cy="130" r="4" fill="#ec4899" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 爸爸妈妈在额头上轻轻亲一口：晚安小宝贝！</div>
+      <div class="character-tip">🌟 妈妈在额头上轻轻落下一个温柔的晚安吻！</div>
+    </div>
+  `,
+    s97: `
+    <div class="lottie-character-box action-stage-s97" onclick="SceneAnimManager.tickle()">
+      <svg viewBox="0 0 280 190" class="stage-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow_s97" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- 背景柔和晕光 -->
+        <circle cx="140" cy="95" r="75" fill="url(#glow_s97)" class="glow-pulse"/>
+
+        <!-- 场景环境轻微装饰 (地板或阴影) -->
+        <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
+
+        <!-- 核心动作主角与专属道具 (动态居中：定位层与动效层解耦) -->
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
+            <!-- 动作主角底盘/身体 -->
+            <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
+            
+          <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">❤️</text>
+            
+            <!-- 配套专属小道具/动作反馈 -->
+            <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
+                <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
+            <text x="0" y="6" font-size="16" text-anchor="middle">👨‍👩‍👧</text>
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- 动态漂浮情景装饰星/气泡 -->
+        <g class="anim-float">
+          <circle cx="50" cy="50" r="6" fill="#ef4444" opacity="0.6"/>
+          <circle cx="230" cy="65" r="8" fill="#ef4444" opacity="0.5"/>
+          <circle cx="65" cy="130" r="4" fill="#ef4444" opacity="0.6"/>
+        </g>
+      </svg>
+      <div class="character-tip">🌟 睡前轻声表达爱意：爸爸妈妈我爱你们！</div>
     </div>
   `,
     s98: `
@@ -4572,7 +4556,7 @@
           <circle cx="65" cy="130" r="4" fill="#64748b" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 长长的睫毛垂下来，闭上眼睛呼噜呼噜进入梦乡！</div>
+      <div class="character-tip">🌟 盖好暖暖的棉被，晚安安睡做个好梦！</div>
     </div>
   `,
     s99: `
@@ -4598,7 +4582,7 @@
             <circle cx="0" cy="0" r="42" fill="#fff" stroke="#a855f7" stroke-width="4"/>
             
           <!-- 中心专属动作图元大特写 (经典高兼容字符) -->
-          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💤</text>
+          <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😴</text>
             
             <!-- 配套专属小道具/动作反馈 -->
             <g transform="translate(38, -20)">
@@ -4617,7 +4601,7 @@
           <circle cx="65" cy="130" r="4" fill="#a855f7" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 梦境泡泡飘出来，梦见彩色糖果城堡和飞天小象！</div>
+      <div class="character-tip">🌟 长长的睫毛垂下来，闭上小眼睛进入梦乡！</div>
     </div>
   `,
     s100: `
@@ -4662,7 +4646,7 @@
           <circle cx="65" cy="130" r="4" fill="#10b981" opacity="0.6"/>
         </g>
       </svg>
-      <div class="character-tip">🌟 甜甜的梦香香的觉，明天又是快乐的一天！</div>
+      <div class="character-tip">🌟 梦见糖果城堡和小飞象，做个甜甜的美梦！</div>
     </div>
   `
   };
