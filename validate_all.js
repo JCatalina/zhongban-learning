@@ -362,7 +362,7 @@ if (builderErrors === 0) {
 }
 
 if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100 && lottieErrors === 0 && matchErrors === 0 && builderErrors === 0) {
-  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀 + 连线互动 (424题) + 英语三阶造句学堂 (300组超大题库) 完整就绪，零缺陷交付！');
+  console.log(`🎉 验证全部通过！全学科大扩容 (${totalQs}题全量覆盖) + 英语三阶造句学堂 (300组超大题库) + 场景口语 100 句脱口秀 + 4部经典绘本 完整就绪，零缺陷交付！`);
 } else {
   console.error('存在验证不通过项，请检查修复！');
   process.exit(1);
