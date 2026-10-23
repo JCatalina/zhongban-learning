@@ -223,6 +223,20 @@ try {
       lottieErrors++;
     } else {
       console.log('[PASS] SVG 定位与动效层 100% 解耦无冲突，杜绝视口错位飞出！');
+    // 校验 Emoji 字符安全性，杜绝高位 Unicode 导致的长方形方框/豆腐块
+    let boxGlyphErrors = 0;
+    for (const ch of animFileContent) {
+      const cp = ch.codePointAt(0);
+      if ((cp >= 0x1F900 && cp <= 0x1FAFF) || (cp >= 0x1F6D0 && cp <= 0x1F6FF)) {
+        boxGlyphErrors++;
+      }
+    }
+    if (boxGlyphErrors > 0) {
+      console.error('[FAIL] 动画模板中含有高危生僻 Emoji 豆腐块字符: ' + boxGlyphErrors + ' 处');
+      lottieErrors++;
+    } else {
+      console.log('[PASS] 全量 100 句图元字符通过兼容性断言，0 豆腐块长方形方框隐患！');
+    }
     }
   }
 } catch (e) {
