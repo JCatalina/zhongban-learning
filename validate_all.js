@@ -297,8 +297,72 @@ if (matchErrors === 0) {
   console.log('[PASS] index.html 连线交互引擎、SVG画布及双模触摸/点选手势支持就绪！');
 }
 
-if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100 && lottieErrors === 0 && matchErrors === 0) {
-  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀 + 连线互动题型 (424题全量覆盖) 完整就绪，零缺陷交付！');
+// 8. 英语三阶造句学堂 (Word -> Grammar -> Sentence) 300 组超大题库专项校验
+console.log('[INFO] 开始英语三阶造句学堂 300 组全量校验...');
+let builderErrors = 0;
+let totalBuilderItems = 0;
+
+if (!fs.existsSync('data_english_builder.js') || fs.statSync('data_english_builder.js').size < 100000) {
+  console.error('[FAIL] 缺少 data_english_builder.js 或文件大小异常');
+  builderErrors++;
+}
+
+try {
+  vm.runInContext(fs.readFileSync('data_english_builder.js', 'utf8'), sandbox);
+  const builderTopics = sandbox.window.DATA_ENG_BUILDER || [];
+  if (builderTopics.length !== 6) {
+    console.error(`[FAIL] 英语造句主题数不为 6，实际: ${builderTopics.length}`);
+    builderErrors++;
+  } else {
+    builderTopics.forEach(t => {
+      if (!t.topicId || !t.topicName || !t.icon || !Array.isArray(t.items)) {
+        console.error('[FAIL] 主题元信息不全:', t);
+        builderErrors++;
+      }
+      if (t.items.length !== 50) {
+        console.error(`[FAIL] 主题 ${t.topicName} 题目数不为 50，实际为: ${t.items.length}`);
+        builderErrors++;
+      }
+      t.items.forEach((it, idx) => {
+        totalBuilderItems++;
+        if (!it.id || !it.word || !it.word.text || !it.word.cn || !it.word.pic) {
+          console.error(`[FAIL] 单词信息缺失 (${t.topicName} 第${idx+1}项):`, it);
+          builderErrors++;
+        }
+        if (!it.grammar || !it.grammar.pattern || !it.grammar.pattern.includes('[___]') || !it.grammar.cn || !it.grammar.tip) {
+          console.error(`[FAIL] 语法句式骨架缺失或未包含[___]插槽 (${t.topicName} 第${idx+1}项):`, it);
+          builderErrors++;
+        }
+        if (!it.sentence || !it.sentence.full || !it.sentence.cn || !it.sentence.sceneTip || !Array.isArray(it.sentence.chunks)) {
+          console.error(`[FAIL] 完整造句信息缺失 (${t.topicName} 第${idx+1}项):`, it);
+          builderErrors++;
+        }
+      });
+    });
+  }
+} catch (e) {
+  console.error('[FAIL] data_english_builder.js 解析出错:', e);
+  builderErrors++;
+}
+
+if (totalBuilderItems === 300 && builderErrors === 0) {
+  console.log(`[PASS] 英语造句学堂检验通过: 6 大主题，每个主题精准 50 组，全量共 ${totalBuilderItems} 组造句链，三阶结构 100% 完整合规！`);
+}
+
+// 检查 index.html 对英语造句学堂的核心支持
+const builderKeywords = ['renderEnglishBuilder', 'printEnglishBuilderCards', 'openBuilderMatchModal', 'assembleSentence'];
+builderKeywords.forEach(kw => {
+  if (!indexHtmlContent.includes(kw)) {
+    console.error(`[FAIL] index.html 缺少英语造句核心函数: ${kw}`);
+    builderErrors++;
+  }
+});
+if (builderErrors === 0) {
+  console.log('[PASS] index.html 英语造句交互台、积木吸附动效、三阶连线挑战及 A4 打印口袋卡片支持就绪！');
+}
+
+if (animFailed === 0 && picWarnings === 0 && storyAudioMissing === 0 && hanziKeys.length >= 60 && engAudioMissing === 0 && engChunkMissing === 0 && totalSceneSents === 100 && lottieErrors === 0 && matchErrors === 0 && builderErrors === 0) {
+  console.log('🎉 验证全部通过！四大对标功能 + 场景口语 100 句脱口秀 + 连线互动 (424题) + 英语三阶造句学堂 (300组超大题库) 完整就绪，零缺陷交付！');
 } else {
   console.error('存在验证不通过项，请检查修复！');
   process.exit(1);

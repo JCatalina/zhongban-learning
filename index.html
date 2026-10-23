@@ -293,7 +293,15 @@ function renderMatchHtml(q){
         (item.pic ? '<span class="match-item-pic">' + item.pic + '</span>' : '') +
         '<span>' + item.text + '</span>' +
       '</div>' +
-      '<div class="match-dot"></div>' +
+      '<div class="match-dot"></div>
+  <div class="card" style="cursor:pointer;background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #c4b5fd;margin-top:14px;display:flex;align-items:center;gap:14px" onclick="location.hash='#/eng-builder'">
+    <span style="font-size:2.4rem">🔤</span>
+    <div style="flex:1">
+      <div style="font-weight:900;font-size:1.05rem;color:#5b21b6">🔤 英语造句学堂 · 300组生活高频造句</div>
+      <div style="font-size:.84rem;color:#7c3aed;margin-top:2px">先认单词 ➔ 学语法句架 ➔ 乐高积木拼装造句！6大核心生活主题全覆盖！</div>
+    </div>
+    <button class="mainbtn" style="background:#8b5cf6;padding:8px 16px;font-size:.9rem">去造句 ▶</button>
+  </div>' +
     '</div>'
   ).join('');
 
@@ -905,6 +913,40 @@ function initPointerMatch(containerId, onAllMatched){
   border-color:#10b981 !important;
   box-shadow:0 12px 35px rgba(16,185,129,.35) !important;
 }
+
+/* ---------- 英语三阶造句学堂 (Word -> Grammar -> Sentence) ---------- */
+.builder-container{max-width:720px;margin:0 auto;padding-bottom:30px;}
+.builder-topic-tabs{display:flex;gap:8px;overflow-x:auto;padding:8px 4px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.builder-topic-tabs::-webkit-scrollbar{display:none;}
+.builder-tab{flex:0 0 auto;padding:8px 14px;border-radius:24px;border:2px solid #e2e8f0;background:#fff;font-size:.88rem;font-weight:bold;color:#475569;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
+.builder-tab.active{border-color:#8b5cf6;background:linear-gradient(135deg,#f5f3ff,#ede9fe);color:#6d28d9;box-shadow:0 4px 12px rgba(139,92,246,.2);}
+.builder-card{background:#fff;border-radius:20px;border:2px solid #ede9fe;box-shadow:0 8px 30px rgba(139,92,246,.08);padding:20px;margin-top:8px;}
+.builder-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed #e2e8f0;padding-bottom:12px;margin-bottom:16px;}
+.builder-step{border-radius:14px;padding:14px;margin-bottom:14px;border:1.5px solid transparent;}
+.builder-step-1{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe;}
+.builder-step-2{background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#fcd34d;}
+.builder-step-3{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:#bbf7d0;}
+.b-step-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.76rem;font-weight:900;margin-bottom:8px;}
+.builder-step-1 .b-step-tag{background:#3b82f6;color:#fff;}
+.builder-step-2 .b-step-tag{background:#d97706;color:#fff;}
+.builder-step-3 .b-step-tag{background:#16a34a;color:#fff;}
+.b-word-row{display:flex;align-items:center;gap:16px;}
+.b-word-pic{font-size:3.4rem;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.1));animation:bounceSlow 3s ease-in-out infinite;}
+.b-word-en{font-size:1.65rem;font-weight:900;color:#1e3a8a;}
+.b-word-cn{font-size:.95rem;color:#3b82f6;font-weight:bold;margin-top:2px;}
+.b-frame-text{font-size:1.35rem;font-weight:900;color:#78350f;letter-spacing:.5px;line-height:1.5;}
+.b-frame-slot{display:inline-block;padding:2px 14px;border:2px dashed #d97706;border-radius:8px;background:#fffbeb;color:#b45309;min-width:70px;text-align:center;}
+.b-frame-tip{font-size:.85rem;color:#92400e;margin-top:6px;line-height:1.4;}
+.b-lego-tray{background:#fff;border-radius:14px;padding:14px;border:2px dashed #cbd5e1;display:flex;flex-direction:column;align-items:center;gap:10px;margin:12px 0;}
+.b-lego-brick{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;border:none;padding:12px 24px;border-radius:14px;font-size:1.2rem;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(124,58,237,.35);transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.b-lego-brick:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(124,58,237,.45);}
+.b-lego-brick:active{transform:scale(0.96);}
+.b-sentence-full{font-size:1.45rem;font-weight:900;color:#14532d;line-height:1.4;}
+.b-sentence-cn{font-size:1.02rem;color:#15803d;font-weight:bold;margin-top:4px;}
+.b-sentence-tip{font-size:.85rem;color:#166534;margin-top:6px;padding:6px 12px;background:#ecfdf5;border-radius:8px;display:inline-block;}
+@keyframes brickSnap{0%{transform:scale(0.8);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
+.anim-brick-snap{animation:brickSnap .4s cubic-bezier(.34,1.56,.64,1) forwards;}
+
 </style>
 </head>
 <body>
@@ -937,6 +979,7 @@ function initPointerMatch(containerId, onAllMatched){
 <script src="data_society.js"></script>
 <script src="data_story.js"></script>
 <script src="data_english_scenes.js"></script>
+<script src="data_english_builder.js"></script>
 <script src="hanzi-writer.min.js"></script>
 <script src="hanzi-data.js"></script>
 <script src="anim/anim-player.js?v=4"></script>
@@ -1304,6 +1347,11 @@ function route(){
     const qi = p[3]!==undefined ? parseInt(p[3],10) : null;
     renderModule(m,si,qi);
   }
+  else if(p[0]==='eng-builder'){
+    const tid = p[1] || 'food';
+    const idx = p[2]!==undefined ? parseInt(p[2],10) : 0;
+    renderEnglishBuilder(tid, idx);
+  }
   else if(p[0]==='english'){
     if(p[1]) renderEnglishStage(p[1], p[2]!==undefined ? parseInt(p[2],10) : 0);
     else renderEnglishScenes();
@@ -1318,7 +1366,7 @@ function buildTabs(cur){
   const el=document.getElementById('tabs');
   let html='<button class="tab'+(cur==='home'?' on':'')+'" style="'+(cur==='home'?'background:#f97316':'')+'" onclick="location.hash=\'#/home\'">🏠 首页</button>';
   html+='<button class="tab'+(cur==='story'?' on':'')+'" style="'+(cur==='story'?'background:#10b981':'')+'" onclick="location.hash=\'#/story\'">📚 故事绘本</button>';
-  html+='<button class="tab'+(cur==='english'?' on':'')+'" style="'+(cur==='english'?'background:#2563eb':'')+'" onclick="location.hash=\'#/english\'">🗣️ 场景口语</button>';
+  html+='<button class="tab'+(cur==='english'?' on':'')+'" style="'+(cur==='english'?'background:#2563eb':'')+'" onclick="location.hash=\'#/english\'">🗣️ 场景口语</button><button class="tab'+(cur==='eng-builder'?' on':'')+'" style="'+(cur==='eng-builder'?'background:#8b5cf6':'')+'" onclick="location.hash=\'#/eng-builder\'">🔤 英语造句</button>';
   for(const m of DATASETS){
     const on = cur===m.id;
     html+='<button class="tab'+(on?' on':'')+'" style="'+(on?('background:'+m.color):'')+'" onclick="location.hash=\'#/m/'+m.id+'\'">'+
@@ -1683,7 +1731,7 @@ function renderParents(){
   document.getElementById('main').innerHTML =
   '<div class="mhead"><span class="big">👨‍👩‍👧</span><h2>家长专区 · 中班教学规划</h2>'+
   '<div class="dsc">给爸爸妈妈的完整中班学年教学规划，包含目标、步骤、周计划和好方法。</div>'+
-  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button><button class="tbtn" style="color:#0f766e;border-color:#14b8a6;font-weight:900" onclick="printEnglishCheatSheet()">🖨️ 打印10句微小抄</button><button class="tbtn" style="color:#1d4ed8;border-color:#3b82f6;font-weight:900" onclick="printEnglish100Sheet()">📘 打印生活口语100句口袋书 (A4)</button></div>'+
+  '<button class="tbtn" onclick="printPlan()">🖨️ 打印规划</button><button class="tbtn" style="color:#0f766e;border-color:#14b8a6;font-weight:900" onclick="printEnglishCheatSheet()">🖨️ 打印10句微小抄</button><button class="tbtn" style="color:#1d4ed8;border-color:#3b82f6;font-weight:900" onclick="printEnglish100Sheet()">📘 打印生活口语100句口袋书 (A4)</button><button class="tbtn" style="color:#7c3aed;border-color:#8b5cf6;font-weight:900" onclick="printEnglishBuilderCards()">🔤 打印300组造句口袋卡片 (A4)</button></div>'+
 
   '<div class="card"><b style="font-size:1.05rem">📊 孩子学习进度总览</b>'+
   '<div style="margin:14px 0 4px">总体完成：'+allSol+' / '+allTot+' 题（'+pct+'%），累计 ⭐ '+totalStars()+'</div>'+
@@ -2798,6 +2846,306 @@ if('serviceWorker' in navigator){
 
 /* 调试暴露（供家长查看进度） */
 window.__APP = { data: DATASETS, store, S };
+
+
+/* ---------- 英语三阶造句学堂 (Word -> Grammar -> Sentence) 渲染引擎 ---------- */
+let curBuilderAssembled = false;
+
+function getBuilderStarsMap(){
+  try {
+    return JSON.parse(localStorage.getItem('eng_builder_stars') || '{}');
+  } catch(e){ return {}; }
+}
+
+function saveBuilderStar(itemId){
+  const map = getBuilderStarsMap();
+  map[itemId] = true;
+  localStorage.setItem('eng_builder_stars', JSON.stringify(map));
+}
+
+function speakEnglishWord(word){
+  speak(word, 0.9, true);
+}
+
+function speakEnglishSentence(sent, rate){
+  speak(sent, rate || 1.0, true);
+}
+
+function renderEnglishBuilder(topicId, itemIndex){
+  buildTabs('eng-builder');
+  curBuilderAssembled = false;
+  const topics = window.DATA_ENG_BUILDER || [];
+  if(!topics.length){
+    document.getElementById('main').innerHTML = '<div class="card">正在加载英语造句题库...</div>';
+    return;
+  }
+  const curTopic = topics.find(t => t.topicId === topicId) || topics[0];
+  const items = curTopic.items || [];
+  const idx = Math.max(0, Math.min(itemIndex || 0, items.length - 1));
+  const item = items[idx];
+  const starsMap = getBuilderStarsMap();
+  const isStarDone = !!starsMap[item.id];
+
+  // 计算各主题完成星数
+  let topicTabsHtml = '';
+  topics.forEach(t => {
+    const doneCount = (t.items || []).filter(it => starsMap[it.id]).length;
+    const isActive = t.topicId === curTopic.topicId;
+    topicTabsHtml += '<button class="builder-tab' + (isActive ? ' active' : '') + '" onclick="location.hash=\'#/eng-builder/' + t.topicId + '/0\'">'+
+      '<span>' + t.icon + ' ' + t.topicName + '</span>' +
+      '<span style="font-size:.78rem;opacity:.85">(' + doneCount + '/50 ⭐)</span>' +
+    '</button>';
+  });
+
+  const slotHtml = '<span id="slotBox" class="b-frame-slot">[ 点击下方积木放入 ]</span>';
+  const grammarPatternHtml = item.grammar.pattern.replace('[___]', slotHtml);
+
+  let html = 
+    '<div class="builder-container">' +
+      '<div class="builder-topic-tabs">' + topicTabsHtml + '</div>' +
+      '<div class="builder-card">' +
+        '<div class="builder-header">' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<span style="font-size:1.8rem">' + curTopic.icon + '</span>' +
+            '<div>' +
+              '<div style="font-weight:900;font-size:1.1rem;color:#4c1d95">' + curTopic.topicName + ' · 第 ' + (idx + 1) + ' / ' + items.length + ' 组</div>' +
+              '<div style="font-size:.8rem;color:#7c3aed">' + curTopic.desc + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="display:flex;gap:6px">' +
+            '<button class="tbtn" style="background:#f3e8ff;color:#7c3aed;padding:6px 12px;font-size:.85rem;border-radius:12px;border:1px solid #d8b4fe" onclick="openBuilderMatchModal(\'' + curTopic.topicId + '\')">🧩 连线挑战</button>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- Step 1: 认单词 -->' +
+        '<div class="builder-step builder-step-1">' +
+          '<span class="b-step-tag">Step 1 · 认核心单词</span>' +
+          '<div class="b-word-row">' +
+            '<div class="b-word-pic">' + item.word.pic + '</div>' +
+            '<div style="flex:1">' +
+              '<div class="b-word-en">' + item.word.text + '</div>' +
+              '<div class="b-word-cn">' + item.word.cn + '</div>' +
+            '</div>' +
+            '<button class="mainbtn" style="background:#3b82f6;padding:8px 16px;border-radius:12px" onclick="speakEnglishWord(\'' + item.word.text + '\')">🔊 听单词</button>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- Step 2: 学常用句架 -->' +
+        '<div class="builder-step builder-step-2">' +
+          '<span class="b-step-tag">Step 2 · 学常用语法句架</span>' +
+          '<div class="b-frame-text">' + grammarPatternHtml + '</div>' +
+          '<div class="b-frame-tip">💡 <b>功能释义：</b>' + item.grammar.cn + ' (' + item.grammar.tip + ')</div>' +
+        '</div>' +
+
+        '<!-- Step 3: 乐高积木拼装造句 -->' +
+        '<div class="builder-step builder-step-3">' +
+          '<span class="b-step-tag">Step 3 · 乐高积木拼装生活句</span>' +
+          '<div id="builderLegoTray" class="b-lego-tray">' +
+            '<div style="font-size:.9rem;color:#64748b;font-weight:bold">👇 动动小手，点击下方单词积木拼进句架：</div>' +
+            '<button id="legoBrickBtn" class="b-lego-brick" onclick="assembleSentence(\'' + curTopic.topicId + '\', ' + idx + ')">' +
+              '<span>🧩</span><span>' + item.word.pic + ' ' + item.word.text + '</span>' +
+            '</button>' +
+          '</div>' +
+
+          '<div id="assembledBox" style="display:' + (isStarDone ? 'block' : 'none') + ';margin-top:10px">' +
+            '<div class="b-sentence-full">' + item.sentence.full + '</div>' +
+            '<div class="b-sentence-cn">' + item.sentence.cn + '</div>' +
+            '<div class="b-sentence-tip">💡 <b>真实生活应用：</b>' + item.sentence.sceneTip + '</div>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center">' +
+              '<button class="mainbtn" style="background:#10b981;padding:8px 14px;font-size:.88rem" onclick="speakEnglishSentence(\'' + item.sentence.full.replace(/'/g, "\\'") + '\', 0.75)">🐢 0.75x 慢速精听</button>' +
+              '<button class="mainbtn" style="background:#059669;padding:8px 14px;font-size:.88rem" onclick="speakEnglishSentence(\'' + item.sentence.full.replace(/'/g, "\\'") + '\', 1.0)">🐇 1.0x 原速朗读</button>' +
+              '<button id="cheerStarBtn" class="mainbtn" style="background:' + (isStarDone ? '#f59e0b' : '#3b82f6') + ';padding:8px 18px;font-size:.88rem;margin-left:auto" onclick="cheerBuilderSentence(\'' + item.id + '\')">' +
+                (isStarDone ? '⭐ 已大声朗读打卡' : '🌟 我大声造句啦！') +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- 底部翻页控制 -->' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;border-top:1px solid #f1f5f9;padding-top:14px">' +
+          '<button class="mainbtn" style="background:#64748b;padding:8px 16px" ' + (idx === 0 ? 'disabled style="opacity:.4"' : '') + ' onclick="location.hash=\'#/eng-builder/' + curTopic.topicId + '/' + (idx - 1) + '\'">⬅️ 上一组</button>' +
+          '<div style="font-weight:bold;color:#64748b;font-size:.92rem">第 ' + (idx + 1) + ' / ' + items.length + ' 组</div>' +
+          '<button class="mainbtn" style="background:#8b5cf6;padding:8px 16px" ' + (idx === items.length - 1 ? 'disabled style="opacity:.4"' : '') + ' onclick="location.hash=\'#/eng-builder/' + curTopic.topicId + '/' + (idx + 1) + '\'">下一组 ➡️</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+  document.getElementById('main').innerHTML = html;
+
+  if (isStarDone) {
+    const slot = document.getElementById('slotBox');
+    if (slot) {
+      slot.innerHTML = '<b style="color:#15803d;background:#dcfce7;border-color:#86efac;padding:2px 10px;border-radius:6px">' + item.word.text + '</b>';
+    }
+    const tray = document.getElementById('builderLegoTray');
+    if (tray) tray.style.display = 'none';
+  }
+}
+
+function assembleSentence(topicId, idx){
+  const topics = window.DATA_ENG_BUILDER || [];
+  const curTopic = topics.find(t => t.topicId === topicId) || topics[0];
+  const item = curTopic.items[idx];
+  
+  // 播放吸附音效
+  if(store && store.s && store.s.sfx){
+    try{
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(783.99, ctx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.2);
+    }catch(e){}
+  }
+
+  // 插槽点亮
+  const slot = document.getElementById('slotBox');
+  if(slot){
+    slot.innerHTML = '<b class="anim-brick-snap" style="color:#15803d;background:#dcfce7;border-color:#86efac;padding:2px 12px;border-radius:6px;display:inline-block">' + item.word.text + '</b>';
+  }
+
+  // 隐藏待选积木，展示完整句子
+  const tray = document.getElementById('builderLegoTray');
+  if(tray) tray.style.display = 'none';
+
+  const assembledBox = document.getElementById('assembledBox');
+  if(assembledBox){
+    assembledBox.style.display = 'block';
+    assembledBox.classList.add('anim-brick-snap');
+  }
+
+  // 自动发音一次
+  speakEnglishSentence(item.sentence.full, 0.9);
+}
+
+function cheerBuilderSentence(itemId){
+  saveBuilderStar(itemId);
+  if(store && store.s && store.s.sfx){
+    try{
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(659.25, ctx.currentTime);
+      osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.1);
+      osc.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.2);
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.4);
+    }catch(e){}
+  }
+  const btn = document.getElementById('cheerStarBtn');
+  if(btn){
+    btn.innerHTML = '⭐ 已大声朗读打卡';
+    btn.style.background = '#f59e0b';
+  }
+}
+
+/* 连线挑战模态框：从当前主题提取前 4 组生成手指连线 */
+function openBuilderMatchModal(topicId){
+  const topics = window.DATA_ENG_BUILDER || [];
+  const curTopic = topics.find(t => t.topicId === topicId) || topics[0];
+  const items = (curTopic.items || []).slice(0, 4);
+  
+  const mockQ = {
+    q: '趣味连线闯关：把单词与对应的生活造句连在一起！',
+    match: {
+      pairs: items.map(it => ({
+        left: { text: it.word.text, pic: it.word.pic },
+        right: { text: it.sentence.full, pic: it.word.pic }
+      }))
+    }
+  };
+
+  const el = document.getElementById('modalCard');
+  if(!el) return;
+  el.classList.add('wide');
+  el.innerHTML = 
+    '<h3>🧩 ' + curTopic.topicName + ' · 单词造句大连线</h3>' +
+    '<div style="font-size:.88rem;color:#6d28d9;margin-bottom:8px">伸出小手指，把左边的核心单词与右边的完整造句连起来吧！</div>' +
+    '<div id="modalMatchArea" style="min-height:260px">' + renderMatchHtml(mockQ) + '</div>' +
+    '<div style="text-align:center;margin-top:14px">' +
+      '<button class="mainbtn" style="background:#64748b;padding:8px 20px" onclick="closeModal()">关 闭</button>' +
+    '</div>';
+
+  setTimeout(() => {
+    initPointerMatch(mockQ, () => {
+      // 连线全胜奖励
+      if(store && store.s && store.s.sfx){
+        try{
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+          osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.12);
+          osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.24);
+          osc.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.36);
+          gain.gain.setValueAtTime(0.25, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.5);
+          osc.connect(gain); gain.connect(ctx.destination);
+          osc.start(); osc.stop(ctx.currentTime + 0.5);
+        }catch(e){}
+      }
+      const area = document.getElementById('modalMatchArea');
+      if(area){
+        const notice = document.createElement('div');
+        notice.style.cssText = 'text-align:center;margin-top:12px;font-size:1.15rem;font-weight:900;color:#15803d;background:#dcfce7;padding:8px 16px;border-radius:12px;border:1.5px solid #86efac;';
+        notice.innerHTML = '🎉 太棒啦！全部连对啦！你真是个英语造句小天才！⭐✨';
+        area.appendChild(notice);
+      }
+    });
+  }, 100);
+}
+
+/* A4 高清打印：300 组造句口袋卡片 */
+function printEnglishBuilderCards(){
+  const topics = window.DATA_ENG_BUILDER || [];
+  let html = 
+    '<div class="print-sheet">' +
+    '<h1>少儿英语三阶造句学堂 · 亲子家庭口袋卡片</h1>' +
+    '<div class="pmeta"><span>认单词 ➔ 学句架 ➔ 拼装生活句</span><span>全套 6 大主题 · 300 组生活高频表达</span><span>沿虚线剪下可做亲子抽认卡或冰箱贴</span></div>';
+
+  topics.forEach((t, tIdx) => {
+    html += 
+      '<div style="page-break-inside:avoid;margin-top:14px;border:1.5px solid #cbd5e1;border-radius:8px;padding:8px 12px;background:#fdf4ff">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9d5ff;padding-bottom:4px;margin-bottom:6px">' +
+          '<b style="font-size:14px;color:#6b21a8">' + (tIdx + 1) + '. ' + t.icon + ' ' + t.topicName + ' (共 50 组)</b>' +
+          '<span style="font-size:11px;color:#7e22ce">' + t.desc + '</span>' +
+        '</div>' +
+        '<table class="plan" style="font-size:10.5px;margin:0">' +
+          '<tr><th style="width:26px">序</th><th style="width:20%">核心单词</th><th style="width:30%">语法句式骨架</th><th style="width:40%">生活完整造句与场景</th><th style="width:30px;text-align:center">打卡</th></tr>';
+
+    (t.items || []).forEach((it, idx) => {
+      html += 
+        '<tr>' +
+          '<td>' + (idx + 1) + '</td>' +
+          '<td><b>' + it.word.pic + ' ' + it.word.text + '</b><br><span style="color:#64748b;font-size:9.5px">' + it.word.cn + '</span></td>' +
+          '<td><code>' + it.grammar.pattern + '</code><br><span style="color:#64748b;font-size:9.5px">' + it.grammar.cn + '</span></td>' +
+          '<td><b>' + it.sentence.full + '</b><br><span style="color:#15803d;font-size:9.5px">' + it.sentence.cn + ' (' + it.sentence.sceneTip + ')</span></td>' +
+          '<td style="text-align:center;font-size:13px;color:#94a3b8">◯</td>' +
+        '</tr>';
+    });
+
+    html += '</table></div>';
+  });
+
+  html += 
+    '<div style="margin-top:14px;font-size:11px;color:#64748b;line-height:1.5">' +
+      '💡 <b>家庭互动建议：</b>每天挑 3–5 组卡片，和孩子玩“积木拼句子”游戏。大人读前半句句架，孩子大声接出单词与完整句子，答对立刻在圆圈里画颗金星！' +
+    '</div>' +
+    '</div>';
+
+  document.getElementById('printArea').innerHTML = html;
+  window.print();
+}
+
 </script>
 </body>
 </html>
