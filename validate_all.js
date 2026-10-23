@@ -215,6 +215,15 @@ try {
     if (missingAnimKeys === 0 && animKeys.length === 100) {
       console.log('[PASS] 场景口语 100 句专属动作模板全量就绪 (' + animKeys.length + '/100)，完全杜绝千句一图！');
     }
+    // 校验 SVG 动画与定位层解耦，杜绝 CSS transform 覆盖导致左上角错位
+    const animFileContent = fs.readFileSync('lottie_scenes_anim.js', 'utf8');
+    const conflictTags = animFileContent.match(/<g[^>]+transform="translate[^>]+class="anim-[^>]+>/g) || [];
+    if (conflictTags.length > 0) {
+      console.error('[FAIL] 检测到 SVG 定位与动画层未解耦，存在错位隐患: ' + conflictTags.length + ' 处');
+      lottieErrors++;
+    } else {
+      console.log('[PASS] SVG 定位与动效层 100% 解耦无冲突，杜绝视口错位飞出！');
+    }
   }
 } catch (e) {
   console.error('[FAIL] lottie_scenes_anim.js 解析出错:', e);

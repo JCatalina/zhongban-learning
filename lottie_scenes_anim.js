@@ -28,16 +28,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#facc15" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌅</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#facc15" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">☀️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -68,16 +72,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⏰</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🔔</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -108,16 +116,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#60a5fa" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪟</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#60a5fa" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">☀️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -148,16 +160,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐱</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🙆</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -188,16 +204,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧼</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💧</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -228,16 +248,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🫧</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧼</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -268,16 +292,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪥</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🦷</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -308,16 +336,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧣</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧖</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -348,16 +380,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#d97706" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪞</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💇</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -388,16 +424,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⭐</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -428,16 +468,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😋</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🍽️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -468,16 +512,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0284c7" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💧</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🥛</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -508,16 +556,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥛</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🥛</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -548,16 +600,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍳</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🍞</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -588,16 +644,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😋</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🍓</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -628,16 +688,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🍎</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🍏</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -668,16 +732,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#d97706" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥣</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🥄</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -708,16 +776,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙏</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👋</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -748,16 +820,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#94a3b8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧻</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#94a3b8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👄</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -788,16 +864,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🤰</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -828,16 +908,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#6366f1" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧦</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#6366f1" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🦶</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -868,16 +952,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👟</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👟</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -908,16 +996,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#2563eb" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧥</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#2563eb" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧥</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -948,16 +1040,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">❓</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧢</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -988,16 +1084,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧢</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🎉</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1028,16 +1128,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#d97706" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🤐</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧥</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1068,16 +1172,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎒</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🎒</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1108,16 +1216,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⏱️</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🚪</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1148,16 +1260,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💪</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🚀</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1188,16 +1304,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚪</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🏃</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1228,16 +1348,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🤝</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✋</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1268,16 +1392,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚌</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🚍</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1308,16 +1436,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🔴</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🛑</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1348,16 +1480,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🟢</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🚶</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1388,16 +1524,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚗</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1428,16 +1568,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">☁️</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌤️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1468,16 +1612,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐦</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌿</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1508,16 +1656,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐶</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🦴</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1548,16 +1700,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌸</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌺</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1588,16 +1744,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎨</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌈</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1628,16 +1788,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🏃</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1668,16 +1832,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🦘</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💦</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1708,16 +1876,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🛝</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🪜</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1748,16 +1920,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎢</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🎉</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1788,16 +1964,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#d97706" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪵</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#d97706" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🤲</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1828,16 +2008,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0284c7" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪁</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">☁️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1868,16 +2052,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⚽</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🤲</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1908,16 +2096,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥅</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">⚽</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1948,16 +2140,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👭</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🤝</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -1988,16 +2184,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎠</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🎡</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2028,16 +2228,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👋</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">😊</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2068,16 +2272,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💬</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">❓</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2108,16 +2316,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🏷️</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2148,16 +2360,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🎁</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧸</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2188,16 +2404,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💖</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">❤️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2228,16 +2448,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#06b6d4" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😊</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#06b6d4" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌸</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2268,16 +2492,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙇</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧱</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2308,16 +2536,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🤝</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌟</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2348,16 +2580,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🔄</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👉</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2388,16 +2624,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧸</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🚂</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2428,16 +2668,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😄</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✌️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2468,16 +2712,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥺</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧸</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2508,16 +2756,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#60a5fa" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥶</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#60a5fa" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">❄️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2548,16 +2800,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🥵</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🪭</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2588,16 +2844,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0ea5e9" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚽</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0ea5e9" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧻</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2628,16 +2888,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😣</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🩹</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2668,16 +2932,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🤕</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🩹</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2708,16 +2976,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌬️</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2748,16 +3020,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🫂</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">❤️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2788,16 +3064,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💋</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2828,16 +3108,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f472b6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🐷</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f472b6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🐽</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2868,16 +3152,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#eab308" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👢</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#eab308" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💦</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2908,16 +3196,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0284c7" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💦</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌊</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2948,16 +3240,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#16a34a" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🦖</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#16a34a" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🐾</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -2988,16 +3284,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😆</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🤣</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3028,16 +3328,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🙈</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👀</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3068,16 +3372,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚨</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🐾</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3108,16 +3416,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#2563eb" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👮</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#2563eb" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🐕</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3148,16 +3460,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#dc2626" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚒</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#dc2626" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧯</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3188,16 +3504,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🚁</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✈️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3228,16 +3548,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0d9488" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⏰</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0d9488" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🔔</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3268,16 +3592,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">📦</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧸</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3308,16 +3636,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#3b82f6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🧱</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🖐️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3348,16 +3680,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#10b981" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🦸</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#10b981" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">✨</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3388,16 +3724,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f97316" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🆘</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f97316" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🤝</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3428,16 +3768,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💌</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">❤️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3468,16 +3812,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#0284c7" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">⏳</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">⌛</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3508,16 +3856,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#8b5cf6" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👂</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#8b5cf6" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🐰</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3548,16 +3900,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🪜</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">👣</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3588,16 +3944,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ef4444" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💮</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ef4444" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🎖️</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3628,16 +3988,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#1e1b4b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌆</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#1e1b4b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🌃</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3668,16 +4032,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#facc15" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌙</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#facc15" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">⭐</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3708,16 +4076,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🛏️</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🧸</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3748,16 +4120,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f59e0b" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">📖</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f59e0b" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🏰</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3788,16 +4164,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#e2e8f0" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💡</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#e2e8f0" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🔌</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3828,16 +4208,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#ec4899" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">💋</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#ec4899" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">😘</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3868,16 +4252,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#f43f5e" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👨‍👩‍👧</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#f43f5e" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💖</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3908,16 +4296,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">😴</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#38bdf8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🛌</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3948,16 +4340,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#94a3b8" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">👀</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#94a3b8" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">💤</text>
+          </g>
+            </g>
           </g>
         </g>
 
@@ -3988,16 +4384,20 @@
         <ellipse cx="140" cy="155" rx="85" ry="18" fill="#e2e8f0" opacity="0.5"/>
 
         <!-- 核心动作主角与专属道具 (动态居中) -->
-        <g transform="translate(140, 95)" class="anim-bounce-slow">
+        <g transform="translate(140, 95)">
+          <g class="anim-bounce-slow">
           <!-- 动作主角底盘/身体 -->
           <circle cx="0" cy="0" r="42" fill="#fff" stroke="#a855f7" stroke-width="4"/>
           <!-- 中心专属动作图元大特写 -->
           <text x="0" y="16" font-size="44" text-anchor="middle" class="action-icon">🌈</text>
           
           <!-- 配套专属小道具/动作反馈 -->
-          <g class="anim-wiggle" transform="translate(38, -20)">
+          <g transform="translate(38, -20)">
+              <g class="anim-wiggle">
             <circle cx="0" cy="0" r="14" fill="#a855f7" opacity="0.2"/>
             <text x="0" y="6" font-size="16" text-anchor="middle">🦄</text>
+          </g>
+            </g>
           </g>
         </g>
 
